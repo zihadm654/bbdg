@@ -1,0 +1,20 @@
+.Last {
+  display: grid;
+  justify-content: center;
+  padding-top: 5vh !important;
+  padding-bottom: 5rem !important;
+}
+
+.heading {
+  /* width: 100%; */
+  margin-bottom: 50px;
+  text-align: center;
+  font-weight: 900;
+  font-family: Antonio;
+  color: #163653;
+  text-align: center;
+  font-size: 3em;
+}
+.buttons {
+  text-align: center;
+}

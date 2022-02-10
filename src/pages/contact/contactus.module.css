@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Antonio:wght@300;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
+
+/* 
+#7ABAF7 - lightblue
+#3179BE - midblue
+#163653 - darkblue */
+
+.darkbluecontainer {
+  background: #163653;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 15%;
+  font-family: "Antonio", sans-serif;
+  padding-right: 15%;
+  color: white;
+  padding-top: 6%;
+  flex-wrap: wrap;
+  padding-bottom: 6%;
+}
+
+.lowerdiv {
+  padding-top: 4%;
+  padding-bottom: 4%;
+  text-align: center;
+  padding-right: 15%;
+  padding-left: 15%;
+}
+
+.heading {
+  font-size: 3em;
+  font-family: "Antonio", sans-serif;
+  color: #163653;
+}
+.innercontainer {
+  width: 30%;
+  text-transform: uppercase;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.innertext {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.8em;
+  color: whitesmoke;
+  line-height: 2rem;
+}
+
+.middlecontainer {
+  font-size: 1.4em !important;
+}
+.normaltext {
+  font-family: "Poppins", sans-serif;
+  color: #163653;
+  line-height: 2rem;
+}
+
+.redtext {
+  color: red;
+}
+
+.templateCards {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  flex-wrap: wrap;
+}
+.textlight {
+  color: white !important;
+}
+
+/* // mobile view  --------------------------------------------- */
+
+@media only screen and (max-width: 810px) {
+  .darkbluecontainer {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center !important;
+    align-items: center;
+  }
+
+  .innercontainer {
+    width: auto;
+    padding-top: 2rem;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 2rem;
+    width: 100%;
+  }
+}

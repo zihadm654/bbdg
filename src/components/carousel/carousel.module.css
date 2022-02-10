@@ -1,0 +1,143 @@
+.mainDiv {
+  padding: 10% 15%;
+}
+
+.mainDiv h1 {
+  font-family: "Antonio", sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  color: #163653;
+  margin-bottom: 1rem;
+}
+
+.mainDiv ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.mainDiv ul li {
+  margin: 1rem 1.5rem;
+  cursor: pointer;
+  font-family: "Antonio", sans-serif;
+  text-transform: uppercase;
+  color: #163653;
+  height: 32px;
+  font-size: 20px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.mainDiv ul li:hover, .active {
+  border-bottom: 3px solid #7abaf7;
+}
+
+.customCard {
+  display: inline-flex;
+  margin: 0.6rem;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+.customCard:hover {
+  transform: scale(1.05);
+}
+
+.customCard img {
+  border-radius: 6px;
+  object-fit: cover;
+  position: relative;
+}
+
+.blueContainer {
+  position: absolute;
+  margin: 8px;
+  padding: 8px;
+  display: block;
+  border-radius: 8px;
+  opacity: 0.8;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: #163653;
+  z-index: 1;
+}
+
+.blueContainer p {
+  padding: 0;
+  padding-top: 4px;
+  margin: 0;
+}
+
+.projectHeading {
+  font-family: "Antonio", sans-serif;
+  text-transform: uppercase;
+  color: white;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.projectSubHeading {
+  font-family: "Antonio", sans-serif;
+  text-transform: uppercase;
+  color: white;
+  z-index: 10;
+}
+
+.carousel, .carousel ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.blurLine {
+  height: 2px;
+  margin-left: 5px;
+  margin-top: 2px;
+  width: 1.3rem;
+  background-color: #7abaf7;
+}
+
+.title {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 900;
+}
+
+@media screen and (max-width: 810px) {
+  .mainDiv {
+    padding: 5rem 5%
+  }
+  .mainDiv ul li {
+    margin: .4rem 100%;
+  }
+  .customCard {
+    width: 100%;
+    display: inline-flex;
+    margin: 0.6rem;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: 0.4s;
+    cursor: pointer;
+  }
+  .customCard:hover {
+    transform: scale(1.05);
+  }
+  .customCard img {
+    border-radius: 6px;
+    object-fit: cover;
+    position: relative;
+    width: 100%;
+  }
+  .title {
+    font-size: 2rem;
+  }
+}

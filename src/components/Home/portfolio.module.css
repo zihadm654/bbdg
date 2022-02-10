@@ -1,0 +1,132 @@
+@import url("https://fonts.googleapis.com/css2?family=Antonio:wght@300;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=Pragati+Narrow:wght@400;700&display=swap");
+/* * { */
+/* font-family: "Antonio", sans-serif; */
+/* font-family: "Poppins", sans-serif; */
+/* } */
+
+.bgimg {
+  margin-top: 0;
+  background-image: linear-gradient(
+      rgba(38, 86, 95, 0.09),
+      rgba(38, 86, 95, 0.09)
+    ),
+    url("../../assets/images/working.png");
+  z-index: -1;
+  background-size: cover;
+  height: 34rem;
+  position: relative;
+  width: 100% !important;
+}
+
+.portfoliotxt {
+  /* align-items: center; */
+  color: white;
+  /* top: 50%; */
+  text-align: left;
+  display: flex;
+  text-align: left;
+  flex-direction: column;
+  font-family: "Poppins", sans-serif;
+  padding-left: 16rem;
+  /* padding-top: 8%; */
+  padding-right: 20rem;
+}
+
+.portfoliotxt > h3 > span {
+  display: inline-block;
+  /* line-height: .9em !important;  */
+}
+
+.biocontainer {
+  /* padding-top: 8rem;  */
+  /* background: red; */
+  max-width: 100%;
+  padding-bottom: 2rem;
+  /* justify-content: center; */
+  /* background-color: pink; */
+}
+
+.biotext {
+  /* background-color: rgb(221, 44, 74); */
+  color: #163653;
+  font-size: 3rem;
+  padding-right: 0.9rem;
+
+  /* padding-left: 3rem; */
+  font-family: "Antonio", sans-serif;
+}
+
+.bioheading {
+  padding-top: 3rem;
+  /* background-color: aqua; */
+  padding-left: 1em !important;
+  padding-right: 1em !important;
+}
+
+.biosubtext {
+  font-family: "Poppins", sans-serif;
+  color: #163653;
+  font-size: 0.9rem;
+  line-height: 2;
+}
+
+.imgcontainer {
+  height: 35rem;
+  width: 25rem;
+  object-fit: cover;
+  position: relative;
+  top: -4rem;
+  border-radius: 0.6rem;
+  z-index: 1;
+  margin-left: 5rem;
+}
+
+.indicators {
+  display: flex;
+  /* background: red; */
+  justify-content: stretch;
+  margin-top: 2rem;
+  /* align-items: center   ; */
+  height: 8rem !important;
+}
+.progressDiv {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  font-family: Antonio;
+  font-weight: 900;
+}
+
+.progressDiv > p {
+  padding-left: 10px;
+  font-family: Antonio;
+  color: #163653;
+  font-size: 1.2rem;
+  margin-right: 1rem;
+  font-weight: 500;
+}
+
+.bgquote {
+  color: #7abaf7;
+  font-size: 13rem;
+  font-family: Antonio;
+  font-weight: bold;
+  letter-spacing: -0.1em;
+  height: 0;
+}
+
+.bgtitle {
+  font-size: 2rem;
+  font-family: Poppins;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.proStaff {
+  font-family: Antonio;
+  font-size: 1.2rem;
+  color: #7abaf7;
+}

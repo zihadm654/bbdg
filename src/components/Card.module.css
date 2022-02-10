@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css2?family=Antonio:wght@300;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
+
+.offercardS {
+  padding: 20px 30px;
+  background-color: #fff;
+  position: relative !important;
+  margin-bottom: 50px;
+  height: 380px;
+  /* max-width: 24%; */
+  min-width: 12rem !important ;
+  flex: 1 !important;
+  box-shadow: 0 0 15px #b1b1b1;
+  border-radius: 10px;
+  margin-right: 25px;
+  text-align: initial !important;
+  flex-wrap: wrap;
+  transition: 0.2s;
+}
+.offercardS:hover {
+  transform: scale(1.05);
+  transition: 0.2s;
+}
+
+.offercardS img {
+  height: 70px;
+  width: 70px;
+  text-align: initial !important;
+}
+.offercardS h4 {
+  top: 20px;
+  position: relative;
+  font-weight: 600;
+  font-family: Antonio;
+  font-size: 1.8rem;
+  text-transform: capitalize;
+  color: #163653 !important;
+  text-align: initial !important;
+}
+.offercardS p {
+  font-size: 1rem !important;
+  line-height: 2 !important;
+  font-family: Poppins !important;
+  position: relative !important;
+  top: 40px !important;
+  text-align: initial !important;
+}
+
+/* // mobile view  --------------------------------------------- */
+
+@media only screen and (max-width: 810px) {
+  /* .offercardS{
+  display: flex;
+  flex-wrap: wrap;
+} */
+}

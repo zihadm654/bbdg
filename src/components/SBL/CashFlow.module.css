@@ -1,0 +1,134 @@
+/* Industries */
+
+
+
+.Industries{
+    background-color: #fff;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    /* margin-top:8vh; */
+    padding: 10% 15%;
+  }
+
+  
+  .Industries h1{
+    width: 100%;
+    position: relative;
+    margin-bottom:50px;
+    text-align: center;
+    font-weight: 900;
+    font-family: Antonio;
+    color:#163653;
+    font-size: 3em;
+
+
+  }
+  /* .services-3a{
+    background-color: pink;
+  
+  } */
+  .IndustriesButton{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    background-color: rgb(243, 239, 239);
+    border-radius:10px;
+    /* margin:10px; */
+    background-color: rgb(243, 239, 239);
+
+  }
+  .IndustriesButton button{
+    width:32%;
+    height: 10vh;
+    border:none;
+    font-size:1.3rem;
+    font-family:Antonio;  
+    border-radius:10px;
+    color: #163653;
+    font-weight: 900;
+    /* opacity: 0.7; */
+    margin: 0px 2px;
+  
+  }
+  .IndustriesButtonActive{
+    background-color:#163653;
+    color: white !important;
+    opacity: 1 !important;
+    border-radius:10px;
+  }
+  
+  .IndustriesButton button:hover{
+    background-color:#163653;
+    color: white !important;
+    border-radius:10px;
+  }
+
+  .IndustriesContent{
+    display:flex;
+    flex-direction: row;
+    flex-wrap:nowrap;
+    text-transform: none;
+    width: 100%;
+  }
+  .IndustriesContent img{
+    position: relative;
+    width: 50%;
+    padding:30px;
+    padding-left: 0px;
+    padding-right: 50px;
+  }
+  .IndustriesContentText{
+    /* background-color: red; */
+    display:flex;
+    flex-direction: column;
+    flex-wrap:wrap;
+    width: 50%;
+    padding:30px;
+    padding-left: 0px;
+    padding-right: 0px;
+    color: #163653;
+  }
+
+  .IndustriesContentText p{
+   font-size:0.8rem;
+   font-family: Poppins;
+   line-height: 2.5;
+   font-weight: 400;
+   padding:0px;
+   /* width: 120%; */
+  }
+  .IndustriesContentTexta p{
+    color:#1c303a;
+    line-height: 2.5;
+    margin-bottom: auto;
+  }
+  .IndustriesContentTextb{
+    margin-top: auto;
+    margin-bottom: auto;
+    color:red;
+  }
+  .IndustriesContentTextc{
+    color:#163653;
+  }
+  .IndustriesContentTextcol {
+  list-style: none;
+  font-family:Poppins;
+  padding-left: 0px !important;
+  }
+  .IndustriesContentTextcolLi{
+    font-size:0.8rem;
+    line-height: 2.5;
+
+    }
+  
+  .IndustriesContentTextcolLi:before {
+    content: '✓ ';
+    color:red;
+  }
+  .services2ab>div>h3{
+    font-size:1rem;
+  }

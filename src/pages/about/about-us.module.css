@@ -1,0 +1,116 @@
+.offering {
+  background-color: #fff;
+  color: #163653;
+  /* height: 100vh; */
+  width: 100%;
+  font-size: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0px 15%;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+
+.offering h1 {
+  width: 100%;
+  position: relative;
+  margin-bottom: 50px;
+  text-align: center;
+  font-weight: 900;
+  font-family: Antonio;
+  color: #163653;
+  font-size: 3rem;
+}
+
+.offercard {
+  display: flex;
+  /* flex-wrap: wrap; */
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.teamContainer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding-top: 50px !important;
+  padding-bottom: 150px !important;
+}
+
+.video {
+  overflow: hidden;
+  padding-bottom: 5rem;
+  position: relative;
+  /* height: 500; */
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  height: 80vh;
+  width: 90%;
+  margin: 0 auto;
+  padding: 0 1ren;
+}
+
+.exceptional {
+  background: #163653;
+  color: white;
+  padding: 10% 15%;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10%;
+}
+
+.mainHeading {
+  font-size: 3rem;
+  font-family: "Antonio", sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.video iframe {
+  border-radius: 10px;
+  border: none;
+}
+
+.certified {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* // mobile view  --------------------------------------------- */
+
+@media only screen and (max-width: 810px) {
+  .exceptional {
+    display: flex;
+    flex-direction: column;
+  }
+  .offercard {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .center {
+    flex-wrap: wrap;
+  }
+  .certified {
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* display: flex; */
+    /* flex-direction: column; */
+  }
+  .video {
+    padding: 1rem;
+    margin-top: -2rem;
+    height: 15rem;
+    width: 100%;
+  }
+}

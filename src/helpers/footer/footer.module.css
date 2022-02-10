@@ -1,0 +1,207 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Antonio:wght@700&display=swap'); */
+.mainDiv {
+  background-color: #7abaf7;
+  padding: 0px 15%;
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-shrink: 20;
+  width: 100%;
+}
+
+.mainContainer {
+  display: flex;
+}
+
+.mainSubDiv {
+  width: 25%;
+  /* padding-top:70px; */
+  /* padding: 10px; */
+}
+
+.mainSubDiv:nth-child(2) {
+  width: 75%;
+  margin-left: 40px;
+  /* padding: 10px; */
+}
+
+.listItem {
+  margin: 1px;
+  /* background-color: pink; */
+  font-size: 0.9rem;
+  list-style: none;
+  font-family: "Poppins", sans-serif;
+}
+
+.listItem > a:hover {
+  /* background-color:pink; */
+  text-decoration: underline !important;
+  cursor: pointer;
+  text-underline-offset: 3px;
+  color: #163653;
+}
+
+.footerElementDiv {
+  display: flex;
+}
+
+.footerServices {
+  margin: 40px 0px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logoImg {
+  width: 100%;
+  object-fit: contain;
+}
+
+.companyDescription {
+  color: #163653;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  margin-left: 15px;
+  line-height: 2;
+  font-size: 0.9rem;
+}
+
+.socialIcon {
+  display: flex;
+  margin-top: 20px;
+  margin-left: 15px;
+}
+
+.socialIconTag {
+  width: 50px;
+  font-size: 1.2em;
+  transition: 0.2s;
+  color: #163653;
+  /* text-align: start; */
+}
+
+.socialIconTag:hover {
+  transform: translateY(-5px);
+  transition: 0.2s;
+  cursor: pointer;
+  color: #163653;
+}
+
+.subDiv {
+  padding: 40px 0px;
+  width: 33.33%;
+}
+
+.divHeading {
+  color: #163653;
+  font-family: "Antonio", sans-serif;
+  font-weight: 800;
+  font-size: 1.2rem;
+  line-height: 1.8;
+}
+
+.divider {
+  width: 100%;
+  height: 1.5px;
+  background-color: #163653;
+}
+
+.copyrightLine {
+  font-family: "Poppins", sans-serif;
+  color: #163653;
+  text-align: center;
+  padding: 30px 0px;
+  font-weight: 600;
+  font-size: 14px;
+  /* opacity: 0.7; */
+}
+.dialButton {
+  cursor: pointer;
+}
+
+.emailDiv {
+  cursor: pointer;
+  background-color: #163653;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 15px;
+  margin-top: 10px;
+  width: 14rem;
+  align-items: center;
+  border-radius: 7px;
+}
+
+.emailDiv > p {
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+}
+
+.emailIcon {
+  background-color: #7abaf7;
+  width: 40px;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  height: 40px;
+  color: #163653;
+}
+
+@media screen and (max-width: 810px) {
+  .mainDiv {
+    padding: 5% 5%;
+  }
+  .mainContainer {
+    display: flex;
+    flex-direction: column;
+  }
+  .logoImg {
+    /* background-color: red; */
+    width: 15rem;
+  }
+  .mainSubDiv {
+    width: 100%;
+    /* padding-top:70px; */
+    /* padding: 10px; */
+  }
+  .mainSubDiv:nth-child(2) {
+    width: 100%;
+    margin-left: 0px;
+    /* padding: 10px; */
+  }
+  .footerElementDiv {
+    display: flex;
+    flex-direction: column;
+  }
+  .subDiv {
+    padding: 40px 0px;
+    width: 100%;
+    border-bottom: 1px solid #fff;
+  }
+  .divHeading {
+    color: #163653;
+    font-family: "Antonio", sans-serif;
+    font-weight: bolder;
+    font-size: 1.5rem;
+    line-height: 1.8;
+  }
+  .listItem {
+    margin: 1px;
+    margin-left: 10px;
+    /* background-color: pink; */
+    font-size: 0.9rem;
+    list-style: none;
+    font-family: "Poppins", sans-serif;
+  }
+  .footerServices {
+    margin: 40px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .socialIconTag {
+    font-size: 2rem;
+  }
+}

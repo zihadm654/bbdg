@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Antonio:wght@300;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
+/* 
+#7ABAF7 - lightblue
+#3179BE - midblue
+#163653 - darkblue */
+
+.maindiv {
+  text-align: center;
+  padding: 5%  0%;
+}
+
+.heading {
+  font-size: 2.2rem;
+  color: #163653;
+  font-weight: 500;
+  font-family: "Antonio", sans-serif;
+  font-size: 3rem;
+}
+
+
+.templateCards{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  flex-wrap: wrap;
+  padding: 0% 15%;
+}
+
+.markDownStyle{
+  margin: 0.9rem 0%;
+}

@@ -1,0 +1,12 @@
+
+
+.text{
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+  .para{
+     color:#163653;
+     font-weight: 900;
+     font-family: Poppins;
+     line-height: 2;
+  }

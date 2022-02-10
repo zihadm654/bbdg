@@ -1,0 +1,205 @@
+@import url("https://fonts.googleapis.com/css2?family=Antonio:wght@300;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
+/* ALL Feature FEATURES */
+
+.Feature {
+  display: flex;
+  justify-content: flex-end;
+  /* align-items: center; */
+  width: 100%;
+  background: linear-gradient(to right, rgb(228, 228, 228) 80%, rgb(254, 254, 254) 10%);
+  padding-top: 10vh;
+  padding-bottom: 10vh;
+  padding-left: 15%;
+}
+
+.FeatureLeft {
+  /* margin-top: 5vh; */
+  width: 40%;
+}
+
+.FeatureLeft>h1 {
+  /* position: relative; */
+  color: #163653;
+  margin-bottom: 20px;
+  font-weight: 900;
+  font-family: Antonio;
+  width: 70%;
+  font-size: 3em;
+}
+
+.FeaturePoint>div>h4 {
+  margin: 0px;
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  font-family: Antonio !important;
+  color: #163653;
+}
+
+.FeaturePoint>div>p {
+  /* font-size: 1rem; */
+  margin: 0px;
+  font-weight: initial;
+  font-family: Poppins;
+  line-height: 2;
+  padding-right: 10px;
+  color: #929292;
+}
+
+.FeaturePoint {
+  display: flex;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: .8rem;
+  font-family: Poppins;
+  font-weight: bold;
+}
+
+.FeaturePoint>div {
+  margin: 3px;
+  display: flex;
+  flex-direction: column;
+  left: 0%;
+}
+
+.FeatureCircle {
+  height: 40px;
+  width: 40px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  background-color: #7db7e4;
+  color: #163653;
+  font-weight: 900;
+  font-size: initial;
+  text-align: center;
+  padding: 7px 7px 0px 7px;
+  box-shadow: -3px 4px 5px #888;
+  font-family: Antonio !important;
+}
+
+.FeatureRight {
+  display: grid;
+  justify-content: end;
+  width: 80%;
+  /* background: red; */
+}
+
+.FeatureRight:hover {
+  transform: scale(1.01);
+}
+
+.Container {
+  display: inline-block;
+  position: relative;
+  /* background: green; */
+}
+
+.FeatureRight img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  margin-right: 0;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px #888
+}
+
+.FeatureRightText {
+  background-color: #7db7e4;
+  border-radius: 5px;
+  /* max-width: 300px; */
+  padding: 20px;
+  padding-right: 40px;
+  padding-left: 40px;
+  font-size: 1.3rem;
+  position: absolute;
+  color: #163653;
+  bottom: 0px;
+  font-weight: 700;
+  font-family: Antonio;
+  color: #163653;
+}
+
+.ImageContainer {
+  position: relative;
+  /* background-color: purple; */
+}
+
+@media screen and (max-width: 810px) {
+  .Feature {
+    display: flex;
+    justify-content: center;
+    flex-direction: column-reverse;
+    background: #E5E5E5;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+  .FeatureLeft {
+    width: 100%;
+  }
+  
+  .FeatureLeft>h1{
+    /* position: relative; */
+    color:#163653;
+    margin-bottom:20px;
+    font-weight: 900;
+    font-family: Antonio;
+    width: 100%;
+    font-size: 3em;
+    text-align: center;
+
+  } 
+
+
+  .FeatureRight {
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 3rem;
+    /* background: red; */
+  }
+  
+  .FeatureRight:hover {
+    transform: scale(1.01);
+  }
+  
+  .Container {
+    display: inline-block;
+    position: relative;
+    /* background: green; */
+  }
+  
+  .FeatureRight img {
+    width: 90vw;
+    height: 90vw;
+    object-fit: cover;
+    margin-right: 0;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px #888
+  }
+  
+  .FeatureRightText {
+    background-color: #7db7e4;
+    border-radius: 5px;
+    /* max-width: 300px; */
+    padding: 5px;
+    width: 80%;
+    padding-right: 40px;
+    padding-left: 40px;
+    font-size: 1.3rem;
+    position: absolute;
+    color: #163653;
+    bottom: 10px;
+    left: 10px;
+    font-weight: 700;
+    font-family: Antonio;
+    color: #163653;
+  }
+  
+  .ImageContainer {
+    position: relative;
+    /* background-color: purple; */
+  }
+}

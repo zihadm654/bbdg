@@ -1,0 +1,230 @@
+.mainDiv {
+    background-color: #163653;
+    padding-top: 70px !important;
+    padding-bottom: 70px !important;
+    color: #fff;
+}
+
+.infoDiv {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.infoIconDiv {
+    width: 20%;
+}
+
+.infoIcon {
+    font-size: 2.5rem;
+}
+
+.infoTag {
+    font-size: .9rem;
+    padding-bottom: 20px;
+    line-height: 2;
+    font-family: "Poppins", sans-serif;
+}
+
+.heading {
+    color: #fff !important;
+    padding-left: 5px !important;
+}
+
+.personalInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.personalCompanyInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.subPersonalInfoDiv {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.halfInputTag {
+    outline: none;
+    border: 0px;
+    /* font-weight: 900; */
+    padding: 20px 30px;
+    border-radius: 10px;
+    margin: 5px;
+    font-family: "Poppins", sans-serif;
+    width: 49%;
+    color: #3a3939;
+    font-size: 1.2rem;
+}
+
+.halfSelectTag {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-repeat: no-repeat;
+    background-position: right 20px top 50%;
+    outline: none;
+    border: 0px;
+    /* font-weight: 900; */
+    padding: 20px 30px;
+    border-radius: 10px;
+    margin: 5px;
+    font-family: "Poppins", sans-serif;
+    width: 49% !important;
+    color: #3a3939;
+    font-size: 1.2rem;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+}
+
+.telephoneDiv {
+    width: 51%;
+    display: flex;
+}
+
+.acceptStatement {
+    padding-left: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.checkIcon {
+    font-size: 3rem;
+    width: 5%;
+    height: 3rem;
+}
+
+.acceptLine {
+    margin-top: 1rem;
+    margin-left: 1rem;
+    font-family: "Poppins", sans-serif;
+}
+
+.btnSection {
+    display: flex;
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.textareaTag {
+    outline: none;
+    border: 0px;
+    padding: 20px 30px;
+    border-radius: 10px;
+    margin: 5px !important;
+    font-family: "Poppins", sans-serif;
+    flex: 1;
+    resize: none;
+    height: 300px !important;
+    font-size: 1.2rem;
+}
+
+.styleErr {
+    outline: none;
+    border: 2px solid red;
+    font-weight: 900;
+    padding: 20px 30px;
+    border-radius: 10px;
+    margin: 5px;
+    font-family: "Poppins", sans-serif;
+    width: 48%;
+    color: #3a3939;
+    font-size: 1rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-repeat: no-repeat;
+}
+
+.styleSelectErr {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-repeat: no-repeat;
+    background-position: right 20px top 50%;
+    outline: none;
+    border: 2px solid red;
+    /* font-weight: 900; */
+    padding: 20px 30px;
+    border-radius: 10px;
+    margin: 5px;
+    font-family: "Poppins", sans-serif;
+    width: 48% !important;
+    color: #3a3939;
+    font-size: 1.2rem;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+}
+
+@media screen and (max-width: 810px) {
+    .infoDiv {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    .infoIconDiv {
+        height: 4rem;
+        width: 100%;
+    }
+    .infoTag {
+        padding-bottom: 0px;
+    }
+    .formDiv {
+        margin-top: 3rem;
+    }
+    .subPersonalInfoDiv {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .halfInputTag {
+        width: 100%;
+    }
+    .halfSelectTag {
+        width: 100% !important;
+    }
+    .textareaTag {
+        outline: none;
+        border: 0px;
+        padding: 20px 10px;
+        border-radius: 10px;
+        margin: 0px 5px !important;
+        font-family: "Poppins", sans-serif;
+        resize: none;
+        min-height: 400px !important;
+        width: 100%;
+        font-size: 1.2rem;
+    }
+    .halfSelectTag {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background-repeat: no-repeat;
+        background-position: right 5px top 50%;
+        
+    }
+    .btnSection {
+        flex-direction: column;
+    }
+    .checkIcon {
+        font-size: 3rem;
+        width: 20%;
+        height: 9rem;
+    }
+    .acceptLine {
+        margin-top: 1rem;
+        margin-left: 1rem;
+        font-family: "Poppins", sans-serif;
+    }
+    .styleErr {
+        width: 100%;
+    }
+    
+    .styleSelectErr {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background-repeat: no-repeat;
+        background-position: right 5px top 50%;
+        width: 100% !important;
+    }
+}

@@ -1,0 +1,67 @@
+.bgimg {
+  margin-top: 0;
+  background-image: linear-gradient(
+      rgba(38, 86, 95, 0.09),
+      rgba(38, 86, 95, 0.09)
+    ),
+    url("../assets/images/working.png");
+  z-index: -1;
+  background-size: cover;
+  height: 34rem;
+  position: relative;
+  width: 100% !important;
+}
+
+.portfoliotxt {
+  /* align-items: center; */
+  color: white;
+  /* top: 50%; */
+  text-align: left;
+  display: flex;
+  text-align: left;
+  flex-direction: column;
+  font-family: "Poppins", sans-serif;
+  padding-left: 15%;
+  /* padding-top: 8%; */
+  padding-right: 15%;
+}
+
+.portfoliotxt > h3 > span {
+  display: inline-block;
+  /* line-height: .9em !important;  */
+}
+
+.bgquote {
+  color: #7abaf7;
+  font-size: 13rem;
+  font-family: Antonio;
+  font-weight: bold;
+  letter-spacing: -0.1em;
+  height: 0;
+}
+
+.bgtitle {
+  font-size: 2rem;
+  font-family: Poppins;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.proStaff {
+  font-family: Antonio;
+  font-size: 1.2rem;
+  color: #7abaf7;
+}
+.bgimg {
+  margin-top: 0;
+  background-image: linear-gradient(
+      rgba(38, 86, 95, 0.09),
+      rgba(38, 86, 95, 0.09)
+    ),
+    url("../assets/images/working.png");
+  z-index: -1;
+  background-size: cover;
+  height: 34rem;
+  position: relative;
+  width: 100% !important;
+}

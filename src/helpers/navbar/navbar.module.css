@@ -1,0 +1,340 @@
+.mainNavbarDiv {
+  width: 100%;
+  height: 100px;
+  border-bottom: 1px solid #fff;
+  position: fixed;
+  z-index: 1000;
+  transition: 0.2s;
+  top: 0;
+  left: 0;
+  display: flex;
+  /* overflow: hidden; */
+}
+
+.mainNavbarDiv2 {
+  width: 100%;
+  height: 100px;
+  border-bottom: 0.2px solid rgba(255, 255, 255, 0.582);
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  transition: 0.2s;
+  display: flex;
+  /* overflow: hidden; */
+}
+.mainNavbarDiv2::before {
+  content: "";
+  background-color: #7abaf7;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -100;
+  opacity: 0.5;
+}
+.navbarLinks {
+  width: 100%;
+  border-right: 1px solid #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbarContactUs {
+  width: 30%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  /* padding: 10px; */
+}
+.links {
+  display: flex;
+  align-items: center;
+}
+
+.companyLogo {
+  height: 120px;
+  overflow: hidden;
+  margin-left: 40px;
+  cursor: pointer;
+}
+
+.logoImg {
+  height: 100%;
+  object-fit: contain;
+}
+
+.linkElements {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  text-transform: uppercase;
+  font-family: "Antonio", sans-serif;
+  color: #163653;
+  font-size: 1.18em;
+  align-items: center;
+  font-weight: 1000;
+  margin-left: 40px;
+}
+.activeNavElement {
+  cursor: pointer;
+  padding: 5px 27px;
+  display: flex;
+  flex-direction: column;
+  height: 3rem;
+}
+.activeNavElement .navbarUnderline,
+.navElement:hover .navbarUnderline {
+  height: 3px;
+  background-color: #163653 !important;
+  border-top-left-radius: 60px;
+  border-top-right-radius: 60px;
+  margin-top: 5px;
+}
+.navElement {
+  padding: 5px 27px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  height: 3rem;
+}
+
+.navElement,
+.activeNavElement {
+  color: #163653 !important;
+}
+
+.searchIcon {
+  /* padding: 20px; */
+  font-size: 1.8em;
+  transform: 2s;
+}
+.searchIcon:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+.msgImg {
+  /* padding: 10px; */
+}
+.contactDetails {
+  display: flex;
+  flex-direction: column;
+  /* padding-left: 20px; */
+}
+.contactDetails > p {
+  margin: 0;
+  color: #163653 !important;
+  font-family: "Antonio", sans-serif;
+  font-weight: 900;
+  font-size: 1.2em;
+}
+.hoverList {
+  position: relative;
+}
+
+.hoverList ul {
+  list-style: none;
+  width: fit-content;
+  background: #163653;
+  color: #7abaf7;
+  padding: 1rem;
+  position: absolute;
+  top: 0;
+  width: 20rem;
+  display: none;
+}
+
+.hoverList ul li {
+  display: block;
+  padding: 10px;
+  width: auto !important;
+  /* border-bottom: 1px solid white; */
+  width: max-content;
+}
+.hoverList ul li:hover {
+  background-color: #7abaf7;
+  color: #163653;
+  border-radius: 4px;
+  text-overflow: ellipsis;
+  width: 100%;
+  white-space: nowrap;
+}
+
+.menuList:hover .hoverList ul {
+  display: block;
+}
+
+.menuList {
+  transition: all 0.2s;
+}
+
+.menuIcon {
+  color: white;
+  font-size: 2rem;
+  display: none;
+}
+
+.subMenu {
+  display: none;
+}
+
+.language {
+  text-transform: uppercase;
+  font-family: "Antonio", sans-serif;
+  display: flex;
+  font-size: 1.4rem;
+  align-items: center;
+  cursor: pointer;
+  justify-content: center;
+}
+
+/* // mobile view  --------------------------------------------- */
+
+@media only screen and (max-width: 810px) {
+  .mainNavbarDiv {
+    width: 100%;
+    height: 100px;
+    border-bottom: 1px solid #fff;
+    position: fixed;
+    z-index: 1000;
+    transition: 0.2s;
+    top: 0;
+    background: #7abaf7;
+    left: 0;
+  }
+  .mainNavbarDiv2 {
+    background: #7abaf7;
+  }
+  .subMenu {
+    display: inline-flex;
+  }
+
+  .navbarLinks {
+    position: relative;
+  }
+
+  .linkElements {
+    position: absolute;
+    width: 100%;
+    display: block;
+    top: 0;
+    left: 0 !important;
+    margin-top: 6.2rem;
+    margin-left: 0;
+    background: #7abaf7;
+    text-transform: uppercase;
+    font-family: "Antonio", sans-serif;
+    color: #163653;
+    transition: 0.3s;
+  }
+
+  .msgImg img {
+    height: 2rem;
+  }
+  .msgImg {
+    padding: 0;
+  }
+
+  .companyLogo {
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+  }
+
+  .companyLogo img {
+    height: 80%;
+    /* background: red; */
+  }
+  .navbarContactUs {
+    display: flex;
+    justify-content: space-around;
+    margin-right: 1.3rem;
+    width: 45%;
+  }
+
+  .searchIcon {
+    padding: 0;
+  }
+
+  .contactDetails {
+    display: none;
+  }
+
+  .menuIcon {
+    text-align: center;
+    /* justify-content: end; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+  }
+  .menuIcon p {
+    margin: 0;
+    font-size: 1rem;
+    padding: 0;
+  }
+
+  .navElement {
+    padding: 2rem;
+    cursor: pointer;
+    align-items: center;
+    width: 100% !important;
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid white;
+    justify-content: space-between;
+  }
+
+  .activeNavElement {
+    cursor: pointer;
+    padding: 2rem;
+    align-items: center;
+    border-bottom: 1px solid white;
+
+    flex-direction: row;
+    justify-content: space-between;
+    display: flex;
+    height: 3rem;
+  }
+  .hoverList {
+    /* display: none; */
+    position: absolute;
+    width: 100%;
+    left: 0;
+  }
+
+  .hoverList ul {
+    width: 100%;
+    top: 2rem;
+    z-index: 10000000;
+    margin-left: 0;
+    font-family: "Poppins", sans-serif;
+    text-transform: capitalize;
+    font-weight: 300;
+    overflow-y: auto;
+    height: auto;
+  }
+
+  .menuList {
+    position: relative;
+  }
+
+  .hoverList ul li {
+    border-bottom: 1px solid white;
+  }
+  .navbarUnderline {
+    display: none;
+  }
+
+  .menuList:target,
+  .hoverList {
+    display: block;
+  }
+
+  .navbarLinks {
+    width: 100%;
+    border-right: 0px solid #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

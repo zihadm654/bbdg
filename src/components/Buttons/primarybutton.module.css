@@ -1,0 +1,29 @@
+.discover {
+  padding: 1rem;
+  text-align: center;
+  overflow: hidden;
+  box-shadow: 0 0px 27px rgba(0, 0, 0, 0.57);
+  border: none;
+  font-size: 1em;
+  font-weight: 500;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-family: "Antonio", sans-serif;
+  margin: 10px;
+  width: 14rem;
+  text-overflow: ellipsis;
+  /* margin-left: 0px; */
+  transition: 0.2s;
+}
+.discover:hover {
+  transform: scale(1.1);
+  transition: 0.2s;
+}
+
+
+@media screen and (max-width: 810px) {
+  .discover {
+    /* width: 90% !important; */
+  }
+
+}

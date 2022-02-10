@@ -1,0 +1,13 @@
+
+
+.text{
+    padding-top: 5rem !important;
+    padding-bottom: 5rem !important;
+  }
+  .para{
+     padding-bottom: 20px !important;
+     color:#163653;
+     font-weight: 900;
+     font-family: Poppins;
+     line-height: 3;
+  }

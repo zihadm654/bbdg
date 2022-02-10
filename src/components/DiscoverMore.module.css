@@ -1,0 +1,46 @@
+.mainDiv{
+    width: 100%;
+    height: 40%;
+    padding: 60px 30px;
+    background-color: #163653;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.DiscoverMoreFont{
+    font-size: 2.5em;
+    font-family: "Antonio", sans-serif;
+    color: #fff;
+    font-weight: 900;
+    width: 35%;
+    margin-right: 80px;
+}
+
+
+
+@media screen and (max-width: 810px) {
+    .mainDiv{
+        width: 100%;
+        height: 35%;
+        padding: 0px 5%;
+        background-color: #163653;
+        z-index: 10;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .DiscoverMoreFont{
+        font-size: 2rem;
+        font-family: "Antonio", sans-serif;
+        color: #fff;
+        font-weight: 900;
+        width: 100%;
+        margin-right: 0px;
+        text-align: center;
+    }
+    
+    
+}

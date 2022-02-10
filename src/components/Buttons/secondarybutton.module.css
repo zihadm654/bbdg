@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Antonio:wght@300;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
+
+.discover {
+  padding: 0.7rem;
+  text-align: center;
+  overflow: hidden;
+  box-shadow: 0 0px 27px rgba(0, 0, 0, 0.57);
+  border: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-family: "Antonio", sans-serif;
+  width: 12rem;
+  text-overflow: ellipsis; 
+}
+.discover:hover{
+  transform: scale(1.1);
+
+}
+@media screen and (max-width: 810px) {
+  .discover {
+    width: 90vw !important;
+  }
+
+}

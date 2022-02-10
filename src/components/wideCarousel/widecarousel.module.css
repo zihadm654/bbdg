@@ -1,0 +1,158 @@
+.mainDiv {
+  padding-top: 10%;
+  padding-bottom: 10%;
+}
+
+.mainDiv h1 {
+  font-family: "Antonio", sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  color: #163653;
+  margin-bottom: 1rem;
+}
+
+.mainDiv ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+.mainDiv ul li {
+  margin: 1rem 2rem;
+  cursor: pointer;
+  font-family: "Antonio", sans-serif;
+  text-transform: uppercase;
+  color: #163653;
+  height: 32px;
+  font-size: 20px;
+}
+.mainDiv ul li:hover,
+.active {
+  border-bottom: 3px solid #7abaf7;
+}
+
+.customCard {
+  display: inline-block;
+  margin: 0.6rem auto;
+  position: relative;
+  border-radius: 8px;
+}
+
+.customCard img {
+  border-radius: 6px;
+  object-fit: cover;
+  position: relative;
+  width: 700px;
+  height: 240px;
+}
+
+.blueContainer {
+  position: absolute;
+  margin: 8px;
+  padding: 4px 8px;
+  display: flex;
+  border-radius: 8px;
+  opacity: 0.8;
+  align-items: center;
+  text-align: left;
+  justify-content: space-between;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: #163653;
+  z-index: 1;
+}
+
+.blueContainer p {
+  padding: 0;
+  padding-top: 4px;
+  margin: 0;
+}
+.projectHeading {
+  font-family: "Antonio", sans-serif;
+  text-transform: uppercase;
+  color: white;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.projectSubHeading {
+  font-family: "Antonio", sans-serif;
+  text-transform: uppercase;
+  color: white;
+  z-index: 10;
+}
+
+.carousel {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+.discover {
+  padding: 1rem;
+  text-align: center;
+  color: white;
+  background: #163653;
+  overflow: hidden;
+  box-shadow: 0 0px 27px rgba(0, 0, 0, 0.57);
+  border: none;
+  font-size: 1em;
+  font-weight: 500;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-family: "Antonio", sans-serif;
+  margin: 40px auto;
+  width: 14rem;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  transition: 0.2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.discover:hover {
+  transform: scale(1.1);
+  transition: 0.2s;
+}
+
+.blueLine {
+  height: 2px;
+  margin-left: 5px;
+  margin-top: 2px;
+  width: 1.3rem;
+  background-color: #7abaf7;
+}
+
+@media only screen and (max-width: 810px) {
+  .mainDiv ul {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mainDiv ul li {
+    width: fit-content;
+    text-align: center;
+  }
+
+  .blueContainer {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    flex-direction: column;
+  }
+
+  .customCard img {
+    border-radius: 6px;
+    object-fit: cover;
+    position: relative;
+    width: 80vw;
+    height: 250px;
+  }
+}

@@ -1,0 +1,118 @@
+.imageContainer {
+  text-align: center;
+  /* padding-top: 10%; */
+  padding-bottom: 10%;
+  padding-left: 15%;
+  padding-right: 15%;
+}
+
+.imageContainer img {
+  border-radius: 8px;
+  margin: 1rem 3rem;
+}
+
+.imageContainer span {
+  background: #163653;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50%;
+  width: 4rem;
+  height: 4rem;
+  color: white;
+  padding: 1.6rem;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  display: inline-flex;
+  cursor: pointer;
+}
+
+.imageContainer p {
+  padding-left: 2rem;
+  padding-right: 2rem;
+  color: #163653;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+}
+
+.imageContainer span i {
+  font-size: 1.5rem;
+}
+.mainDiv {
+  padding-top: 10%;
+  padding-bottom: 10%;
+}
+
+.mainDiv h1 {
+  font-family: "Antonio", sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  color: #163653;
+  margin-bottom: 1rem;
+}
+
+.mainDiv ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+.mainDiv ul li {
+  margin: 1rem 2rem;
+  cursor: pointer;
+  font-family: "Antonio", sans-serif;
+  text-transform: uppercase;
+  color: #163653;
+  height: 32px;
+  font-size: 20px;
+}
+.mainDiv ul li:hover,
+.active {
+  border-bottom: 3px solid #7abaf7;
+}
+
+@media only screen and (max-width: 810px) {
+  .active {
+    border-bottom: 3px solid #7abaf7;
+    display: inline;
+  }
+  .imageContainer{
+    padding: 0;
+    position: relative;
+    flex-direction: row;
+  }
+
+  .mainDiv ul {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    padding-left: 0;
+  }
+
+  .mainDiv ul li {
+    width: fit-content;
+  }
+
+  .imageContainer img {
+    width: 60%;
+    height: 100%;
+    margin: 0px 3%;
+  }
+  .imageContainer span{
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .imageContainer span i {
+    font-size: .8rem;
+  }
+
+  .imageContainer p {
+    margin-top: 1rem;
+  }
+  
+.mainDiv ul li {
+  margin: 1rem 0rem;
+}
+}

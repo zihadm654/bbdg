@@ -1,0 +1,25 @@
+.mainLoadingContainer{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1001;
+    display: flex;
+    flex-direction: column;
+    user-select: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainLoadingContainer::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #7abaf7;
+    opacity: 0.5;
+    z-index: -100;
+}
