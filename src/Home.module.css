@@ -7,6 +7,9 @@
   align-items: center;
   height: 100vh;
 }
+a {
+  text-decoration: none;
+}
 
 .main {
   padding: 0 15%;
@@ -120,80 +123,74 @@
   }
 }
 
-
 /*  Section 2 OUT BEST BROJECTS */
 
-.Projects{
-  
+.Projects {
   background-color: #fff;
-  color:#163653;
+  color: #163653;
   width: 100%;
   font-size: 1.5rem;
   padding: 0 15%;
   padding-bottom: 10vh;
-  padding-top:10vh;
-
+  padding-top: 10vh;
 }
-.Projects h1{
-  margin-bottom:50px;
+.Projects h1 {
+  margin-bottom: 50px;
   text-align: center;
   font-weight: 900;
   font-family: Antonio;
-  color:#163653;
+  color: #163653;
   text-align: center;
   font-size: 3rem;
 }
-.ProjectsComponents{
+.ProjectsComponents {
   width: 100%;
   display: flex;
-  justify-content:space-evenly;
+  justify-content: space-evenly;
   align-items: center;
   flex-wrap: wrap;
 }
-.ProjectsComponents:nth-child(){
-  margin-right:auto;
+.ProjectsComponents:nth-child() {
+  margin-right: auto;
 }
-.ProjectsComponents:first-child{
-  margin-right:auto;
+.ProjectsComponents:first-child {
+  margin-right: auto;
 }
 
 /*  What are we offering Section */
 
-.offering{
+.offering {
   background-color: #fff;
-  color:#163653;
+  color: #163653;
   /* height: 100vh; */
   width: 100%;
   font-size: 1.5rem;
-  margin-top:8vh;
+  margin-top: 8vh;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   padding: 10vh 15%;
-
 }
-.offering h1{
+.offering h1 {
   width: 100%;
   position: relative;
   text-align: center;
   font-weight: 900;
   font-family: Antonio;
-  color:#163653;
+  color: #163653;
   font-size: 3rem;
-
 }
-.offercard{
+.offercard {
   padding: 1rem 15%;
   margin-bottom: 4rem;
-  
 }
-.carouselStyle{
+.carouselStyle {
   z-index: 0 !important;
   padding: 1rem 0.2rem;
 }
 .offercard::-webkit-scrollbar {
   width: 1rem;
-  height: .7rem;
+  height: 0.7rem;
 }
 
 /* Track */
@@ -208,54 +205,49 @@
   background-color: #163653;
 }
 
-
-
 @media screen and (max-width: 810px) {
-  .Projects{
+  .Projects {
     background-color: #fff;
-    color:#163653;
+    color: #163653;
     width: 100%;
     font-size: 1.5rem;
     padding: 0 5%;
     padding-bottom: 10vh;
-    padding-top:10vh;
+    padding-top: 10vh;
   }
-  .ProjectsComponents{
+  .ProjectsComponents {
     width: 100%;
     display: flex;
-    justify-content:center;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
   }
-  .ProjectsComponents:nth-child(){
-    margin-right:0;
+  .ProjectsComponents:nth-child() {
+    margin-right: 0;
   }
-  .ProjectsComponents:first-child{
-    margin-right:0;
+  .ProjectsComponents:first-child {
+    margin-right: 0;
   }
-  .offering{
+  .offering {
     background-color: #fff;
-    color:#163653;
+    color: #163653;
     /* height: 100vh; */
     width: 100%;
     font-size: 1.5rem;
-    margin-top:1.5rem;
+    margin-top: 1.5rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     padding: 0vh 15%;
-  
   }
-  .offercard{
+  .offercard {
     padding: 1rem 5%;
     margin-bottom: 4rem;
-    
   }
-  .offering h1{
+  .offering h1 {
     font-size: 2rem;
-  
   }
-  .Projects h1{
+  .Projects h1 {
     font-size: 2rem;
     margin-top: 2rem;
   }

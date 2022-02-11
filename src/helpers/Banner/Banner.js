@@ -1,13 +1,14 @@
 import style from "./Banner.module.css";
 import { useEffect, useState } from "react";
+import slide__circle from "../../assets/images/side_circle.png";
+import dark__circle from "../../assets/images/dark_circle.png";
+import banner__img from "../../assets/images/banner-img.png";
+import finger__img from "../../assets/images/finger.jpg";
+import group__img from "../../assets/images/group.png";
+import working__img from "../../assets/images/working.png";
+import subtract__img from "../../assets/images/Subtract.png";
 const Banner = (props) => {
-  const images = [
-    "../assets/images/banner-img.png",
-    "../assets/images/finger.jpg",
-    "../assets/images/group.png",
-    "../assets/images/working.png",
-  ];
-
+  const images = [banner__img, finger__img, group__img, working__img];
   const [index, setIndex] = useState(0);
   useEffect(() => {
     setTimeout(() => {
@@ -18,28 +19,27 @@ const Banner = (props) => {
       }
     }, 8000);
   }, [index, images.length]);
-
   return (
     <div className={style.mainHomeDiv}>
       <div className={style.rightDiv}>
         <div className={style.clippedImg}>
           <img
             className={style.Substract}
-            src="../assets/images/Subtract.png"
-            alt=""
+            src={subtract__img}
+            alt="Substract"
           />
           <img className={style.mainImg} src={images[index]} alt="main__img" />
         </div>
         <img
           className={style.rightBackCircle}
-          src="../../assets/images/dark_circle.png"
+          src={dark__circle}
           alt="dark__circle"
         />
       </div>
       <div className={style.leftDiv}>
         <img
           className={style.sideCircle}
-          src="../../assets/images/side_circle.png"
+          src={slide__circle}
           alt="slide_circle"
         />
       </div>

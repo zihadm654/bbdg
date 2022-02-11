@@ -1,4 +1,5 @@
-import CustomHead from "../../helpers/header/CustomHead";
+import { useState, useEffect } from "react";
+import { useLocation } from "react-router";
 import Banner from "../../helpers/Banner/Banner";
 import BannerStyle from "../../helpers/Banner/Banner.module.css";
 import LayoutStyle from "../../helpers/layout/layout.module.css";
@@ -13,25 +14,36 @@ import { BaseApi } from "../../utils/utils";
 import axios from "axios";
 import NavigationProjectCards from "../../components/Abous-Us/NavigationProjectCards";
 import Recognition from "../../components/Recognition";
-import { useRouter } from "next/router";
 
-const AboutUS = (props) => {
-  const router = useRouter();
-
-  const aboutServices = props.services.data.allChildren;
-  const aboutServicesChildrens = aboutServices.map((data, index) => {
+const AboutUS = () => {
+  const [servicesData, setServicesData] = useState([]);
+  const { pathname } = useLocation();
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const aboutServices = await axios.get(`${BaseApi}/about/all`);
+        const servicesData = aboutServices.data;
+        const data = servicesData.data.allChildren
+        setServicesData(data);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    fetchData();
+  }, []);
+  const aboutServicesChildrens = servicesData?.map((data, index) => {
     return (
       <Recognition
+        key={index}
         headText={data.heading}
         para={data.subHeading}
-        redirectUrl={`${router.pathname}/${data._id}`}
+        redirectUrl={`${pathname}/${data._id}`}
       />
     );
   });
 
   return (
     <>
-      <CustomHead title="ABOUT US" />
       <Banner>
         <p className={BannerStyle.smallHeading}>
           {/* <span className={BannerStyle.lowOpacity}> ABOUT US </span>{" "} */}
@@ -85,16 +97,16 @@ const AboutUS = (props) => {
       /> */}
 
       {/* // about us services */}
-      <div style={{ padding: "3rem 0rem" }}>{aboutServicesChildrens}</div>
+      <div style={{ padding: "3rem 0rem" }}>{ }</div>
       <div className={styles.video}>
         <iframe
           width="100%"
           height="100%"
           src="https://www.youtube.com/embed/oLWScthpAgY"
           title="We are BBDG"
-          frameborder="0"
+          frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
+          allowFullScreen
         ></iframe>
       </div>
 
@@ -130,13 +142,3 @@ const AboutUS = (props) => {
 };
 
 export default AboutUS;
-
-export async function getStaticProps() {
-  const aboutServices = await axios.get(`${BaseApi}/about/all`);
-
-  return {
-    props: {
-      services: aboutServices.data,
-    },
-  };
-}

@@ -1,7 +1,8 @@
 import { useState } from "react";
 import style from "./carousel.module.css";
 import { ImageBaseUrl } from "../../utils/utils";
-import { Route } from "react-router";
+import { useLocation } from "react-router";
+
 const Card = ({ img, heading, subHeading, url }) => {
   return (
     <a href={url}>
@@ -18,17 +19,17 @@ const Card = ({ img, heading, subHeading, url }) => {
   );
 };
 
-function Carousel({ title, data, indexValue = 0 }) {
-  const [index, setIndex] = useState(indexValue);
+function Carousel({ title, data }) {
+  const [index, setIndex] = useState(0);
+  const { pathname } = useLocation();
   return (
-    <a>
+    <>
       <div className={style.mainDiv}>
         <h1 className={style.title}>{title}</h1>
         <ul>
           {data &&
             data.map((heading, i) => (
               <li
-                key={i}
                 onClick={() => setIndex(i)}
                 className={i === index && style.active}
               >
@@ -37,14 +38,13 @@ function Carousel({ title, data, indexValue = 0 }) {
             ))}
         </ul>
         <div className={style.carousel}>
-          {data[index].contents.map((item) => (
+          {/* {data[index].contents.map((item) => (
             <Card
-              key={item}
               url={
-                Route === "/"
+                pathname.toString === "/"
                   ? "/services/it-solutions/portfolio?q=" +
                     data[index].name.toLowerCase()
-                  : Route +
+                  : pathname.toString +
                     "/" +
                     "portfolio?q=" +
                     data[index].name.toLowerCase()
@@ -53,10 +53,10 @@ function Carousel({ title, data, indexValue = 0 }) {
               heading={item.heading}
               subHeading={item.sub_heading}
             />
-          ))}
+          ))} */}
         </div>
       </div>
-    </a>
+    </>
   );
 }
 

@@ -1,7 +1,7 @@
 import React from "react";
 import style from "./Feature.module.css";
 
-function Feature({ heading, image, points, imageTitle }) {
+function Feature({ heading, img, points, imageTitle }) {
   return (
     <>
       <div className={style.Feature} id="Feature">
@@ -24,7 +24,7 @@ function Feature({ heading, image, points, imageTitle }) {
         <div className={style.FeatureRight}>
           <div className={style.Container}>
             <div className={style.ImageContainer}>
-              <img className={style.image} src={image} alt="image"/>
+              <img className={style.image} src={img} alt="img" />
               <div className={style.FeatureRightText}>
                 <p>{imageTitle}</p>
               </div>

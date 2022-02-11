@@ -3,7 +3,8 @@ import PrimaryButton from "../../components/Buttons/PrimaryButton";
 import BannerStyle from "../../helpers/Banner/Banner.module.css";
 import styles from "./contactus.module.css";
 import Project from "../../components/Project";
-import Link from "next/link";
+import hand__img from "../../assets/images/hand.png";
+
 function index() {
   return (
     <>
@@ -60,7 +61,7 @@ function index() {
           For general questions about about BBDG’s financing solutions,
           <br /> advisory services or for any other question,{" "}
           <span style={{ fontWeight: "Bold", textDecoration: "underline" }}>
-            <Link href="/contact/terms-of-use/write-us">write us</Link>
+            <a href="/contact/terms-of-use/write-us">write us</a>
           </span>
           . One of our <br />
           representatives will be in touch.
@@ -77,12 +78,12 @@ function index() {
 
         <div className={styles.templateCards}>
           <Project
-            image=".../assets/images/hand.png"
+            image={hand__img}
             heading="REQUEST A BUSINESS LOAN"
             url="/request-business-loan"
           />
           <Project
-            image=".../assets/images/hand.png"
+            image={hand__img}
             heading="REQUEST ADVISORY SERVICES"
             url="/request-advisory-services"
           />

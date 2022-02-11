@@ -5,9 +5,6 @@ import BannerStyle from "../helpers/Banner/Banner.module.css";
 const HomePage = () => {
   return (
     <>
-      {/* <Head> */}
-      {/* <script type="text/javascript" src="/js/home.js"></script> */}
-      {/* </Head> */}
       <Banner>
         <p
           className={BannerStyle.BigHeading + " " + style.typingWrapper}

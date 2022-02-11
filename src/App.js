@@ -5,7 +5,7 @@ import Footer from "./helpers/footer/Footer";
 const App = () => {
   return (
     <>
-      {/* <Navbar /> */}
+      <Navbar />
       <Routers />
       <Footer />
     </>

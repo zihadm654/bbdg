@@ -1,28 +1,39 @@
+import { useState, useEffect } from "react";
 import Banner from "../../helpers/Banner/Banner";
 import BannerStyle from "../../helpers/Banner/Banner.module.css";
-import CustomHead from "../../helpers/header/CustomHead";
 import Recognition from "../../components/Recognition";
-import { useRouter } from "next/router";
 import { BaseApi } from "../../utils/utils";
 import axios from "axios";
 
 const Service = ({ service }) => {
-  const router = useRouter();
   return (
-    <Recognition
-      headText={service.heading.split("-").join(" ")}
-      para={service.subHeading}
-      redirectUrl={service.perma_link}
-    />
+    <>
+      <Recognition
+        headText={service.heading}
+        para={service.subHeading}
+        redirectUrl={service.perma_link}
+      />
+    </>
   );
 };
 
-function index(props) {
-  const services = props.res.data.allChildren;
-
+function Index() {
+  const [serviceData, setServiceData] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`${BaseApi}/service/all`);
+        const data = await response.data;
+        const services = data.data.allChildren;
+        setServiceData(services);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, []);
   return (
     <>
-      <CustomHead title="SERVICES | BBDG" />
       <Banner>
         <p className={BannerStyle.smallHeading}>
           {/* <span className={BannerStyle.lowOpacity}>SERVICES</span> */}
@@ -37,8 +48,8 @@ function index(props) {
           NEEDS.
         </p>
       </Banner>
-      {services.map((service) => (
-        <Service service={service} />
+      {serviceData?.map((service) => (
+        <Service key={service._id} service={service} />
       ))}
       <Recognition
         headText="Have Questions?"
@@ -49,15 +60,4 @@ function index(props) {
   );
 }
 
-export default index;
-
-export async function getServerSideProps() {
-  const response = await axios.get(`${BaseApi}/service/all`);
-  const data = await response.data;
-
-  return {
-    props: {
-      res: data,
-    },
-  };
-}
+export default Index;

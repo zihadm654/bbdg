@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import style from "./navbar.module.css";
-import { useParams } from "react-router";
 import { Link } from "react-router-dom";
-
+import { useLocation } from "react-router";
+import logoImg from "../../assets/images/logo.png";
 const Navbar = () => {
-  // const slug = useParams(null);
-  // console.log(slug);
+  const { pathname } = useLocation();
+  const [currentRoute, setCurrentRoute] = useState(pathname);
+
   const [scroll, setScroll] = useState(100);
   const [isSmall, setIsSmall] = useState(false);
   const [menuOpened, setMenuOpened] = useState(false);
@@ -18,9 +19,14 @@ const Navbar = () => {
     window.addEventListener("resize", () => {
       window.innerWidth <= 810 ? setIsSmall(true) : setIsSmall(false);
     });
+  }, []);
+  useEffect(() => {
     console.log("forced closing navbar");
+    setCurrentRoute(pathname);
     setMenuOpened(false);
+  }, [pathname]);
 
+  useEffect(() => {
     document.addEventListener("scroll", () => {
       const scrollCheck = window.scrollY < 100;
       if (scrollCheck !== scroll) {
@@ -28,17 +34,14 @@ const Navbar = () => {
       }
     });
   }, [scroll]);
+
   return (
     <div className={scroll > 0 ? style.mainNavbarDiv : style.mainNavbarDiv2}>
       <div className={style.navbarLinks}>
         <div className={style.links}>
           <Link to="/">
             <div className={style.companyLogo}>
-              <img
-                className={style.logoImg}
-                src="../assets/images/logo.png"
-                alt=""
-              />
+              <img className={style.logoImg} src={logoImg} alt="logo" />
             </div>
           </Link>
           <div
@@ -53,95 +56,97 @@ const Navbar = () => {
           >
             <Link
               to="/"
-              // className={
-              // slug.startsWith("/home/")
-              // ? style.activeNavElement
-              // : slug == "/"
-              // ? style.activeNavElement
-              // : style.navElement
-              // }
+              className={
+                pathname.startsWith("/home/")
+                  ? style.activeNavElement
+                  : pathname == "/"
+                  ? style.activeNavElement
+                  : style.navElement
+              }
             >
               <span>HOME</span>
               <span className={style.navbarUnderline}></span>
             </Link>
             {/* <Link  {isSmall ? onClick={()=> console.log('clicked'): href="/about"}> */}
-            {/* <li> */}
-            <Link
-              to="/about"
-              // className={
-              // slug.startsWith("/about") || slug.startsWith("/about/")
-              // ? style.activeNavElement + " " + style.menuList
-              // : style.navElement + " " + style.menuList
-              // }
-            >
-              <span>ABOUT US</span>
-              <span
-                onClick={(e) => {
-                  e.preventDefault();
-                  setShowAboutSubMenu((prev) => !prev);
-                }}
-                className={style.subMenu}
-              >
-                {showAboutSubMenu ? (
-                  <i className="fas fa-caret-down"></i>
-                ) : (
-                  <i className="fas fa-greater-than"></i>
-                )}
-              </span>
-              <span className={style.navbarUnderline}></span>
-              <div
-                style={
-                  isSmall
-                    ? showAboutSubMenu
-                      ? { display: "block" }
-                      : { display: "none" }
-                    : { display: "block" }
+            <li>
+              <Link
+                to="/about"
+                className={
+                  pathname.startsWith("/about") ||
+                  pathname.startsWith("/about/")
+                    ? style.activeNavElement + " " + style.menuList
+                    : style.navElement + " " + style.menuList
                 }
-                className={style.hoverList}
               >
-                <ul
+                <span>ABOUT US</span>
+                <span
                   onClick={(e) => {
                     e.preventDefault();
-                    setMenuOpened(false);
-                    setShowAboutSubMenu(false);
+                    setShowAboutSubMenu((prev) => !prev);
                   }}
+                  className={style.subMenu}
                 >
-                  <a href="/about/who-we-are">
-                    <li>who we are </li>
-                  </a>
-                  <a href="/about/what-we-do">
-                    <li>what we do</li>
-                  </a>
-                  <a href="/about/analysis-and-research">
-                    <li>analysis and research</li>
-                  </a>
-                  <a href="/about/media-room">
-                    <li>media room</li>
-                  </a>
-                  <a href="/about/events-and-sponsorships">
-                    <li>events and sponsorships</li>
-                  </a>
-                  <a href="/about/corporate-governance">
-                    <li>corporate governance</li>
-                  </a>
-                  <a href="/about/award-and-distinctions">
-                    <li>awards and distinctions</li>
-                  </a>
-                  <a href="/about/b-corps">
-                    <li>b corps</li>
-                  </a>
-                </ul>
-              </div>
-            </Link>
-            {/* </li> */}
+                  {showAboutSubMenu ? (
+                    <i className="fas fa-caret-down"></i>
+                  ) : (
+                    <i className="fas fa-greater-than"></i>
+                  )}
+                </span>
+                <span className={style.navbarUnderline}></span>
+                <div
+                  style={
+                    isSmall
+                      ? showAboutSubMenu
+                        ? { display: "block" }
+                        : { display: "none" }
+                      : { display: "block" }
+                  }
+                  className={style.hoverList}
+                >
+                  <ul
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setMenuOpened(false);
+                      setShowAboutSubMenu(false);
+                    }}
+                  >
+                    <Link to="/about/who-we-are">
+                      <li>who we are </li>
+                    </Link>
+                    <Link to="/about/what-we-do">
+                      <li>what we do</li>
+                    </Link>
+                    <Link to="/about/analysis-and-research">
+                      <li>analysis and research</li>
+                    </Link>
+                    <Link to="/about/media-room">
+                      <li>media room</li>
+                    </Link>
+                    <Link to="/about/events-and-sponsorships">
+                      <li>events and sponsorships</li>
+                    </Link>
+                    <Link to="/about/corporate-governance">
+                      <li>corporate governance</li>
+                    </Link>
+                    <Link to="/about/award-and-distinctions">
+                      <li>awards and distinctions</li>
+                    </Link>
+                    <Link to="/about/b-corps">
+                      <li>b corps</li>
+                    </Link>
+                  </ul>
+                </div>
+              </Link>
+            </li>
             <Link
-              href="/services"
+              to="/services"
               // onClick={() => setMenuOpened(false)}
-              // className={
-              // slug.startsWith("/services") || slug.startsWith("/services/")
-              // ? style.activeNavElement + " " + style.menuList
-              // : style.navElement + " " + style.menuList
-              // }
+              className={
+                pathname.startsWith("/services") ||
+                pathname.startsWith("/services/")
+                  ? style.activeNavElement + " " + style.menuList
+                  : style.navElement + " " + style.menuList
+              }
             >
               <span>SERVICES</span>
               <span
@@ -175,49 +180,50 @@ const Navbar = () => {
                     setShowServiceSubMenu(false);
                   }}
                 >
-                  <a href="/services/advisory">
+                  <Link to="/services/advisory">
                     <li>Advisory</li>
-                  </a>
-                  <a href="/services/financing">
+                  </Link>
+                  <Link to="/services/financing">
                     <li>Financing</li>
-                  </a>
-                  <a href="/services/business-acquisitions">
+                  </Link>
+                  <Link to="/services/business-acquisitions">
                     <li>Business Acquisitions</li>
-                  </a>
-                  <a href="/services/industries">
+                  </Link>
+                  <Link to="/services/industries">
                     <li>Industries</li>
-                  </a>
-                  <a href="/services/it-solutions">
+                  </Link>
+                  <Link to="/services/it-solutions">
                     <li>it solutions</li>
-                  </a>
-                  <a href="/services/">
+                  </Link>
+                  <Link to="/services/">
                     <li>view more...</li>
-                  </a>
+                  </Link>
                 </ul>
               </div>
             </Link>
+
             <Link
-              href="/blog"
-              // className={
-              // slug.startsWith("/blog/")
-              // ? style.activeNavElement
-              // : slug.startsWith("/blog")
-              // ? style.activeNavElement
-              // : style.navElement
-              // }
+              to="/blog"
+              className={
+                pathname.startsWith("/blog/")
+                  ? style.activeNavElement
+                  : pathname.startsWith("/blog")
+                  ? style.activeNavElement
+                  : style.navElement
+              }
             >
               <span>BLOG</span>
               <span className={style.navbarUnderline}></span>
             </Link>
             <Link
-              href="/contact"
-              // className={
-              // slug.startsWith("/contact/")
-              // ? style.activeNavElement
-              // : slug.startsWith("/contact")
-              // ? style.activeNavElement
-              // : style.navElement
-              // }
+              to="/contact"
+              className={
+                pathname.startsWith("/contact/")
+                  ? style.activeNavElement
+                  : pathname.startsWith("/contact")
+                  ? style.activeNavElement
+                  : style.navElement
+              }
             >
               <span>Contact Us</span>
               <span className={style.navbarUnderline}></span>

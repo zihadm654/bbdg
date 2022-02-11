@@ -1,57 +1,43 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Banner from "../../helpers/Banner/Banner";
 import BannerStyle from "../../helpers/Banner/Banner.module.css";
-import CustomHead from "../../helpers/header/CustomHead";
 import layoutStyle from "../../helpers/layout/layout.module.css";
 import Recognition from "../../components/Recognition";
 import style from "./search.module.css";
 import axios from "axios";
-import Link from "next/link";
 import { BaseApi } from "../../utils/utils";
 import CenterText from "../../components/Text/CenterText";
 import SecondaryButton from "../../components/Buttons/SecondaryButton";
-import { useEffect } from "react";
 import { Spinner } from "react-bootstrap";
-const index = ({ blogData, serviceData, articleData }) => {
+
+const Index = () => {
   const [isAll, setIsAll] = useState(true);
   const [isBlog, setIsBlog] = useState(false);
   const [isArticle, setIsArticle] = useState(false);
   const [activeMenu, setActiveMenu] = useState("blog");
   const [loadMore, setLoadMore] = useState(false);
   const [searchText, setSearchText] = useState("");
+  //all with different
+  const [allCount, setAllCount] = useState([]);
+  //counts
+  const [blogsCount, setBlogCount] = useState(0);
+  const [articlesCount, setArticlesCount] = useState(0);
+  //data
+  const [blogsData, setBlogsData] = useState([]);
+  const [articlesData, setArticlesData] = useState([]);
+  // last id
+  const [lastBlogId, setLastBlogId] = useState(null);
+  const [lastArticleId, setLastArticleId] = useState(null);
 
-  const [allCount, setAllCount] = useState(
-    blogData.data[0].documentsCount + serviceData.data[0].documentsCount
-  );
-
-  const [blogsCount, setBlogCount] = useState(blogData.data[0].documentsCount);
-  const [articlesCount, setArticlesCount] = useState(
-    serviceData.data[0].documentsCount
-  );
-  const [allData, setAllData] = useState([...blogData.data[0].foundBlogs]);
-
-  const [blogsData, setBlogsData] = useState(blogData.data[0].foundBlogs);
-  const [articlesData, setArticlesData] = useState(
-    serviceData.data[0].foundServices
-  );
-  const [lastBlogId, setLastBlogId] = useState(blogData.data[0].lastBlogId);
-  const [lastArticleId, setLastArticleId] = useState(
-    serviceData.data[0].lastServiceId
-  );
   // is next available
-  const [isNextBlog, setIsNextBLog] = useState(
-    blogData.data[0].isNextAvailable
-  );
-
-  const [nextService, setnextService] = useState(
-    serviceData.data[0].isNextAvailable
-  );
+  const [isNextBlog, setIsNextBlog] = useState(null);
+  const [nextService, setNextService] = useState(null);
+  const [allData, setAllData] = useState([...blogsData]);
 
   const setActive = (field) => {
     setIsBlog(false);
     setIsArticle(false);
     setIsAll(false);
-
     switch (field) {
       case "articles":
         setIsArticle(true);
@@ -68,11 +54,48 @@ const index = ({ blogData, serviceData, articleData }) => {
         setAllData(blogsData);
         setActiveMenu("blog");
         break;
+      default:
+        setIsArticle(true);
+        setAllData(articlesData);
+        setActiveMenu("service");
     }
   };
 
-  useEffect(() => {}, [activeMenu]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        // fetching blog data
+        const blogRes = await axios.get(`${BaseApi}/blog/search/id?limit=5`);
+        const blogData = await blogRes.data;
+        const blogs = await blogData.data[0];
 
+        // fetching service data
+        const serviceRes = await axios.get(
+          `${BaseApi}/service/search/id?limit=5`
+        );
+        const serviceData = await serviceRes.data;
+        const services = await serviceData.data[0];
+
+        // all counts of different data
+        setAllCount(blogs.documentsCount + serviceData.documentsCount);
+
+        setBlogCount(blogs.documentsCount);
+        setBlogsData(blogs.foundBlogs);
+        setLastBlogId(blogs.lastBlogId);
+        setIsNextBlog(blogs.isNextAvailable);
+
+        setArticlesCount(services.documentsCount);
+        setArticlesData(services.foundServices);
+        setLastArticleId(services.lastArticleId);
+        setNextService(services.isNextAvailable);
+      } catch (error) {
+        console.log(error);
+      }
+      //   const articleResponse = await axios.get(`${BaseApi}/service/search?limit=5`);
+      //   const articleData = await articleResponse.data;
+    };
+    fetchData();
+  }, []);
   const LoadMoreData = async () => {
     setLoadMore(true);
 
@@ -82,9 +105,13 @@ const index = ({ blogData, serviceData, articleData }) => {
       );
 
       const res = await response.data;
-      setLastArticleId(res.data[0].lastServiceId);
-      setnextService(res.data[0].isNextAvailable);
-      const newServiceData = res.data[0].foundServices;
+      const data = res.data[0];
+      console.log(data);
+
+      setLastArticleId(data.lastServiceId);
+      setNextService(data.isNextAvailable);
+
+      const newServiceData = data.foundServices;
       var dummyArray = articlesData;
       dummyArray = dummyArray.concat(newServiceData);
       setArticlesData(dummyArray);
@@ -95,10 +122,11 @@ const index = ({ blogData, serviceData, articleData }) => {
         `${BaseApi}/${activeMenu}/search/${searchText}id/${lastBlogId}/?limit=5`
       );
       const res = await response.data;
-      setLastBlogId(res.data[0].lastBlogId);
-      setIsNextBLog(res.data[0].isNextAvailable);
-      setBlogsData((prev) => [...prev, ...res.data[0].foundBlogs]);
-      setAllData((prev) => [...prev, ...res.data[0].foundBlogs]);
+      const data = await res.data[0];
+      setLastBlogId(data.lastBlogId);
+      setIsNextBlog(data.isNextAvailable);
+      setBlogsData((prev) => [...prev, ...data.foundBlogs]);
+      setAllData((prev) => [...prev, ...data.foundBlogs]);
       setLoadMore(false);
     }
   };
@@ -111,12 +139,10 @@ const index = ({ blogData, serviceData, articleData }) => {
     const serviceResponse = await axios.get(
       `${BaseApi}/service/search/${searchText}id?limit=5`
     );
-
     setBlogsData(blogResponse.data.data[0].foundBlogs);
     setArticlesData(serviceResponse.data.data[0].foundServices);
-    setIsNextBLog(blogResponse.data.data[0].isNextAvailable);
-    setnextService(serviceResponse.data.data[0].isNextAvailable);
-    console.log(serviceResponse.data.data[0], blogResponse.data.data[0]);
+    setIsNextBlog(blogResponse.data.data[0].isNextAvailable);
+    setNextService(serviceResponse.data.data[0].isNextAvailable);
     setAllCount(blogResponse.data.data[0].documentsCount);
     setBlogCount(blogResponse.data.data[0].documentsCount);
     setArticlesCount(serviceResponse.data.data[0].documentsCount);
@@ -128,7 +154,6 @@ const index = ({ blogData, serviceData, articleData }) => {
 
   return (
     <>
-      <CustomHead title="Search" />
       <Banner>
         <p className={BannerStyle.BigHeading}>search</p>
         <p className={BannerStyle.midHeading}>search title goes here</p>
@@ -147,7 +172,7 @@ const index = ({ blogData, serviceData, articleData }) => {
             }}
             className={style.searchButton}
           >
-            <i class="fas fa-search"></i>
+            <i className="fas fa-search"></i>
           </div>
         </div>
         <div className={style.searchSections}>
@@ -196,7 +221,7 @@ const index = ({ blogData, serviceData, articleData }) => {
           ) : allData.length > 0 ? (
             allData.map((data, index) => {
               return (
-                <Link
+                <a
                   href={
                     data.perma_link
                       ? "" + data.perma_link + ""
@@ -212,7 +237,7 @@ const index = ({ blogData, serviceData, articleData }) => {
                     </p>
                     <p className={style.divider}></p>
                   </div>
-                </Link>
+                </a>
               );
             })
           ) : (
@@ -239,26 +264,4 @@ const index = ({ blogData, serviceData, articleData }) => {
     </>
   );
 };
-
-export default index;
-
-export async function getServerSideProps() {
-  const blogResponse = await axios.get(`${BaseApi}/blog/search/id?limit=5`);
-  const blogData = await blogResponse.data;
-
-  const serviceResponse = await axios.get(
-    `${BaseApi}/service/search/id?limit=5`
-  );
-  const serviceData = await serviceResponse.data;
-
-  //   const articleResponse = await axios.get(`${BaseApi}/service/search?limit=5`);
-  //   const articleData = await articleResponse.data;
-
-  return {
-    props: {
-      blogData,
-      serviceData,
-      articleData: serviceData,
-    },
-  };
-}
+export default Index;

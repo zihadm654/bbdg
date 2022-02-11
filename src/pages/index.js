@@ -9,7 +9,6 @@ import Portfolio from "../components/Home/Portfolio";
 import Works from "../components/Home/Work";
 import SendMessage from "../components/SendMessage";
 import OurClients from "../components/Home/OurClients";
-// import CustomHead from "../helpers/header/CustomHead";
 import Industries from "../components/Home/Industries";
 import CustomeCarousel from "../components/carousel/Carousel";
 
@@ -19,11 +18,14 @@ import axios from "axios";
 import { BaseApi, ImageBaseUrl } from "./../utils/utils";
 import Carousel from "react-multi-carousel";
 
-export default function Home(props) {
+import img from "../assets/images/Mask Group-6.png";
+import img1 from "../assets/images/Mask Group-1.png";
+export default function Home() {
   // const [Work, setWork] = useState(props.res.data);
   const [servicesData, setServicesData] = useState([]);
   const [portfolioData, setPortfolioData] = useState([]);
   useEffect(() => {
+    document.title = "Home | BBDG";
     async function fetchData() {
       try {
         const fetchData = await axios.get(
@@ -37,18 +39,15 @@ export default function Home(props) {
 
       const res = await axios.get(`${BaseApi}/portfolio/all`);
       const portfolioRes = await res.data;
-      const portfolio = await portfolioRes.data;
+      setPortfolioData(portfolioRes);
 
       const data = await axios.get(`${BaseApi}/service/all`);
       const servicesRes = data.data;
       const services = servicesRes.data.allChildren;
-
-      setPortfolioData(portfolio);
       setServicesData(services);
     }
     fetchData();
   }, []);
-
   const servicesCard = servicesData.map((data, index) => {
     return (
       <ServicesCard
@@ -91,18 +90,13 @@ export default function Home(props) {
   return (
     <div>
       <main>
-        {/* <CustomHead title="HOME" /> */}
         <HomePage />
         <div className={styles.Projects} id="Projects">
           <h1>DISCOVER OUR BEST PROJECTS</h1>
           <div className={styles.ProjectsComponents}>
+            <Project image={img} heading="What We Do" url="/about/what-we-do" />
             <Project
-              image="../assets/images/Mask Group-6.png"
-              heading="What We Do"
-              url="/about/what-we-do"
-            />
-            <Project
-              image="../assets/images/Mask Group-1.png"
+              image={img1}
               heading="Who We Are"
               url="/about/who-we-are"
             />
@@ -113,14 +107,14 @@ export default function Home(props) {
         </div>
 
         <div className={styles.offercard}>
-          {/* <Carousel
+          <Carousel
             className={styles.carouselStyle}
             swipeable={true}
             draggable={true}
             responsive={responsive}
-          > */}
-          {servicesCard}
-          {/* </Carousel> */}
+          >
+            {servicesCard}
+          </Carousel>
         </div>
         <Feature
           heading="BBDG'S ALL CORE FEATURE"
@@ -143,10 +137,10 @@ export default function Home(props) {
         />
         <Industries heading="Our services" />
         {/* <Portfolio IndicatorArray={Indicators} /> */}
-        {/* <CustomeCarousel
+        <CustomeCarousel
           title="OUR IT SOLUTIONS CATEGORIES"
-          data={props.portfolio.data}
-        /> */}
+          data={portfolioData.data}
+        />
         {/* {Work ? <Works Data={Work} /> : <></>} */}
         <div id="Contact">
           <SendMessage location={true} />

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import style from "./Industries.module.css";
-
+import img from "../../assets/images/group.png";
 const data1 = [
   {
     name: "LATEST TECHNOLOGY",
@@ -11,7 +11,7 @@ const data1 = [
       "Scalability of up to 500 employess per time clock",
       "Employee self-enrollment",
     ],
-    image: "../assets/images/group.png",
+    image: img,
   },
   {
     name: "AWESOME SUPPORT",
@@ -23,7 +23,7 @@ const data1 = [
       "The ability to connect up to 32 times clocks",
       "Employee self-enrollment",
     ],
-    image: "../assets/images/group.png",
+    image: img,
   },
   {
     name: "1 CLICK DEMO INSTALL",
@@ -35,7 +35,7 @@ const data1 = [
       // "The ability to connect up to 32 times clocks",
       "Employee self-enrollment",
     ],
-    image: "../assets/images/group.png",
+    image: img,
   },
 ];
 const data2 = [
@@ -50,7 +50,7 @@ const data2 = [
       "Identifying and recognizing of the core issues and problems that the business wishes to solve",
       "Describing and defining the market niche",
     ],
-    image: "../assets/images/group.png",
+    image: img,
   },
   {
     name: "FINANCING",
@@ -63,7 +63,7 @@ const data2 = [
       "Purchase/ Transfer your business ",
       "Equipment purchase",
     ],
-    image: "../assets/images/group.png",
+    image: img,
   },
   {
     name: "LOANS",
@@ -76,7 +76,7 @@ const data2 = [
       "Affordable and convenient",
       "Peace of mind",
     ],
-    image: "../assets/images/group.png",
+    image: img,
   },
 ];
 
@@ -95,27 +95,25 @@ function Industries({ heading = "We work with industries" }) {
                         <button>1 CLICK DEMO INSTALL</button> */}
           {Data.map((section, index) => {
             return (
-              <div key={index}>
-                <button
-                  className={
-                    CurrentSection.name === section.name
-                      ? style.IndustriesButtonActive
-                      : ""
-                  }
-                  onClick={(e) => {
-                    // console.log(CurrentSection.name ===section.name)
-                    setCurrentSection(Data[index]);
-                  }}
-                >
-                  {section.name}
-                </button>
-              </div>
+              <button
+                className={
+                  CurrentSection.name === section.name
+                    ? style.IndustriesButtonActive
+                    : ""
+                }
+                onClick={(e) => {
+                  // console.log(CurrentSection.name ===section.name)
+                  setCurrentSection(Data[index]);
+                }}
+              >
+                {section.name}
+              </button>
             );
           })}
         </div>
 
         <div className={style.IndustriesContent}>
-          <img src={CurrentSection.image} alt="img"></img>
+          <img src={CurrentSection.image} alt="img" />
           <div className={style.IndustriesContentText}>
             <div className={style.IndustriesContentTexta}>
               <p>{CurrentSection.top}</p>

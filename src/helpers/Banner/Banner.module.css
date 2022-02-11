@@ -1,7 +1,7 @@
 .mainHomeDiv {
   width: 100%;
   height: 100%;
-  background-color: #7ABAF7;
+  background-color: #7abaf7;
   position: relative;
   min-height: 580px;
   /* overflow: hidden; */
@@ -49,13 +49,13 @@
   0% {
     opacity: 0;
   }
-  20%{
+  20% {
     opacity: 1;
   }
-  90%{
+  90% {
     opacity: 1;
   }
-  100%{
+  100% {
     opacity: 0;
   }
 }
@@ -128,11 +128,11 @@
   padding-right: 20px;
 }
 
-.leftDivLinksSec2 .linkItem>a>i {
+.leftDivLinksSec2 .linkItem > a > i {
   font-size: 1.4rem;
 }
 
-.leftDivLinksSec2 .linkItem>a:hover {
+.leftDivLinksSec2 .linkItem > a:hover {
   color: #163653;
 }
 
@@ -147,8 +147,10 @@
   font-weight: 900;
   color: #163653;
 }
-
-.linkItem>a:hover {
+.linkItem a {
+  color: #163653;
+}
+.linkItem > a:hover {
   color: #163653;
 }
 
@@ -180,9 +182,9 @@
 
 .smallSubHeading {
   margin: 10px 0px;
-  font-size: .9rem;
+  font-size: 0.9rem;
   font-weight: 500;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   text-transform: uppercase;
 }
 
@@ -233,7 +235,7 @@
 }
 
 .lowOpacity {
-  opacity: .5 !important;
+  opacity: 0.5 !important;
   text-transform: uppercase;
 }
 
@@ -263,7 +265,8 @@
     /* background-color: red; */
     border-radius: 50%;
   }
-  .leftDivLinksSec1, .leftDivLinksSec2 {
+  .leftDivLinksSec1,
+  .leftDivLinksSec2 {
     display: none;
   }
   .rightBackCircle {
@@ -324,7 +327,7 @@
     text-transform: uppercase;
   }
   .smallHeading {
-    font-size: .8rem;
+    font-size: 0.8rem;
     font-family: "Antonio", sans-serif;
     margin: 0px 0px;
     display: block;
@@ -367,6 +370,5 @@
     padding-bottom: 10px;
     animation: bannerBlink 8s infinite;
     z-index: 100;
-    
   }
 }

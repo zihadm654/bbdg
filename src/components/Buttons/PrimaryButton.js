@@ -6,7 +6,7 @@ function PrimaryButton({ dark, text, url = "", newPage }) {
 
   return (
     <div>
-      <a href={url} target={newPage ? "_blank" : ""}>
+      <a href={url} target={newPage ? "_blank" : ""} rel="noreferrer">
         <button
           style={
             isDark
