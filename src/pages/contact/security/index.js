@@ -1,8 +1,6 @@
 import Banner from "../../../helpers/Banner/Banner";
 import BannerStyle from "../../../helpers/Banner/Banner.module.css";
 import styles from "../policy.module.css";
-import CustomHead from "../../../helpers/header/CustomHead"
-import Link from "next/link";
 import Markdown from "markdown-to-jsx";
 
 function index() {
@@ -28,15 +26,14 @@ function index() {
 <p>If you receive a suspicious call or email that appears to be associated with <strong>Bajaj Global Business Development &amp; Consultancy Group (BBDG) </strong>or its international locations or client database, etc. please contact us. The safety of our online customers is paramount to us. Your personal and financial information is&nbsp; likewise important and the <strong>Bajaj Global Business Development &amp; Consultancy Group (BBDG)</strong> will do its best to keep it safe. We also use reasonable security measures, as well as the most appropriate technology initiatives to protect the privacy of our esteemed customers. This improves data privacy and prevents the loss, and the misuse of information.</p>
 <p><strong>Bajaj Global Business Development &amp; Consultancy Group (BBDG)</strong> safety and technology practices are regularly updated and updated to ensure a safe environment and attain data protection for our customers. We also monitor traffic to identify, prevent and investigate any suspicious activity.</p>
 <p><strong>Bajaj Global Business Development &amp; Consultancy Group (BBDG) </strong>staff is similarly trained in these aspects, retaining information, security awareness and management of sensitive information.</p>
-  `
+  `;
   return (
     <>
-    <CustomHead title="Security" />
       <Banner>
-        <p className={BannerStyle.smallHeading}><span className={BannerStyle.lowOpacity}>Security</span></p>
-        <p className={BannerStyle.BigHeading}>
-          SECURITY
+        <p className={BannerStyle.smallHeading}>
+          <span className={BannerStyle.lowOpacity}>Security</span>
         </p>
+        <p className={BannerStyle.BigHeading}>SECURITY</p>
         <p className={BannerStyle.midHeading}>
           HOW WE USE YOU PERSONAL
           <br />
@@ -50,15 +47,37 @@ function index() {
           view those specific to use of Client Space
         </p>
         <div className={styles.listDiv}>
-          <p className={styles.specialList}>&#62; <a href="#About-our-online-services" > About our online services </a></p>
-          <p className={styles.specialList}> &#62; <a href="#Your-obligations"> Your obligations</a></p>
-          <p className={styles.specialList}> &#62; <a href="#Our-obligations"> Our obligations</a></p>
-          <p className={styles.specialList}>&#62; <a href="#Exclusion-of-our-liability"> Exclusion of our liability</a></p>
-          <p className={styles.specialList}> &#62; <a href="#About-these-Terms-of-use"> About these Terms of use</a></p>
-          <p className={styles.specialList}> &#62; <a href="#How-to-contact-us"> How to contact us</a></p>
+          <p className={styles.specialList}>
+            &#62;{" "}
+            <a href="#About-our-online-services"> About our online services </a>
+          </p>
+          <p className={styles.specialList}>
+            {" "}
+            &#62; <a href="#Your-obligations"> Your obligations</a>
+          </p>
+          <p className={styles.specialList}>
+            {" "}
+            &#62; <a href="#Our-obligations"> Our obligations</a>
+          </p>
+          <p className={styles.specialList}>
+            &#62;{" "}
+            <a href="#Exclusion-of-our-liability">
+              {" "}
+              Exclusion of our liability
+            </a>
+          </p>
+          <p className={styles.specialList}>
+            {" "}
+            &#62;{" "}
+            <a href="#About-these-Terms-of-use"> About these Terms of use</a>
+          </p>
+          <p className={styles.specialList}>
+            {" "}
+            &#62; <a href="#How-to-contact-us"> How to contact us</a>
+          </p>
         </div>{" "}
         <Markdown>{Content}</Markdown>
-        <p className={styles.mainHeading} >Do you need to read this?</p>
+        <p className={styles.mainHeading}>Do you need to read this?</p>
         <p>
           Probably! These Terms of use apply to you if you use our online
           services. For example, if:
@@ -69,7 +88,7 @@ function index() {
           <li>You apply online for a loan</li>
           <li>
             You use your Client Space (you also need to read the
-              <span
+            <span
               style={{
                 textDecoration: "underline",
                 fontWeight: "Bold",
@@ -77,8 +96,10 @@ function index() {
                 color: "white !important",
               }}
             >
-    
-               <Link href="/contact/terms-of-use/client-space">Terms of use for your Client Space</Link>&nbsp;
+              <a href="/contact/terms-of-use/client-space">
+                Terms of use for your Client Space
+              </a>
+              &nbsp;
             </span>
             )
           </li>
@@ -86,7 +107,10 @@ function index() {
         <p>
           By using our online services, you agree to follow BBDG s Terms of use.
         </p>
-        <p className={styles.mainHeading} id="About-our-online-services"> 1. About our online services</p>
+        <p className={styles.mainHeading} id="About-our-online-services">
+          {" "}
+          1. About our online services
+        </p>
         <p className={styles.subHeading}>1.1 What are our online services?</p>
         <p>Our online services include:</p>
         <ul className={styles.ul}>
@@ -137,7 +161,9 @@ function index() {
           anywhere in the world, we only offer our products and services in
           Canada.
         </p>
-        <p className={styles.mainHeading} id="Your-obligations">2. Your obligations</p>
+        <p className={styles.mainHeading} id="Your-obligations">
+          2. Your obligations
+        </p>
         <p className={styles.subHeading}>
           2.1 You must take appropriate security measures
         </p>
@@ -195,7 +221,9 @@ function index() {
           By publishing on our website, you guarantee that you do not infringe
           on anyone’s rights, including their intellectual property rights.
         </p>
-        <p className={styles.mainHeading} id="Our-obligations">3. Our obligations</p>
+        <p className={styles.mainHeading} id="Our-obligations">
+          3. Our obligations
+        </p>
         <p className={styles.subHeading}>
           2.1 You must take appropriate security measures
         </p>
@@ -253,7 +281,9 @@ function index() {
           By publishing on our website, you guarantee that you do not infringe
           on anyone’s rights, including their intellectual property rights.
         </p>
-        <p className={styles.mainHeading} id="Exclusion-of-our-liability">4. Exclusion of our liability</p>
+        <p className={styles.mainHeading} id="Exclusion-of-our-liability">
+          4. Exclusion of our liability
+        </p>
         <p className={styles.subHeading}>
           2.1 You must take appropriate security measures
         </p>
@@ -311,7 +341,9 @@ function index() {
           By publishing on our website, you guarantee that you do not infringe
           on anyone’s rights, including their intellectual property rights.
         </p>
-        <p className={styles.mainHeading} id="About-these-Terms-of-use">5. About these Terms of use</p>
+        <p className={styles.mainHeading} id="About-these-Terms-of-use">
+          5. About these Terms of use
+        </p>
         <p className={styles.subHeading}>
           2.1 You must take appropriate security measures
         </p>
@@ -369,7 +401,9 @@ function index() {
           By publishing on our website, you guarantee that you do not infringe
           on anyone’s rights, including their intellectual property rights.
         </p>
-        <p className={styles.mainHeading} id="How-to-contact-us">6. How to contact us</p>
+        <p className={styles.mainHeading} id="How-to-contact-us">
+          6. How to contact us
+        </p>
         <ul className={styles.ul}>
           <li>Send us a message</li>
           <li>Call us at 1 877 232 2269</li>

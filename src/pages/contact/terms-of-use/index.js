@@ -1,13 +1,10 @@
 import Banner from "../../../helpers/Banner/Banner";
 import BannerStyle from "../../../helpers/Banner/Banner.module.css";
 import styles from "../policy.module.css";
-import CustomHead from "../../../helpers/header/CustomHead"
-import Link from "next/link";
 import Markdown from "markdown-to-jsx";
-import LayoutStyle from "../../../helpers/layout/layout.module.css"
+import LayoutStyle from "../../../helpers/layout/layout.module.css";
 
-function index() {
-
+function Index() {
   var Content = `
   <p><strong>Bajaj Global Business Development &amp; Consultancy Group (BBDG) site terms of use</strong></p>
 <ul>
@@ -31,10 +28,11 @@ function index() {
   `;
   return (
     <>
-      <CustomHead title="TERMS OF USE | BBDG" />
       <Banner>
-      <p className={BannerStyle.smallHeading}><span className={BannerStyle.lowOpacity}>TERMS OF USE</span></p>
-      <p className={BannerStyle.BigHeading}>
+        <p className={BannerStyle.smallHeading}>
+          <span className={BannerStyle.lowOpacity}>TERMS OF USE</span>
+        </p>
+        <p className={BannerStyle.BigHeading}>
           TERMS
           <br />
           OF USE
@@ -50,15 +48,37 @@ function index() {
           view those specific to use of Client Space
         </p>
         <div className={styles.listDiv}>
-          <p className={styles.specialList}>&#62; <a href="#About-our-online-services" > About our online services </a></p>
-          <p className={styles.specialList}> &#62; <a href="#Your-obligations"> Your obligations</a></p>
-          <p className={styles.specialList}> &#62; <a href="#Our-obligations"> Our obligations</a></p>
-          <p className={styles.specialList}>&#62; <a href="#Exclusion-of-our-liability"> Exclusion of our liability</a></p>
-          <p className={styles.specialList}> &#62; <a href="#About-these-Terms-of-use"> About these Terms of use</a></p>
-          <p className={styles.specialList}> &#62; <a href="#How-to-contact-us"> How to contact us</a></p>
+          <p className={styles.specialList}>
+            &#62;{" "}
+            <a href="#About-our-online-services"> About our online services </a>
+          </p>
+          <p className={styles.specialList}>
+            {" "}
+            &#62; <a href="#Your-obligations"> Your obligations</a>
+          </p>
+          <p className={styles.specialList}>
+            {" "}
+            &#62; <a href="#Our-obligations"> Our obligations</a>
+          </p>
+          <p className={styles.specialList}>
+            &#62;{" "}
+            <a href="#Exclusion-of-our-liability">
+              {" "}
+              Exclusion of our liability
+            </a>
+          </p>
+          <p className={styles.specialList}>
+            {" "}
+            &#62;{" "}
+            <a href="#About-these-Terms-of-use"> About these Terms of use</a>
+          </p>
+          <p className={styles.specialList}>
+            {" "}
+            &#62; <a href="#How-to-contact-us"> How to contact us</a>
+          </p>
         </div>{" "}
         <Markdown>{Content}</Markdown>
-        <p className={styles.mainHeading} >Do you need to read this?</p>
+        <p className={styles.mainHeading}>Do you need to read this?</p>
         <p>
           Probably! These Terms of use apply to you if you use our online
           services. For example, if:
@@ -77,7 +97,10 @@ function index() {
                 color: "white !important",
               }}
             >
-               <Link href="/contact/terms-of-use/client-space">Terms of use for your Client Space</Link>&nbsp;
+              <a href="/contact/terms-of-use/client-space">
+                Terms of use for your Client Space
+              </a>
+              &nbsp;
             </span>
             )
           </li>
@@ -85,7 +108,10 @@ function index() {
         <p>
           By using our online services, you agree to follow BBDG s Terms of use.
         </p>
-        <p className={styles.mainHeading} id="About-our-online-services"> 1. About our online services</p>
+        <p className={styles.mainHeading} id="About-our-online-services">
+          {" "}
+          1. About our online services
+        </p>
         <p className={styles.subHeading}>1.1 What are our online services?</p>
         <p>Our online services include:</p>
         <ul className={styles.ul}>
@@ -136,7 +162,9 @@ function index() {
           anywhere in the world, we only offer our products and services in
           Canada.
         </p>
-        <p className={styles.mainHeading} id="Your-obligations">2. Your obligations</p>
+        <p className={styles.mainHeading} id="Your-obligations">
+          2. Your obligations
+        </p>
         <p className={styles.subHeading}>
           2.1 You must take appropriate security measures
         </p>
@@ -194,7 +222,9 @@ function index() {
           By publishing on our website, you guarantee that you do not infringe
           on anyone’s rights, including their intellectual property rights.
         </p>
-        <p className={styles.mainHeading} id="Our-obligations">3. Our obligations</p>
+        <p className={styles.mainHeading} id="Our-obligations">
+          3. Our obligations
+        </p>
         <p className={styles.subHeading}>
           2.1 You must take appropriate security measures
         </p>
@@ -252,7 +282,9 @@ function index() {
           By publishing on our website, you guarantee that you do not infringe
           on anyone’s rights, including their intellectual property rights.
         </p>
-        <p className={styles.mainHeading} id="Exclusion-of-our-liability">4. Exclusion of our liability</p>
+        <p className={styles.mainHeading} id="Exclusion-of-our-liability">
+          4. Exclusion of our liability
+        </p>
         <p className={styles.subHeading}>
           2.1 You must take appropriate security measures
         </p>
@@ -310,7 +342,9 @@ function index() {
           By publishing on our website, you guarantee that you do not infringe
           on anyone’s rights, including their intellectual property rights.
         </p>
-        <p className={styles.mainHeading} id="About-these-Terms-of-use">5. About these Terms of use</p>
+        <p className={styles.mainHeading} id="About-these-Terms-of-use">
+          5. About these Terms of use
+        </p>
         <p className={styles.subHeading}>
           2.1 You must take appropriate security measures
         </p>
@@ -368,7 +402,9 @@ function index() {
           By publishing on our website, you guarantee that you do not infringe
           on anyone’s rights, including their intellectual property rights.
         </p>
-        <p className={styles.mainHeading} id="How-to-contact-us">6. How to contact us</p>
+        <p className={styles.mainHeading} id="How-to-contact-us">
+          6. How to contact us
+        </p>
         <ul className={styles.ul}>
           <li>Send us a message</li>
           <li>Call us at 1 877 232 2269</li>
@@ -385,4 +421,4 @@ function index() {
   );
 }
 
-export default index;
+export default Index;

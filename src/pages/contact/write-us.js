@@ -3,7 +3,6 @@ import Banner from "../../helpers/Banner/Banner";
 import BannerStyle from "../../helpers/Banner/Banner.module.css";
 import LayoutStyle from "../../helpers/layout/layout.module.css";
 import PrimaryButton from "../../components/Buttons/PrimaryButton";
-import Head from "../../helpers/header/CustomHead";
 import SecondaryButton from "../../components/Buttons/SecondaryButton";
 import { useState } from "react";
 import axios from "axios";
@@ -261,7 +260,6 @@ const WriteUs = () => {
   };
   return (
     <>
-      <Head title="Write Us" />
       <Banner>
         <p className={BannerStyle.smallHeading}>
           CONTACT US <i className="fas fa-chevron-right"></i>{" "}

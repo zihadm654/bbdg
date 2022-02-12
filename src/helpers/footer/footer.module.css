@@ -40,7 +40,9 @@
   text-underline-offset: 3px;
   color: #163653;
 }
-
+.listItem > a {
+  color: #163653;
+}
 .footerElementDiv {
   display: flex;
 }

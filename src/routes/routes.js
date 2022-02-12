@@ -19,6 +19,15 @@ import EventSponser from "../pages/about/events-and-sponsorships/index";
 import CorporateGov from "../pages/about/corporate-governance/index";
 import AwardDistinction from "../pages/about/award-and-distinctions/index";
 import BCrops from "../pages/about/b-corps/index";
+import SmallBusiness from "../pages/services/financing/small-business-loans";
+import TermUse from "../pages/contact/terms-of-use/index";
+import Confidentiality from "../pages/contact/confidentiality/index";
+import Security from "../pages/contact/security/index";
+import Tranparency from "../pages/contact/transparency/index";
+import Write from "../pages/contact/write-us";
+import BusinessPlan from "../pages/services/advisory/business-plan-template";
+import Careers from "../pages/about/careers/index";
+import Details from "../pages/iam/details";
 const Routers = () => {
   return (
     <>
@@ -54,6 +63,7 @@ const Routers = () => {
           element={<AwardDistinction />}
         />
         <Route path="/about/b-corps" element={<BCrops />} />
+        <Route path="/about/careers" element={<Careers />} />
 
         {/* services sub routes */}
         <Route path="/services/advisory" element={<Advisory />} />
@@ -61,6 +71,24 @@ const Routers = () => {
         <Route path="/services/business-acquisitions" element={<Finance />} />
         <Route path="/services/it-solutions" element={<ItSolutions />} />
         <Route path="/services/articles-and-tools" element={<ArticleTools />} />
+        <Route
+          path="/services/financing/small-business-loans"
+          element={<SmallBusiness />}
+        />
+        <Route
+          path="/services/advisory/business-plan-template"
+          element={<BusinessPlan />}
+        />
+
+        {/* contact sub routes */}
+        <Route path="/contact/terms-of-use" element={<TermUse />} />
+        <Route path="/contact/Confidentiality" element={<Confidentiality />} />
+        <Route path="/contact/security" element={<Security />} />
+        <Route path="/contact/transparency" element={<Tranparency />} />
+        <Route path="/contact/write-us" element={<Write />} />
+
+        {/* dynamic routes */}
+        <Route path="/iam/:id" element={<Details />} />
       </Routes>
     </>
   );

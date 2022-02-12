@@ -15,9 +15,9 @@ function Index() {
   const [limitBlogs, setLimitBlogs] = useState([]);
   const [loadMore, setLoadMore] = useState(false);
   const [isNextAvailable, setIsNextAvailable] = useState();
-  const [lastBlogId, setLastBlogId] = useState();
+  const [lastBlogId, setLastBlogId] = useState("");
   const [blogList, setBlogList] = useState([]);
-  const [moreBlog, setMoreBlog] = useState();
+  const [moreBlog, setMoreBlog] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
       // fetching first 5 blogs

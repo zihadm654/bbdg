@@ -42,7 +42,6 @@ const Data = [
 
 function CashFlow({ heading }) {
   const [CurrentSection, setCurrentSection] = useState(Data[0]);
-
   return (
     <>
       <div className={style.Industries} id="Industries">
@@ -74,7 +73,7 @@ function CashFlow({ heading }) {
         </div>
 
         <div className={style.IndustriesContent}>
-          <img src={CurrentSection.image} alt="currentImg" />
+          <img src={CurrentSection.image.groupImg} alt="currentImg" />
           <div className={style.IndustriesContentText}>
             <div className={style.IndustriesContentTexta}>
               <p>{CurrentSection.top}</p>

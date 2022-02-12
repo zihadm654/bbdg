@@ -17,7 +17,7 @@ import ServicesCard from "../components/Services/ServicesCard";
 import axios from "axios";
 import { BaseApi, ImageBaseUrl } from "./../utils/utils";
 import Carousel from "react-multi-carousel";
-
+import "react-multi-carousel/lib/styles.css";
 import img from "../assets/images/Mask Group-6.png";
 import img1 from "../assets/images/Mask Group-1.png";
 import imag from "../assets/images/imag.png";
@@ -39,8 +39,7 @@ export default function Home() {
       .get(`${BaseApi}/portfolio/all`)
       .then((res) => {
         const portfolioRes = res.data;
-        const portfolio = portfolioRes.data;
-        setPortfolioData(portfolio);
+        setPortfolioData(portfolioRes.data);
       })
       .catch((err) => {
         console.error(err);
@@ -48,8 +47,7 @@ export default function Home() {
 
     axios.get(`${BaseApi}/service/all`).then((res) => {
       const servicesRes = res.data;
-      const services = servicesRes.data.allChildren;
-      setServicesData(services);
+      setServicesData(servicesRes.data.allChildren);
     });
   }, []);
   const servicesCard = servicesData?.map((data, index) => {

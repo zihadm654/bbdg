@@ -1,8 +1,6 @@
 import Banner from "../../../helpers/Banner/Banner";
 import BannerStyle from "../../../helpers/Banner/Banner.module.css";
 import styles from "../policy.module.css";
-import CustomHead from "../../../helpers/header/CustomHead";
-import Link from "next/link";
 import Markdown from "markdown-to-jsx";
 
 function index() {
@@ -35,7 +33,6 @@ function index() {
   `;
   return (
     <>
-      <CustomHead title="CONFIDENTIALITY | BBDG" />
       <Banner>
         <p className={BannerStyle.smallHeading}>
           <span className={BannerStyle.lowOpacity}>CONFIDENTIALITY</span>
@@ -101,9 +98,9 @@ function index() {
                 color: "white !important",
               }}
             >
-              <Link href="/contact/terms-of-use/client-space">
+              <a href="/contact/terms-of-use/client-space">
                 Terms of use for your Client Space
-              </Link>
+              </a>
               &nbsp;
             </span>
             )

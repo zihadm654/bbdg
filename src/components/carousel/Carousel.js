@@ -23,7 +23,6 @@ const Card = ({ img, heading, subHeading, url }) => {
 function Carousel({ title, data }) {
   const [position, setPosition] = useState(0);
   const { pathname } = useLocation();
-  const post = data[position];
   return (
     <>
       <div className={style.mainDiv}>
@@ -41,7 +40,7 @@ function Carousel({ title, data }) {
             ))}
         </ul>
         <div className={style.carousel}>
-          {post.contents.map((item) => (
+          {/* {data[position].contents.map((item) => (
             <Card
               url={
                 pathname.toString === "/"
@@ -56,7 +55,7 @@ function Carousel({ title, data }) {
               heading={item.heading}
               subHeading={item.sub_heading}
             />
-          ))}
+          ))} */}
         </div>
       </div>
     </>
