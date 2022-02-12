@@ -96,6 +96,7 @@ function Industries({ heading = "We work with industries" }) {
           {Data.map((section, index) => {
             return (
               <button
+                key={index}
                 className={
                   CurrentSection.name === section.name
                     ? style.IndustriesButtonActive

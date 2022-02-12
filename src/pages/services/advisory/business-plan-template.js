@@ -7,6 +7,12 @@ import styles from "./businessplantemplate.module.css";
 import LayoutStyle from "../../../helpers/layout/layout.module.css";
 
 import Markdown from "markdown-to-jsx";
+// images
+import dp from "../../../assets/images/dp.png";
+import md from "../../../assets/images/md.png";
+import ms from "../../../assets/images/ms.png";
+import man from "../../../assets/images/man.png";
+import hand from "../../../assets/images/hand.png";
 function index() {
   const Content = `<p><strong>Bajaj Global Business Development &amp; Consultancy Group (BBDG) Business plan template</strong></p>
   <p><strong>Bajaj Global Business Development &amp; Consultancy Group (BBDG) </strong>offers a free business plan template to help you to define your business, describe your business goals, expertise and thus document how your business will be profitable in the long run.</p>
@@ -57,12 +63,12 @@ function index() {
           {Content}
         </Markdown>
         <div className={styles.templateCards}>
-          <Project image="../assets/images/man.png" heading="Sample A" />
-          <Project image="../assets/images/hand.png" heading="Sample B" />
-          <Project image="../assets/images/man.png" heading="Sample A" />
-          <Project image="../assets/images/hand.png" heading="Sample B" />
-          <Project image="../assets/images/man.png" heading="Sample A" />
-          <Project image="../assets/images/hand.png" heading="Sample B" />
+          <Project image={man} heading="Sample A" />
+          <Project image={hand} heading="Sample B" />
+          <Project image={man} heading="Sample A" />
+          <Project image={hand} heading="Sample B" />
+          <Project image={man} heading="Sample A" />
+          <Project image={hand} heading="Sample B" />
         </div>
 
         <br />
@@ -73,17 +79,17 @@ function index() {
         <br />
         <div className={styles.templateCards}>
           <Card
-            image="../assets/images/dp.png"
+            image={dp}
             heading="Practical Tools"
             data="Need something changed or is there something not quite working"
           />
           <Card
-            image="../assets/images/md.png"
+            image={md}
             heading="LONG EXPERIENCE"
             data="Need something changed or is there something not quite working"
           />
           <Card
-            image="../assets/images/ms.png"
+            image={ms}
             heading="GUIDANCE FROM INDUSTRY LEADERS"
             data="Need something changed or is there something not quite working"
           />

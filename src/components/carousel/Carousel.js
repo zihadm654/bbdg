@@ -4,8 +4,9 @@ import { ImageBaseUrl } from "../../utils/utils";
 import { useLocation } from "react-router";
 
 const Card = ({ img, heading, subHeading, url }) => {
+  console.log(url);
   return (
-    <a href={url}>
+    <a href={url} key={url}>
       <div className={style.customCard}>
         <img src={img} alt="" width="220" height="240" />
         <div className={style.blueContainer}>
@@ -20,8 +21,9 @@ const Card = ({ img, heading, subHeading, url }) => {
 };
 
 function Carousel({ title, data }) {
-  const [index, setIndex] = useState(0);
+  const [position, setPosition] = useState(0);
   const { pathname } = useLocation();
+  const post = data[position];
   return (
     <>
       <div className={style.mainDiv}>
@@ -30,30 +32,31 @@ function Carousel({ title, data }) {
           {data &&
             data.map((heading, i) => (
               <li
-                onClick={() => setIndex(i)}
-                className={i === index && style.active}
+                key={i}
+                onClick={() => setPosition(i)}
+                className={i === position && style.active}
               >
                 {heading.name}
               </li>
             ))}
         </ul>
         <div className={style.carousel}>
-          {/* {data[index].contents.map((item) => (
+          {post.contents.map((item) => (
             <Card
               url={
                 pathname.toString === "/"
                   ? "/services/it-solutions/portfolio?q=" +
-                    data[index].name.toLowerCase()
+                    data[position].name.toLowerCase()
                   : pathname.toString +
                     "/" +
                     "portfolio?q=" +
-                    data[index].name.toLowerCase()
+                    data[position].name.toLowerCase()
               }
               img={ImageBaseUrl + item.image}
               heading={item.heading}
               subHeading={item.sub_heading}
             />
-          ))} */}
+          ))}
         </div>
       </div>
     </>

@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^13.2.1",
     "axios": "^0.25.0",
     "gsap": "^3.9.1",
+    "markdown-to-jsx": "^7.1.6",
     "react": "^17.0.2",
     "react-bootstrap": "^2.1.2",
     "react-circular-progressbar": "^2.0.4",

@@ -17,9 +17,11 @@ const Index = () => {
   const [activeMenu, setActiveMenu] = useState("blog");
   const [loadMore, setLoadMore] = useState(false);
   const [searchText, setSearchText] = useState("");
-  //all with different
-  const [allCount, setAllCount] = useState([]);
+
+  //blogs + articles count
+  const [allCount, setAllCount] = useState(0);
   //counts
+
   const [blogsCount, setBlogCount] = useState(0);
   const [articlesCount, setArticlesCount] = useState(0);
   //data
@@ -33,33 +35,6 @@ const Index = () => {
   const [isNextBlog, setIsNextBlog] = useState(null);
   const [nextService, setNextService] = useState(null);
   const [allData, setAllData] = useState([...blogsData]);
-
-  const setActive = (field) => {
-    setIsBlog(false);
-    setIsArticle(false);
-    setIsAll(false);
-    switch (field) {
-      case "articles":
-        setIsArticle(true);
-        setAllData(articlesData);
-        setActiveMenu("service");
-        break;
-      case "blogs":
-        setIsBlog(true);
-        setAllData(blogsData);
-        setActiveMenu("blog");
-        break;
-      case "all":
-        setIsAll(true);
-        setAllData(blogsData);
-        setActiveMenu("blog");
-        break;
-      default:
-        setIsArticle(true);
-        setAllData(articlesData);
-        setActiveMenu("service");
-    }
-  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -77,7 +52,7 @@ const Index = () => {
         const services = await serviceData.data[0];
 
         // all counts of different data
-        setAllCount(blogs.documentsCount + serviceData.documentsCount);
+        setAllCount(services.documentsCount + blogs.documentsCount);
 
         setBlogCount(blogs.documentsCount);
         setBlogsData(blogs.foundBlogs);
@@ -96,6 +71,7 @@ const Index = () => {
     };
     fetchData();
   }, []);
+
   const LoadMoreData = async () => {
     setLoadMore(true);
 
@@ -103,7 +79,6 @@ const Index = () => {
       const response = await axios.get(
         `${BaseApi}/${activeMenu}/search/${searchText}id/${lastArticleId}/?limit=5`
       );
-
       const res = await response.data;
       const data = res.data[0];
       console.log(data);
@@ -150,6 +125,30 @@ const Index = () => {
       ? setAllData(blogResponse.data.data[0].foundBlogs)
       : setAllData(serviceResponse.data.data[0].foundServices);
     setLoadMore(false);
+  };
+
+  const setActive = (field) => {
+    setIsBlog(false);
+    setIsArticle(false);
+    setIsAll(false);
+    switch (field) {
+      case "articles":
+        setIsArticle(true);
+        setAllData(articlesData);
+        setActiveMenu("service");
+        break;
+      case "blogs":
+        setIsBlog(true);
+        setAllData(blogsData);
+        setActiveMenu("blog");
+        break;
+      case "all":
+        setIsAll(true);
+        setAllData(blogsData);
+        setActiveMenu("all");
+        break;
+      default:
+    }
   };
 
   return (
@@ -222,6 +221,7 @@ const Index = () => {
             allData.map((data, index) => {
               return (
                 <a
+                  key={index}
                   href={
                     data.perma_link
                       ? "" + data.perma_link + ""

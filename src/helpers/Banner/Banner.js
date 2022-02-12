@@ -9,16 +9,16 @@ import working__img from "../../assets/images/working.png";
 import subtract__img from "../../assets/images/Subtract.png";
 const Banner = (props) => {
   const images = [banner__img, finger__img, group__img, working__img];
-  const [index, setIndex] = useState(0);
+  const [count, setCount] = useState(0);
   useEffect(() => {
     setTimeout(() => {
-      if (index === images.length - 1) {
-        setIndex(0);
+      if (count === images.length - 1) {
+        setCount(0);
       } else {
-        setIndex((index) => index + 1);
+        setCount((count) => count + 1);
       }
     }, 8000);
-  }, [index, images.length]);
+  }, [count]);
   return (
     <div className={style.mainHomeDiv}>
       <div className={style.rightDiv}>
@@ -28,7 +28,7 @@ const Banner = (props) => {
             src={subtract__img}
             alt="Substract"
           />
-          <img className={style.mainImg} src={images[index]} alt="main__img" />
+          <img className={style.mainImg} src={images[count]} alt="main__img" />
         </div>
         <img
           className={style.rightBackCircle}

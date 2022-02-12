@@ -1,24 +1,37 @@
 import Banner from "../../../helpers/Banner/Banner";
 import style from "./it-solutions.module.css";
 import BannerStyle from "../../../helpers/Banner/Banner.module.css";
-import CustomHead from "../../../helpers/header/CustomHead";
 import PrimaryButton from "../../../components/Buttons/PrimaryButton";
 import axios from "axios";
 import { BaseApi } from "../../../utils/utils";
 import Recognition from "../../../components/Recognition";
-import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Carousel from "../../../components/carousel/Carousel";
 import Markdown from "markdown-to-jsx";
-import LayoutStyle from "../../../helpers/layout/layout.module.css"
+import LayoutStyle from "../../../helpers/layout/layout.module.css";
 
-function index(props) {
-  const router = useRouter();
+function Index() {
   const [index, setIndex] = useState(0);
+  const [solutionData, setSolutionData] = useState([]);
+  const [portfolioData, setPortfolioData] = useState([]);
+  console.log(portfolioData);
+  useEffect(() => {
+    const fetchData = async () => {
+      const solutionResponse = await axios.get(
+        `${BaseApi}/service/all/+services+it-solutions`
+      );
+      const solutions = await solutionResponse.data;
+      setSolutionData(solutions.data);
 
+      const portfolioResponse = await axios.get(`${BaseApi}/portfolio/all`);
+      const portfolio = await portfolioResponse.data;
+      setPortfolioData(portfolio.data);
+    };
+    fetchData();
+  }, []);
+  // console.log(solutionData);
   return (
     <>
-      <CustomHead title="it solutions" />
       <Banner>
         <p className={BannerStyle.smallHeading}>
           SERVICES <i className="fas fa-chevron-right"></i>
@@ -34,49 +47,34 @@ function index(props) {
           SITUATIONS
         </p>
       </Banner>
-      {console.log(props.solutions.data.parent)}
-      {props.solutions.data.parent.text != null && (
-        <Markdown className={LayoutStyle.markDownStyle}>{props.solutions.data.parent.text}</Markdown>
-      )}
-      {props &&
-        props.solutions.data.allChildren.map((i) => (
-          <Recognition
-            headText={i.heading.split("-").join(" ")}
-            para={i.subHeading}
-            redirectUrl={i.perma_link}
-          />
-        ))}
+      {/* {solutionData.parent.text != null && (
+        <Markdown className={LayoutStyle.markDownStyle}>
+          {solutionData.parent.text}
+        </Markdown>
+      )} */}
+      {/* {solutionData.allChildren?.map((i) => (
+        <Recognition
+          key={i}
+          headText={i.heading.split("-").join(" ")}
+          para={i.subHeading}
+          redirectUrl={i.perma_link}
+        />
+      ))} */}
 
-      {/* <Recognition
+      <Recognition
         headText="Have Questions?"
         para="If you have any questions or doubt please feel free to contact us        "
         btnTitle="Write us"
         redirectUrl="/contact/write-us"
-      /> */}
-      <div style={{marginTop:"-12rem"}}>
-        <Carousel
+      />
+      <div style={{ marginTop: "-12rem" }}>
+        {/* <Carousel
           title="our it solutions categories"
-          data={props.portfolio.data}
-        />
+          data={portfolioData.data}
+        /> */}
       </div>
     </>
   );
 }
 
-export default index;
-
-export async function getServerSideProps(context) {
-  const solutionResponse = await axios.get(
-    `${BaseApi}/service/all/+services+it-solutions`
-  );
-  const solutions = await solutionResponse.data;
-  const portfolioResponse = await axios.get(`${BaseApi}/portfolio/all`);
-  const portfolio = await portfolioResponse.data;
-
-  return {
-    props: {
-      solutions,
-      portfolio,
-    },
-  };
-}
+export default Index;

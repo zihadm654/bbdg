@@ -5,14 +5,10 @@ import Recognition from "../../components/Recognition";
 import { useRouter } from "next/router";
 import { BaseApi } from "../../utils/utils";
 import CenterText from "../../components/Text/CenterText";
-import CustomHead from "../../helpers/header/CustomHead";
 import Markdown from "markdown-to-jsx";
-import LayoutStyle from "../../helpers/layout/layout.module.css"
+import LayoutStyle from "../../helpers/layout/layout.module.css";
 
 const SubServicesList = (service) => {
-  const router = useRouter();
-  // console.log(router);
-
   return (
     <Recognition
       key={service._id}
@@ -50,11 +46,10 @@ const SubSection = (props) => {
   const route = RouteCreater(props.slug);
 
   const Content = parentDetails.text;
-  console.log(Content)
+  console.log(Content);
 
   return (
     <>
-      <CustomHead title={parentHeading} />
       <Banner>
         <p
           className={BannerStyle.smallHeading}
@@ -81,16 +76,14 @@ const SubSection = (props) => {
 
 export async function getServerSideProps({ params: { slug } }) {
   var perma_link = `+services+${slug.join("+")}`;
-  const response = await axios.get(
-    `${BaseApi}/service/all/${perma_link}`
-  );
+  const response = await axios.get(`${BaseApi}/service/all/${perma_link}`);
   const data = await response.data;
 
   return {
     props: {
       res: data,
       slug,
-      perma_link
+      perma_link,
     },
   };
 }

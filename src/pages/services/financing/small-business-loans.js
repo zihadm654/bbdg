@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import style from "./small_business_loans.module.css";
 import Banner from "../../../helpers/Banner/Banner";
 import BannerStyle from "../../../helpers/Banner/Banner.module.css";
@@ -6,27 +6,37 @@ import Feature from "../../../components/Feature";
 import LayoutCSS from "../../../helpers/layout/layout.module.css";
 import CashFlow from "../../../components/SBL/CashFlow";
 import QualityService from "../../../components/Qualityservice";
-import CustomHead from "../../../helpers/header/CustomHead";
 import PrimaryButton from "../../../components/Buttons/PrimaryButton";
 
 import axios from "axios";
 import { BaseApi } from "../../../utils/utils";
 import Markdown from "markdown-to-jsx";
+import imag from "../../../assets/images/imag.png";
+function SBL() {
+  const [post, setPost] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      const Indicatorresponse = await axios.get(
+        `${BaseApi}/universal/smallbusinessloans1`
+      );
 
-function SBL(props) {
+      const Idata = await Indicatorresponse.data;
+      setPost(Idata);
+    };
+    fetchData();
+  }, []);
   const Content = `<p><strong>Bajaj Global Business Development &amp; Consultancy Group (BBDG) small business loans</strong></p><p><strong>Bajaj Global Business Development &amp; Consultancy Group (BBDG) </strong>has a special business loan for small entrepreneurs who wish to grab an excellent opportunity or overcome business challenges. The same is designed to help you to quickly identify and access the funds needed for your business on a flexible term*</p><p>*<em>Conditions apply.</em></p><p><strong>Bajaj Global Business Development &amp; Consultancy Group (BBDG) financing options - </strong></p><ul><li>Supplement cash flow</li><li>Purchase equipment, software or hardware</li><li>Cash for everyday use</li><li>To sell products online</li><li>Upgrade your business and purchase inventory</li><li>Run marketing campaigns</li><li>Hire a professional service provider or business consultant</li><li>Cover expenses, pay rent, etc.</li></ul><p>Bajaj Global Business Development &amp; Consultancy Group (BBDG) financing options tailored to your needs -</p><ul><li>Unparalleled flexibility</li><li>Postpone principal payments</li><li>Repay loans at your own pace</li><li>Affordable and convenient loans</li><li>No application fees</li><li>No penalties</li><li>No lump sum payment</li><li>Peace of mind</li></ul><p><em>We do not take personal assets as collateral security for the loan.</em></p><p><strong>Bajaj Global Business Development &amp; Consultancy Group (BBDG) financing options are available for the following - </strong></p><ul><li>Businesses in operation for at least 2 years</li><li>Businesses generating revenues</li><li>Good credit history</li><li>International entrepreneurs</li></ul>`;
 
-  const IndicatorData = props.response.data;
+  const IndicatorData = post.data;
 
-  const Indicators = IndicatorData.map((x) => {
-    return {
-      percentage: x.description,
-      subHeading: x.title,
-    };
-  });
+  // const Indicators = IndicatorData.map((x) => {
+  //   return {
+  //     percentage: x.description,
+  //     subHeading: x.title,
+  //   };
+  // });
   return (
     <>
-      <CustomHead title="SMALL BUSINESS LOANS" />
       <Banner>
         <p className={BannerStyle.smallHeading}>
           SERVICES <i className="fas fa-chevron-right"></i> FINANCING{" "}
@@ -47,7 +57,7 @@ function SBL(props) {
       <Markdown className={LayoutCSS.markDownStyle}>{Content}</Markdown>
       <Feature
         heading="FEATURE OF OUR LOANS"
-        image="../assets/images/imag.png"
+        image={imag}
         imageTitle="TOTAL FREEDOM TO DO BUSINESS"
         points={[
           {
@@ -65,7 +75,7 @@ function SBL(props) {
         ]}
       />
       <CashFlow />
-      <QualityService IndicatorArray={Indicators} />
+      {/* <QualityService IndicatorArray={Indicators} /> */}
       <div className={LayoutCSS.RootDiv + " " + style.Last}>
         <h1 className={style.heading}>READY TO TAKE ACTION</h1>
         <div className={style.buttons}>
@@ -77,17 +87,3 @@ function SBL(props) {
 }
 
 export default SBL;
-
-export async function getServerSideProps() {
-  const Indicatorresponse = await axios.get(
-    `${BaseApi}/universal/smallbusinessloans1`
-  );
-
-  const Idata = await Indicatorresponse.data;
-
-  return {
-    props: {
-      response: Idata,
-    },
-  };
-}

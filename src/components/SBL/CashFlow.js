@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import style from "./CashFlow.module.css";
-
+import groupImg from "../../assets/images/group.png";
 const Data = [
   {
     name: "SUPLLEMENT CASH FLOW",
@@ -12,7 +12,7 @@ const Data = [
       // "The ability to connect up to 32 times clocks",
       "Employee self-enrollment",
     ],
-    image: "../assets/images/group.png",
+    image: { groupImg },
   },
   {
     name: "SELL ONLINE",
@@ -24,7 +24,7 @@ const Data = [
       "The ability to connect up to 32 times clocks",
       "Employee self-enrollment",
     ],
-    image: "../assets/images/group.png",
+    image: { groupImg },
   },
   {
     name: "COVER EXPENSES",
@@ -36,7 +36,7 @@ const Data = [
       // "The ability to connect up to 32 times clocks",
       "Employee self-enrollment",
     ],
-    image: "../assets/images/group.png",
+    image: { groupImg },
   },
 ];
 
@@ -55,6 +55,7 @@ function CashFlow({ heading }) {
             return (
               <>
                 <button
+                  key={index}
                   className={
                     CurrentSection.name === section.name
                       ? style.IndustriesButtonActive
@@ -73,7 +74,7 @@ function CashFlow({ heading }) {
         </div>
 
         <div className={style.IndustriesContent}>
-          <img src={CurrentSection.image}></img>
+          <img src={CurrentSection.image} alt="currentImg" />
           <div className={style.IndustriesContentText}>
             <div className={style.IndustriesContentTexta}>
               <p>{CurrentSection.top}</p>
@@ -84,7 +85,9 @@ function CashFlow({ heading }) {
             <ol className={style.IndustriesContentTextcol}>
               {CurrentSection.points.map((li, index) => {
                 return (
-                  <li className={style.IndustriesContentTextcolLi}>{li}</li>
+                  <li key={index} className={style.IndustriesContentTextcolLi}>
+                    {li}
+                  </li>
                 );
               })}
             </ol>

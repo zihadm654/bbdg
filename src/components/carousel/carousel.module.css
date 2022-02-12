@@ -29,7 +29,8 @@
   white-space: nowrap;
 }
 
-.mainDiv ul li:hover, .active {
+.mainDiv ul li:hover,
+.active {
   border-bottom: 3px solid #7abaf7;
 }
 
@@ -90,7 +91,8 @@
   z-index: 10;
 }
 
-.carousel, .carousel ul {
+.carousel,
+.carousel ul {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -113,10 +115,10 @@
 
 @media screen and (max-width: 810px) {
   .mainDiv {
-    padding: 5rem 5%
+    padding: 5rem 5%;
   }
   .mainDiv ul li {
-    margin: .4rem 100%;
+    margin: 0.4rem 100%;
   }
   .customCard {
     width: 100%;
@@ -140,4 +142,21 @@
   .title {
     font-size: 2rem;
   }
+}
+.react-multi-carousel-list {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+.react-multi-carousel-track {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  will-change: transform, transition;
 }

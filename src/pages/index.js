@@ -20,35 +20,39 @@ import Carousel from "react-multi-carousel";
 
 import img from "../assets/images/Mask Group-6.png";
 import img1 from "../assets/images/Mask Group-1.png";
+import imag from "../assets/images/imag.png";
 export default function Home() {
   // const [Work, setWork] = useState(props.res.data);
   const [servicesData, setServicesData] = useState([]);
   const [portfolioData, setPortfolioData] = useState([]);
+
   useEffect(() => {
     document.title = "Home | BBDG";
-    async function fetchData() {
-      try {
-        const fetchData = await axios.get(
-          "https://bbdg-backend.herokuapp.com/service/all",
-          {}
-        );
-        const arrays = fetchData.data.data.allChildren;
-      } catch (err) {
-        console.log(err);
-      }
+    axios
+      .get("https://bbdg-backend.herokuapp.com/service/all", {})
+      .then((res) => {
+        const array = res.data;
+        const data = array.data.allChildren;
+      });
 
-      const res = await axios.get(`${BaseApi}/portfolio/all`);
-      const portfolioRes = await res.data;
-      setPortfolioData(portfolioRes);
+    axios
+      .get(`${BaseApi}/portfolio/all`)
+      .then((res) => {
+        const portfolioRes = res.data;
+        const portfolio = portfolioRes.data;
+        setPortfolioData(portfolio);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
 
-      const data = await axios.get(`${BaseApi}/service/all`);
-      const servicesRes = data.data;
+    axios.get(`${BaseApi}/service/all`).then((res) => {
+      const servicesRes = res.data;
       const services = servicesRes.data.allChildren;
       setServicesData(services);
-    }
-    fetchData();
+    });
   }, []);
-  const servicesCard = servicesData.map((data, index) => {
+  const servicesCard = servicesData?.map((data, index) => {
     return (
       <ServicesCard
         key={index}
@@ -118,7 +122,7 @@ export default function Home() {
         </div>
         <Feature
           heading="BBDG'S ALL CORE FEATURE"
-          image="../assets/images/imag.png"
+          image={imag}
           imageTitle="TOTAL DESIGN FREEDOM FOR EVERYONE"
           points={[
             {
@@ -139,7 +143,7 @@ export default function Home() {
         {/* <Portfolio IndicatorArray={Indicators} /> */}
         <CustomeCarousel
           title="OUR IT SOLUTIONS CATEGORIES"
-          data={portfolioData.data}
+          data={portfolioData}
         />
         {/* {Work ? <Works Data={Work} /> : <></>} */}
         <div id="Contact">
