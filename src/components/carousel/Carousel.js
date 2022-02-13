@@ -4,7 +4,6 @@ import { ImageBaseUrl } from "../../utils/utils";
 import { useLocation } from "react-router";
 
 const Card = ({ img, heading, subHeading, url }) => {
-  console.log(url);
   return (
     <a href={url} key={url}>
       <div className={style.customCard}>

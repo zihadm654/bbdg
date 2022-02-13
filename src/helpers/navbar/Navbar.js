@@ -21,7 +21,6 @@ const Navbar = () => {
     });
   }, []);
   useEffect(() => {
-    console.log("forced closing navbar");
     setCurrentRoute(pathname);
     setMenuOpened(false);
   }, [pathname]);

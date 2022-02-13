@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import styles from "./primarybutton.module.css";
 
 function PrimaryButton({ dark, text, url = "", newPage }) {
@@ -6,7 +7,7 @@ function PrimaryButton({ dark, text, url = "", newPage }) {
 
   return (
     <div>
-      <a href={url} target={newPage ? "_blank" : ""} rel="noreferrer">
+      <Link to={url} target={newPage ? "_blank" : ""} rel="noreferrer">
         <button
           style={
             isDark
@@ -27,7 +28,7 @@ function PrimaryButton({ dark, text, url = "", newPage }) {
         >
           {text}
         </button>
-      </a>
+      </Link>
     </div>
   );
 }

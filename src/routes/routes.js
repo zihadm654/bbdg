@@ -28,6 +28,9 @@ import Write from "../pages/contact/write-us";
 import BusinessPlan from "../pages/services/advisory/business-plan-template";
 import Careers from "../pages/about/careers/index";
 import Details from "../pages/iam/details";
+import BlogDetails from "../pages/blog/details";
+// import ServiceDetail from "../pages/services/details";
+
 const Routers = () => {
   return (
     <>
@@ -79,6 +82,11 @@ const Routers = () => {
           path="/services/advisory/business-plan-template"
           element={<BusinessPlan />}
         />
+        <Route
+          path="/services/articles-and-tools/newsletters-and-economic-letter"
+          element={<ArticleTools />}
+        />
+        {/* <Route path="/services/articles-and-tools/" */}
 
         {/* contact sub routes */}
         <Route path="/contact/terms-of-use" element={<TermUse />} />
@@ -88,7 +96,11 @@ const Routers = () => {
         <Route path="/contact/write-us" element={<Write />} />
 
         {/* dynamic routes */}
+
+        {/* iam routes */}
         <Route path="/iam/:id" element={<Details />} />
+        {/* blogs dynamic routes */}
+        <Route path="blog/:id" element={<BlogDetails />} />
       </Routes>
     </>
   );

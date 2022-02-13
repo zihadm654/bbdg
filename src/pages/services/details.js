@@ -2,11 +2,12 @@ import Banner from "../../helpers/Banner/Banner";
 import BannerStyle from "../../helpers/Banner/Banner.module.css";
 import axios from "axios";
 import Recognition from "../../components/Recognition";
-import { useRouter } from "next/router";
 import { BaseApi } from "../../utils/utils";
 import CenterText from "../../components/Text/CenterText";
 import Markdown from "markdown-to-jsx";
 import LayoutStyle from "../../helpers/layout/layout.module.css";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router";
 
 const SubServicesList = (service) => {
   return (
@@ -19,12 +20,23 @@ const SubServicesList = (service) => {
   );
 };
 
-const SubSection = (props) => {
-  console.log(props);
-  const router = useRouter();
-  const parentDetails = props.res.data.parent;
-  const subServices = props.res.data.allChildren;
-  const parentHeading = props.slug[props.slug.length - 1].split("-").join(" ");
+const SubSection = () => {
+  const [post, setPost] = useState([]);
+  const { id } = useParams(null);
+  const slug = id;
+  useEffect(() => {
+    const fetchData = async () => {
+      let perma_link = `+services+${slug.join("+")}`;
+      const response = await axios.get(`${BaseApi}/service/all/${perma_link}`);
+      const data = await response.data;
+      setPost(data);
+    };
+    fetchData();
+  }, [slug]);
+  console.log(post);
+  const parentDetails = post.data.parent;
+  const subServices = post.data.allChildren;
+  const parentHeading = post.slug[post.slug.length - 1].split("-").join(" ");
   // const parentHeading = "ll"
   const RouteCreater = (routeArray) => {
     var route = `services <i class='fas fa-chevron-right'></i> `;
@@ -43,7 +55,7 @@ const SubSection = (props) => {
     return route;
   };
 
-  const route = RouteCreater(props.slug);
+  const route = RouteCreater(post.slug);
 
   const Content = parentDetails.text;
   console.log(Content);
@@ -73,19 +85,5 @@ const SubSection = (props) => {
     </>
   );
 };
-
-export async function getServerSideProps({ params: { slug } }) {
-  var perma_link = `+services+${slug.join("+")}`;
-  const response = await axios.get(`${BaseApi}/service/all/${perma_link}`);
-  const data = await response.data;
-
-  return {
-    props: {
-      res: data,
-      slug,
-      perma_link,
-    },
-  };
-}
 
 export default SubSection;

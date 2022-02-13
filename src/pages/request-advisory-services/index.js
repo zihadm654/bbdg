@@ -84,7 +84,7 @@ const AdvisoryServices = ({ serviceData }) => {
       setIsVisible(true);
       setGlobalMessage("please fill description.");
     } else {
-      console.log("inside else");
+      // console.log("inside else");
       setIsVisible(false);
       setGlobalMessage("");
       postApi();

@@ -1,15 +1,14 @@
 import style from "./footer.module.css";
+import Logo from "../../assets/images/logo.png";
+import { Link } from "react-router-dom";
+
 const Footer = () => {
   return (
     <>
       <div className={style.mainDiv}>
         <div className={style.mainContainer}>
           <div className={style.mainSubDiv}>
-            <img
-              className={style.logoImg}
-              src="../assets/images/logo.png"
-              alt=""
-            ></img>
+            <img className={style.logoImg} src={Logo} alt="logo" />
             <p className={style.companyDescription}>
               5 Cherrycrest Drive, Brampton, ON L6P 3W4, Canada.
             </p>
@@ -58,41 +57,41 @@ const Footer = () => {
               <div className={style.subDiv}>
                 <h3 className={style.divHeading}>I AM</h3>
                 <li className={style.listItem}>
-                  <a href="/iam/60caef5270e111253c0782a1">A professional</a>
+                  <Link to="/iam/60caef5270e111253c0782a1">A professional</Link>
                 </li>
                 <li className={style.listItem}>
-                  <a href="/iam/60caef4970e111253c0782a0">
+                  <Link to="/iam/60caef4970e111253c0782a0">
                     A woman entrepreneur
-                  </a>
+                  </Link>
                 </li>
                 <li className={style.listItem}>
-                  <a href="/iam/60caef2f70e111253c07829d">
+                  <Link to="/iam/60caef2f70e111253c07829d">
                     A newcomer entrepreneur
-                  </a>
+                  </Link>
                 </li>
                 <li className={style.listItem}>
-                  <a href="/iam/60caef2270e111253c07829c">
+                  <Link to="/iam/60caef2270e111253c07829c">
                     A technology entrepreneur
-                  </a>
+                  </Link>
                 </li>
                 <li className={style.listItem}>
-                  <a href="/iam/60caef1170e111253c07829b">A supplier</a>
+                  <Link to="/iam/60caef1170e111253c07829b">A supplier</Link>
                 </li>
               </div>
               <div className={style.subDiv}>
                 <h3 className={style.divHeading}>QUICK LINKS</h3>
                 <li className={style.listItem}>
-                  <a href="/services/financing/small-business-loans">
+                  <Link to="/services/financing/small-business-loans">
                     Small business loans
-                  </a>
+                  </Link>
                 </li>
                 <li className={style.listItem}>
-                  <a href="/services/advisory/business-plan-template">
+                  <Link to="/services/advisory/business-plan-template">
                     Business Plan Template
-                  </a>
+                  </Link>
                 </li>
                 <li className={style.listItem + " " + style.dialButton}>
-                  <a href="/about/careers">Careers</a>
+                  <Link to="/about/careers">Careers</Link>
                 </li>
               </div>
               <div className={style.subDiv}>
@@ -105,15 +104,15 @@ const Footer = () => {
                     <a>Newsletter</a>
                   </li>
                 </Link> */}
-                <a href="/about/news-and-events">
+                <Link to="/about/news-and-events">
                   <li className={style.listItem}>News And Events</li>
-                </a>
-                <a href="/services/articles-and-tools/newsletters-and-economic-letter">
+                </Link>
+                <Link to="/services/articles-and-tools/newsletters-and-economic-letter">
                   <div className={style.emailDiv}>
                     <p>Subscribe</p>
                     <i className={"fas fa-arrow-right " + style.emailIcon}></i>
                   </div>
-                </a>
+                </Link>
                 <a href="/#Contact">
                   <div className={style.emailDiv}>
                     <p>Email</p>
@@ -124,19 +123,19 @@ const Footer = () => {
             </div>
             <div className={style.footerServices}>
               <li className={style.listItem}>
-                <a href="/about">About Us</a>
+                <Link to="/about">About Us</Link>
               </li>
               <li className={style.listItem}>
-                <a href="/contact/terms-of-use">Terms of Use</a>
+                <Link to="/contact/terms-of-use">Terms of Use</Link>
               </li>
               <li className={style.listItem}>
-                <a href="/contact/confidentiality">Confidentiality</a>
+                <Link to="/contact/confidentiality">Confidentiality</Link>
               </li>
               <li className={style.listItem}>
-                <a href="/contact/security">Security</a>
+                <Link to="/contact/security">Security</Link>
               </li>
               <li className={style.listItem}>
-                <a href="/contact/transparency">Transparency</a>
+                <Link to="/contact/transparency">Transparency</Link>
               </li>
             </div>
           </div>

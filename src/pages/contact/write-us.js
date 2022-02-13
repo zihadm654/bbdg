@@ -256,7 +256,7 @@ const WriteUs = () => {
   };
   const checkAccept = (e) => {
     setAccept(e.target.checked);
-    console.log(e.target.checked);
+    // console.log(e.target.checked);
   };
   return (
     <>

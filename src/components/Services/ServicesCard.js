@@ -1,8 +1,9 @@
+import { Link } from "react-router-dom";
 import style from "./ServicesCard.module.css";
 const ServicesCard = ({ heading, subHeading, image, url }) => {
   return (
     <>
-      <a href={url} className={style.mainCardDiv}>
+      <Link to={url} className={style.mainCardDiv}>
         <div className={style.upperDiv}>
           <div className={style.imgDiv}>
             <img className={style.cardImg} src={image} alt="..." />
@@ -12,7 +13,7 @@ const ServicesCard = ({ heading, subHeading, image, url }) => {
         <div className={style.contentDiv}>
           <p className={style.contentText}>{subHeading}</p>
         </div>
-      </a>
+      </Link>
     </>
   );
 };

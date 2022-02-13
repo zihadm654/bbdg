@@ -108,6 +108,9 @@
   font-size: 1.8em;
   transform: 2s;
 }
+.searchIcon a {
+  color: #000;
+}
 .searchIcon:hover {
   transform: scale(1.1);
   cursor: pointer;

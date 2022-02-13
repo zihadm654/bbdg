@@ -24,7 +24,7 @@ function Index() {
       });
   }, []);
   if (!post) return <h3>Loading...</h3>;
-  console.log(post);
+  // console.log(post);
   // const childrens = post.data.allChildren;
   // const childrensList = childrens.map((children) => {
   //   return (

@@ -81,7 +81,6 @@ const Index = () => {
       );
       const res = await response.data;
       const data = res.data[0];
-      console.log(data);
 
       setLastArticleId(data.lastServiceId);
       setNextService(data.isNextAvailable);
@@ -145,9 +144,12 @@ const Index = () => {
       case "all":
         setIsAll(true);
         setAllData(blogsData);
-        setActiveMenu("all");
+        setActiveMenu("blog");
         break;
       default:
+        setIsArticle(true);
+        setAllData(articlesData);
+        setActiveMenu("service");
     }
   };
 
