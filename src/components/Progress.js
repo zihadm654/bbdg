@@ -13,25 +13,23 @@ function Progress({ heading, datas }) {
         <div className={style.barContainer}>
           {datas.map((data, index) => {
             return (
-              <>
-                <div className={style.bar} key={index}>
-                  <CircularProgressbar
-                    strokeWidth={2}
-                    styles={buildStyles({
-                      rotation: 0,
-                      strokeLinecap: "round",
-                      textSize: "1rem",
-                      pathTransitionDuration: 0.5,
-                      pathColor: `#7ABAF7`,
-                      textColor: "#fff",
-                      trailColor: "none",
-                    })}
-                    value={data.percentage}
-                    text={`${data.percentage}%`}
-                  />
-                  <h2>{data.subHeading}</h2>
-                </div>
-              </>
+              <div className={style.bar} key={index}>
+                <CircularProgressbar
+                  strokeWidth={2}
+                  styles={buildStyles({
+                    rotation: 0,
+                    strokeLinecap: "round",
+                    textSize: "1rem",
+                    pathTransitionDuration: 0.5,
+                    pathColor: `#7ABAF7`,
+                    textColor: "#fff",
+                    trailColor: "none",
+                  })}
+                  value={data.percentage}
+                  text={`${data.percentage}%`}
+                />
+                <h2>{data.subHeading}</h2>
+              </div>
             );
           })}
         </div>

@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import styles from "../Home.module.css";
 import HomePage from "../components/HomePage";
 import Project from "../components/Project";
-import Card from "../components/Card";
+// import Card from "../components/Card";
 import Feature from "../components/Feature";
 
-import Portfolio from "../components/Home/Portfolio";
-import Works from "../components/Home/Work";
+// import Portfolio from "../components/Home/Portfolio";
+// import Works from "../components/Home/Work";
 import SendMessage from "../components/SendMessage";
-import OurClients from "../components/Home/OurClients";
+// import OurClients from "../components/Home/OurClients";
 import Industries from "../components/Home/Industries";
 import CustomeCarousel from "../components/carousel/Carousel";
 
@@ -23,33 +23,29 @@ import img1 from "../assets/images/Mask Group-1.png";
 import imag from "../assets/images/imag.png";
 export default function Home() {
   // const [Work, setWork] = useState(props.res.data);
-  const [servicesData, setServicesData] = useState([]);
   const [portfolioData, setPortfolioData] = useState([]);
+  const [servicesData, setServicesData] = useState([]);
 
   useEffect(() => {
     document.title = "Home | BBDG";
-    axios
-      .get("https://bbdg-backend.herokuapp.com/service/all", {})
-      .then((res) => {
-        const array = res.data;
-        const data = array.data.allChildren;
-      });
 
-    axios
-      .get(`${BaseApi}/portfolio/all`)
-      .then((res) => {
-        const portfolioRes = res.data;
-        setPortfolioData(portfolioRes.data);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
+    // axios.get("https://bbdg-backend.herokuapp.com/service/all").then((res) => {
+    //   const array = res.data;
+    //   const data = array.data.allChildren;
+    // });
+    const getData = async () => {
+      const res = await axios.get(`${BaseApi}/portfolio/all`);
+      const portfolioRes = res.data;
+      setPortfolioData(portfolioRes.data);
+    };
+    getData();
 
     axios.get(`${BaseApi}/service/all`).then((res) => {
       const servicesRes = res.data;
       setServicesData(servicesRes.data.allChildren);
     });
   }, []);
+
   const servicesCard = servicesData?.map((data, index) => {
     return (
       <ServicesCard

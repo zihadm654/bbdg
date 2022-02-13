@@ -1,5 +1,3 @@
-import { useState } from "react";
-import { useEffect } from "react";
 import style from "./Modal.module.css";
 
 function Modal({ message = "Your message has been saved successfully" }) {

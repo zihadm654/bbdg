@@ -2,7 +2,7 @@ import Banner from "../../../helpers/Banner/Banner";
 import BannerStyle from "../../../helpers/Banner/Banner.module.css";
 import styles from "../policy.module.css";
 import Markdown from "markdown-to-jsx";
-import LayoutStyle from "../../../helpers/layout/layout.module.css";
+// import LayoutStyle from "../../../helpers/layout/layout.module.css";
 
 function Index() {
   var Content = `

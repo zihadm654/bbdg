@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styles from "./project.module.css";
 function Project({ heading, image, url = "/", isActive = false }) {
   return (
@@ -11,12 +12,12 @@ function Project({ heading, image, url = "/", isActive = false }) {
           }
         >
           <p className={styles.blueheading}>{heading}</p>
-          <a href={url}>
+          <Link to={url}>
             <div className={styles.bluecircle}>
               {" "}
               <i className="fas fa-chevron-right"></i>
             </div>
-          </a>
+          </Link>
         </div>
       </div>
     </>

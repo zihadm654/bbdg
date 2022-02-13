@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import Banner from "../../helpers/Banner/Banner";
 import BannerStyle from "../../helpers/Banner/Banner.module.css";
 import layoutStyle from "../../helpers/layout/layout.module.css";
-import Recognition from "../../components/Recognition";
+// import Recognition from "../../components/Recognition";
 import style from "./search.module.css";
 import axios from "axios";
 import { BaseApi } from "../../utils/utils";
-import CenterText from "../../components/Text/CenterText";
+// import CenterText from "../../components/Text/CenterText";
 import SecondaryButton from "../../components/Buttons/SecondaryButton";
 import { Spinner } from "react-bootstrap";
 

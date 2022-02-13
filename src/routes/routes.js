@@ -30,7 +30,7 @@ import Careers from "../pages/about/careers/index";
 import Details from "../pages/iam/details";
 import BlogDetails from "../pages/blog/details";
 // import ServiceDetail from "../pages/services/details";
-
+import WriteUs from "../pages/contact/terms-of-use/write-us";
 const Routers = () => {
   return (
     <>
@@ -72,7 +72,9 @@ const Routers = () => {
         <Route path="/services/advisory" element={<Advisory />} />
         <Route path="/services/financing" element={<Finance />} />
         <Route path="/services/business-acquisitions" element={<Finance />} />
+        <Route path="/services/industries" element={<Finance />} />
         <Route path="/services/it-solutions" element={<ItSolutions />} />
+        <Route path="/services/digital-marketing" element={<ItSolutions />} />
         <Route path="/services/articles-and-tools" element={<ArticleTools />} />
         <Route
           path="/services/financing/small-business-loans"
@@ -86,6 +88,10 @@ const Routers = () => {
           path="/services/articles-and-tools/newsletters-and-economic-letter"
           element={<ArticleTools />}
         />
+        {/* <Route
+          path="/services/articles-and-tools/newsletters-and-economic-letter"
+          element={<ArticleTools />}
+        /> */}
         {/* <Route path="/services/articles-and-tools/" */}
 
         {/* contact sub routes */}
@@ -94,6 +100,7 @@ const Routers = () => {
         <Route path="/contact/security" element={<Security />} />
         <Route path="/contact/transparency" element={<Tranparency />} />
         <Route path="/contact/write-us" element={<Write />} />
+        <Route path="/contact/terms-of-use/write-us" element={<WriteUs />} />
 
         {/* dynamic routes */}
 

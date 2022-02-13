@@ -16,49 +16,49 @@ const NavigationProjectCards = () => {
         heading="WHO WE ARE"
         url="/about/who-we-are"
         image={group6__img}
-        isActive={pathname == "/about/who-we-are" ? true : false}
+        isActive={pathname === "/about/who-we-are" ? true : false}
       />
       <ProjectCard
         heading="WHAT WE DO"
         url="/about/what-we-do"
         image={group1__img}
-        isActive={pathname == "/about/what-we-do" ? true : false}
+        isActive={pathname === "/about/what-we-do" ? true : false}
       />
       <ProjectCard
         heading="ANALYSIS AND REASEARCH"
         url="/about/analysis-and-research"
         image={group5__img}
-        isActive={pathname == "/about/analysis-and-research" ? true : false}
+        isActive={pathname === "/about/analysis-and-research" ? true : false}
       />
       <ProjectCard
         heading="MEDIA ROOM"
         url="/about/media-room"
         image={group4__img}
-        isActive={pathname == "/about/media-room" ? true : false}
+        isActive={pathname === "/about/media-room" ? true : false}
       />
       <ProjectCard
         heading="EVENTS AND SPONSORSHIPS"
         url="/about/events-and-sponsorships"
         image={group3__img}
-        isActive={pathname == "/about/events-and-sponsorships" ? true : false}
+        isActive={pathname === "/about/events-and-sponsorships" ? true : false}
       />
       <ProjectCard
         heading="CORPORATE GOVERNANCE"
         url="/about/corporate-governance"
         image={group__img}
-        isActive={pathname == "/about/corporate-governance" ? true : false}
+        isActive={pathname === "/about/corporate-governance" ? true : false}
       />
       <ProjectCard
         heading="AWARDS AND DISTINCTIONS"
         url="/about/award-and-distinctions"
         image={group2__img}
-        isActive={pathname == "/about/award-and-distinctions" ? true : false}
+        isActive={pathname === "/about/award-and-distinctions" ? true : false}
       />
       <ProjectCard
         heading="B CORPS"
         url="/about/b-corps"
         image={group1__img}
-        isActive={pathname == "/about/b-corps" ? true : false}
+        isActive={pathname === "/about/b-corps" ? true : false}
       />
     </>
   );

@@ -13,14 +13,14 @@ const WriteUs = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [mobile, setMobile] = useState("");
-  const [role, setRole] = useState(null);
-  const [email, setEmail] = useState();
-  const [confirmEmail, setConfirmEmail] = useState();
-  const [source, setSource] = useState(null);
+  const [role, setRole] = useState("");
+  const [email, setEmail] = useState("");
+  const [confirmEmail, setConfirmEmail] = useState("");
+  const [source, setSource] = useState("");
   const [company, setCompany] = useState("");
   const [address, setAddress] = useState("");
-  const [city, setCity] = useState(null);
-  const [state, setState] = useState(null);
+  const [city, setCity] = useState("");
+  const [state, setState] = useState("");
   const [pin, setPin] = useState("");
   const [website, setWebsite] = useState("");
   const [saleRange, setSaleRange] = useState("");
@@ -332,8 +332,8 @@ const WriteUs = () => {
               >
                 <option
                   className={style.dropdownElement}
-                  value="null"
-                  selected={role == null}
+                  value=""
+                  selected={role === ""}
                 >
                   Select Job Role
                 </option>
@@ -412,8 +412,8 @@ const WriteUs = () => {
               >
                 <option
                   className={style.dropdownElement}
-                  value="null"
-                  selected={source == null}
+                  value=""
+                  selected={source === ""}
                 >
                   How did you hear about BBDG
                 </option>
@@ -506,8 +506,8 @@ const WriteUs = () => {
               >
                 <option
                   className={style.dropdownElement}
-                  value="null"
-                  selected={state == null}
+                  value=""
+                  selected={state === ""}
                 >
                   Select State
                 </option>
@@ -548,8 +548,8 @@ const WriteUs = () => {
               >
                 <option
                   className={style.dropdownElement}
-                  value="null"
-                  selected={saleRange == null}
+                  value=""
+                  selected={saleRange === ""}
                 >
                   Select Gross sales range
                 </option>

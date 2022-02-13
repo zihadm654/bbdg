@@ -18,7 +18,7 @@ const Banner = (props) => {
         setCount((count) => count + 1);
       }
     }, 8000);
-  }, [count]);
+  }, [count, images.length]);
   return (
     <div className={style.mainHomeDiv}>
       <div className={style.rightDiv}>

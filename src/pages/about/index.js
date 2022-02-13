@@ -4,12 +4,12 @@ import Banner from "../../helpers/Banner/Banner";
 import BannerStyle from "../../helpers/Banner/Banner.module.css";
 import LayoutStyle from "../../helpers/layout/layout.module.css";
 import styles from "./about-us.module.css";
-import Card from "../../components/Card";
+// import Card from "../../components/Card";
 import PrimaryButton from "../../components/Buttons/PrimaryButton";
-import Industries from "../../components/Home/Industries";
+// import Industries from "../../components/Home/Industries";
 import CenterText from "../../components/Text/CenterText";
-import ProjectCard from "../../components/Project";
-import Progress from "../../components/Progress";
+// import ProjectCard from "../../components/Project";
+// import Progress from "../../components/Progress";
 import { BaseApi } from "../../utils/utils";
 import axios from "axios";
 import NavigationProjectCards from "../../components/Abous-Us/NavigationProjectCards";
@@ -23,7 +23,7 @@ const AboutUS = () => {
       try {
         const aboutServices = await axios.get(`${BaseApi}/about/all`);
         const servicesData = aboutServices.data;
-        const data = servicesData.data.allChildren
+        const data = servicesData.data.allChildren;
         setServicesData(data);
       } catch (err) {
         console.error(err);
@@ -97,7 +97,7 @@ const AboutUS = () => {
       /> */}
 
       {/* // about us services */}
-      <div style={{ padding: "3rem 0rem" }}>{ }</div>
+      <div style={{ padding: "3rem 0rem" }}>{aboutServicesChildrens}</div>
       <div className={styles.video}>
         <iframe
           width="100%"

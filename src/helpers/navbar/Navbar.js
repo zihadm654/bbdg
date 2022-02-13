@@ -5,7 +5,7 @@ import { useLocation } from "react-router";
 import logoImg from "../../assets/images/logo.png";
 const Navbar = () => {
   const { pathname } = useLocation();
-  const [currentRoute, setCurrentRoute] = useState(pathname);
+  const [currentRoute, setCurrentRoute] = useState();
 
   const [scroll, setScroll] = useState(100);
   const [isSmall, setIsSmall] = useState(false);
@@ -58,7 +58,7 @@ const Navbar = () => {
               className={
                 pathname.startsWith("/home/")
                   ? style.activeNavElement
-                  : pathname == "/"
+                  : pathname === "/"
                   ? style.activeNavElement
                   : style.navElement
               }

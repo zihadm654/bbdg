@@ -6,8 +6,8 @@ import SecondaryButton from "./Buttons/SecondaryButton";
 // import isEmail from 'validator/es/lib/isEmail';
 import validator from "validator";
 
-const ContactUs = ({ location }) => {
-  const [xlocation, setxlocation] = useState(location);
+const ContactUs = () => {
+  // const [xlocation, setxlocation] = useState(location);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");

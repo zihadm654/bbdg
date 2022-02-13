@@ -79,7 +79,7 @@ const Index = () => {
         className={
           isNextAvailable === false
             ? styles.hidden
-            : loadMore == true
+            : loadMore === true
             ? styles.hidden
             : styles.buttonContainer
         }
@@ -88,7 +88,7 @@ const Index = () => {
       </div>
 
       <div
-        className={loadMore == false ? styles.hidden : styles.buttonContainer}
+        className={loadMore === false ? styles.hidden : styles.buttonContainer}
       >
         <CenterText paragraphs="Loading..." />
       </div>

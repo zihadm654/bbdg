@@ -2,8 +2,8 @@ import Banner from "../../../helpers/Banner/Banner";
 import BannerStyle from "../../../helpers/Banner/Banner.module.css";
 import LayoutStyle from "../../../helpers/layout/layout.module.css";
 import styles from "../about-us.module.css";
-import ProjectCard from "../../../components/Project";
-import CenterText from "../../../components/Text/CenterText";
+// import ProjectCard from "../../../components/Project";
+// import CenterText from "../../../components/Text/CenterText";
 import NavigationProjectCard from "../../../components/Abous-Us/NavigationProjectCards";
 import Markdown from "markdown-to-jsx";
 

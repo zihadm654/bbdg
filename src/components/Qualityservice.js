@@ -42,7 +42,8 @@ function QualityService(IndicatorArray) {
         <Col md={4} className={styles.QScardcontainer}>
           <img
             className={styles.QSimgcontainer}
-            src="../assets../assets/images/man.png"
+            src="../assets/images/man.png"
+            alt="man"
           />
         </Col>
         <Col md={2}></Col>

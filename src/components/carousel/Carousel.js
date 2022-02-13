@@ -2,10 +2,11 @@ import { useState } from "react";
 import style from "./carousel.module.css";
 import { ImageBaseUrl } from "../../utils/utils";
 import { useLocation } from "react-router";
+import { Link } from "react-router-dom";
 
 const Card = ({ img, heading, subHeading, url }) => {
   return (
-    <a href={url} key={url}>
+    <Link to={url} key={url}>
       <div className={style.customCard}>
         <img src={img} alt="" width="220" height="240" />
         <div className={style.blueContainer}>
@@ -15,13 +16,15 @@ const Card = ({ img, heading, subHeading, url }) => {
           <p className={style.projectSubHeading}>{subHeading}</p>
         </div>
       </div>
-    </a>
+    </Link>
   );
 };
 
 function Carousel({ title, data }) {
   const [position, setPosition] = useState(0);
   const { pathname } = useLocation();
+  const posts = data[position];
+  if (!posts) <p>Loading ...</p>;
   return (
     <>
       <div className={style.mainDiv}>
@@ -39,22 +42,24 @@ function Carousel({ title, data }) {
             ))}
         </ul>
         <div className={style.carousel}>
-          {/* {data[position].contents.map((item) => (
-            <Card
-              url={
-                pathname.toString === "/"
-                  ? "/services/it-solutions/portfolio?q=" +
-                    data[position].name.toLowerCase()
-                  : pathname.toString +
-                    "/" +
-                    "portfolio?q=" +
-                    data[position].name.toLowerCase()
-              }
-              img={ImageBaseUrl + item.image}
-              heading={item.heading}
-              subHeading={item.sub_heading}
-            />
-          ))} */}
+          {posts &&
+            posts.contents.map((item, i) => (
+              <Card
+                key={i}
+                url={
+                  pathname.toString === "/"
+                    ? "/services/it-solutions/portfolio?q=" +
+                      data[position].name.toLowerCase()
+                    : pathname.toString +
+                      "/" +
+                      "portfolio?q=" +
+                      data[position].name.toLowerCase()
+                }
+                img={ImageBaseUrl + item.image}
+                heading={item.heading}
+                subHeading={item.sub_heading}
+              />
+            ))}
         </div>
       </div>
     </>

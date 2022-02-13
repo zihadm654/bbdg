@@ -1,7 +1,7 @@
 import Banner from "../../../helpers/Banner/Banner";
-import style from "./it-solutions.module.css";
+// import style from "./it-solutions.module.css";
 import BannerStyle from "../../../helpers/Banner/Banner.module.css";
-import PrimaryButton from "../../../components/Buttons/PrimaryButton";
+// import PrimaryButton from "../../../components/Buttons/PrimaryButton";
 import axios from "axios";
 import { BaseApi } from "../../../utils/utils";
 import Recognition from "../../../components/Recognition";
@@ -11,10 +11,9 @@ import Markdown from "markdown-to-jsx";
 import LayoutStyle from "../../../helpers/layout/layout.module.css";
 
 function Index() {
-  const [index, setIndex] = useState(0);
+  // const [index, setIndex] = useState(0);
   const [solutionData, setSolutionData] = useState([]);
   const [portfolioData, setPortfolioData] = useState([]);
-  console.log(portfolioData);
   useEffect(() => {
     const fetchData = async () => {
       const solutionResponse = await axios.get(
@@ -29,7 +28,7 @@ function Index() {
     };
     fetchData();
   }, []);
-  // console.log(solutionData);
+  console.log(solutionData);
   return (
     <>
       <Banner>
@@ -52,7 +51,7 @@ function Index() {
           {solutionData.parent.text}
         </Markdown>
       )} */}
-      {/* {solutionData.allChildren?.map((i) => (
+      {/* {solutionData.allChildren.map((i) => (
         <Recognition
           key={i}
           headText={i.heading.split("-").join(" ")}
@@ -68,10 +67,7 @@ function Index() {
         redirectUrl="/contact/write-us"
       />
       <div style={{ marginTop: "-12rem" }}>
-        {/* <Carousel
-          title="our it solutions categories"
-          data={portfolioData.data}
-        /> */}
+        <Carousel title="our it solutions categories" data={portfolioData} />
       </div>
     </>
   );

@@ -40,7 +40,7 @@ const Data = [
   },
 ];
 
-function CashFlow({ heading }) {
+function CashFlow() {
   const [CurrentSection, setCurrentSection] = useState(Data[0]);
   return (
     <>
@@ -52,22 +52,15 @@ function CashFlow({ heading }) {
                         <button>1 CLICK DEMO INSTALL</button> */}
           {Data.map((section, index) => {
             return (
-              <>
-                <button
-                  key={index}
-                  className={
-                    CurrentSection.name === section.name
-                      ? style.IndustriesButtonActive
-                      : ""
-                  }
-                  onClick={(e) => {
-                    // console.log(CurrentSection.name ===section.name)
-                    setCurrentSection(Data[index]);
-                  }}
-                >
-                  {section.name}
-                </button>
-              </>
+              <button
+                key={index}
+                className={section.name ? style.IndustriesButtonActive : ""}
+                onClick={(e) => {
+                  setCurrentSection(Data[index]);
+                }}
+              >
+                {section.name}
+              </button>
             );
           })}
         </div>
