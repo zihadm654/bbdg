@@ -5,7 +5,6 @@ import { useLocation } from "react-router";
 import logoImg from "../../assets/images/logo.png";
 const Navbar = () => {
   const { pathname } = useLocation();
-  const [currentRoute, setCurrentRoute] = useState();
 
   const [scroll, setScroll] = useState(100);
   const [isSmall, setIsSmall] = useState(false);
@@ -21,7 +20,6 @@ const Navbar = () => {
     });
   }, []);
   useEffect(() => {
-    setCurrentRoute(pathname);
     setMenuOpened(false);
   }, [pathname]);
 

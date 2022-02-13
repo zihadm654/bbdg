@@ -21,20 +21,20 @@ function SBL() {
       );
 
       const Idata = await Indicatorresponse.data;
-      setPost(Idata);
+      setPost(Idata.data);
     };
     fetchData();
   }, []);
   const Content = `<p><strong>Bajaj Global Business Development &amp; Consultancy Group (BBDG) small business loans</strong></p><p><strong>Bajaj Global Business Development &amp; Consultancy Group (BBDG) </strong>has a special business loan for small entrepreneurs who wish to grab an excellent opportunity or overcome business challenges. The same is designed to help you to quickly identify and access the funds needed for your business on a flexible term*</p><p>*<em>Conditions apply.</em></p><p><strong>Bajaj Global Business Development &amp; Consultancy Group (BBDG) financing options - </strong></p><ul><li>Supplement cash flow</li><li>Purchase equipment, software or hardware</li><li>Cash for everyday use</li><li>To sell products online</li><li>Upgrade your business and purchase inventory</li><li>Run marketing campaigns</li><li>Hire a professional service provider or business consultant</li><li>Cover expenses, pay rent, etc.</li></ul><p>Bajaj Global Business Development &amp; Consultancy Group (BBDG) financing options tailored to your needs -</p><ul><li>Unparalleled flexibility</li><li>Postpone principal payments</li><li>Repay loans at your own pace</li><li>Affordable and convenient loans</li><li>No application fees</li><li>No penalties</li><li>No lump sum payment</li><li>Peace of mind</li></ul><p><em>We do not take personal assets as collateral security for the loan.</em></p><p><strong>Bajaj Global Business Development &amp; Consultancy Group (BBDG) financing options are available for the following - </strong></p><ul><li>Businesses in operation for at least 2 years</li><li>Businesses generating revenues</li><li>Good credit history</li><li>International entrepreneurs</li></ul>`;
 
-  const IndicatorData = post.data;
-
-  // const Indicators = IndicatorData.map((x) => {
-  //   return {
-  //     percentage: x.description,
-  //     subHeading: x.title,
-  //   };
-  // });
+  const Indicators =
+    post &&
+    post.map((x) => {
+      return {
+        percentage: x.description,
+        subHeading: x.title,
+      };
+    });
   return (
     <>
       <Banner>
@@ -75,7 +75,7 @@ function SBL() {
         ]}
       />
       <CashFlow />
-      {/* <QualityService IndicatorArray={Indicators} /> */}
+      <QualityService IndicatorArray={Indicators} />
       <div className={LayoutCSS.RootDiv + " " + style.Last}>
         <h1 className={style.heading}>READY TO TAKE ACTION</h1>
         <div className={style.buttons}>

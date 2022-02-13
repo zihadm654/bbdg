@@ -32,8 +32,8 @@ const Data = [
     mid: "If you are going to use a passage of lorem ipsum , you Need to be sure there isn't anything embarrassing hidden in thethe middle of text",
     points: [
       "Self-contained state of the art time clock",
-      // "Scalability of up to 500 employess per time clock",
-      // "The ability to connect up to 32 times clocks",
+      "Scalability of up to 500 employess per time clock",
+      "The ability to connect up to 32 times clocks",
       "Employee self-enrollment",
     ],
     image: { groupImg },
@@ -47,9 +47,11 @@ function CashFlow() {
       <div className={style.Industries} id="Industries">
         <h1>WE WORK WITH INDUSTRIES</h1>
         <div className={style.IndustriesButton}>
-          {/* <button ClassName={style.IndustriesButtonActive}>LATEST TECHNOLOGY</button>
-                        <button>AWSOME SUPPORT</button>
-                        <button>1 CLICK DEMO INSTALL</button> */}
+          <button className={style.IndustriesButtonActive}>
+            LATEST TECHNOLOGY
+          </button>
+          <button>AWSOME SUPPORT</button>
+          <button>1 CLICK DEMO INSTALL</button>
           {Data.map((section, index) => {
             return (
               <button

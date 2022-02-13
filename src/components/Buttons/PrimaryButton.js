@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./primarybutton.module.css";
 
 function PrimaryButton({ dark, text, url = "", newPage }) {
-  const [isDark, setIsDark] = useState(dark);
-
+  const [isDark, setIsDark] = useState("");
+  useEffect(() => {
+    setIsDark(dark);
+  }, [dark]);
   return (
     <div>
       <Link to={url} target={newPage ? "_blank" : ""} rel="noreferrer">

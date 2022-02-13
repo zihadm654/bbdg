@@ -28,7 +28,7 @@ function Index() {
     };
     fetchData();
   }, []);
-  console.log(solutionData);
+  console.log(solutionData.parent.text);
   return (
     <>
       <Banner>
@@ -46,19 +46,20 @@ function Index() {
           SITUATIONS
         </p>
       </Banner>
-      {/* {solutionData.parent.text != null && (
+      {solutionData && solutionData.parent.text != null && (
         <Markdown className={LayoutStyle.markDownStyle}>
-          {solutionData.parent.text}
+          {solutionData && solutionData.parent.text}
         </Markdown>
-      )} */}
-      {/* {solutionData.allChildren.map((i) => (
-        <Recognition
-          key={i}
-          headText={i.heading.split("-").join(" ")}
-          para={i.subHeading}
-          redirectUrl={i.perma_link}
-        />
-      ))} */}
+      )}
+      {/* {solutionData &&
+        solutionData.allChildren.map((i) => (
+          <Recognition
+            key={i}
+            headText={i.heading.split("-").join(" ")}
+            para={i.subHeading}
+            redirectUrl={i.perma_link}
+          />
+        ))} */}
 
       <Recognition
         headText="Have Questions?"

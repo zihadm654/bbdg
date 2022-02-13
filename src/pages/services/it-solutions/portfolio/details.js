@@ -1,30 +1,33 @@
 import { useEffect, useState } from "react";
 import style from "./id.module.css";
-import { useRouter } from "next/router";
-import Link from "next/link";
-import CustomHead from "../../../../helpers/header/CustomHead";
 import Banner from "../../../../helpers/Banner/Banner";
 import BannerStyle from "../../../../helpers/Banner/Banner.module.css";
 import axios from "axios";
 import { BaseApi, ImageBaseUrl } from "../../../../utils/utils";
+import { useLocation } from "react-router";
 
-function index(props) {
-  const router = useRouter();
-
-  const urlArray = router.asPath.split("/");
+function Index(props) {
+  // const [posts, setPosts] = useState([]);
+  const { pathname } = useLocation();
+  const urlArray = pathname.toString.split("/");
   const tab = urlArray[urlArray.length - 1].split("%20").join(" ");
   const [mainIndex, setMainIndex] = useState(0);
   const [index, setIndex] = useState(0);
-  const [data, setData] = useState(props.portfolio.data);
-
+  const [data, setData] = useState([]);
   useEffect(() => {
+    const fetchData = async () => {
+      const portfolioResponse = await axios.get(`${BaseApi}/portfolio/all`);
+      const portfolio = await portfolioResponse.data;
+      setData(portfolio);
+    };
+    fetchData();
     const i = data.findIndex((item) => item.name.toLowerCase() === tab);
-    if (i == -1) {
+    if (i === -1) {
       setMainIndex(0);
     } else {
       setMainIndex(i);
     }
-  }, []);
+  }, [data, tab]);
 
   const moveDown = () => {
     if (index > 0) setIndex((prev) => prev - 1);
@@ -36,7 +39,6 @@ function index(props) {
 
   return (
     <>
-      <CustomHead title="PORTFOLIO" />
       <Banner>
         <p className={BannerStyle.smallHeading}>
           SERVICES <i className="fas fa-chevron-right"></i>
@@ -97,15 +99,4 @@ function index(props) {
   );
 }
 
-export default index;
-
-export async function getServerSideProps(context) {
-  const portfolioResponse = await axios.get(`${BaseApi}/portfolio/all`);
-  const portfolio = await portfolioResponse.data;
-
-  return {
-    props: {
-      portfolio,
-    },
-  };
-}
+export default Index;

@@ -3,8 +3,8 @@ import BannerStyle from "../../helpers/Banner/Banner.module.css";
 import axios from "axios";
 // import CenterText from "../../components/Text/CenterText";
 import { BaseApi } from "../../utils/utils";
-// import Markdown from "markdown-to-jsx";
-// import LayoutStyle from "../../helpers/layout/layout.module.css";
+import Markdown from "markdown-to-jsx";
+import LayoutStyle from "../../helpers/layout/layout.module.css";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 
@@ -23,9 +23,8 @@ const SubSection = () => {
         console.error(err);
       });
   }, [id]);
-  // const Content = post.text_data.replace("&#39;", "'");
-  // console.log(Content);
-  if (!post) return <h4>Loading...</h4>;
+  const Content = post && post.text_data;
+  // const Content = post && post.text_data.replace("&#39;", "'");
   return (
     <>
       <Banner>
@@ -38,7 +37,7 @@ const SubSection = () => {
         <br></br>
         <p className={BannerStyle.midHeading}>{post.sub_heading}</p>
       </Banner>
-      {/* <Markdown className={LayoutStyle.markDownStyle}>{Content}</Markdown> */}
+      <Markdown className={LayoutStyle.markDownStyle}>{Content}</Markdown>
     </>
   );
 };

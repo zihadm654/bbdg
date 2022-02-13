@@ -11,8 +11,8 @@ import { useLocation } from "react-router";
 
 function Index() {
   const { pathname } = useLocation();
-  const [limit, setLimit] = useState(5);
-  const [limitBlogs, setLimitBlogs] = useState([]);
+  const [limit, setLimit] = useState(0);
+  // const [limitBlogs, setLimitBlogs] = useState([]);
   const [loadMore, setLoadMore] = useState(false);
   const [isNextAvailable, setIsNextAvailable] = useState();
   const [lastBlogId, setLastBlogId] = useState("");
@@ -20,13 +20,14 @@ function Index() {
   const [moreBlog, setMoreBlog] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
+      setLimit(5);
       // fetching first 5 blogs
       const blogRef = await axios.get(`${BaseApi}/blog/all?limit=5`);
       const limitData = await blogRef.data;
       const data = limitData.data;
 
       // all the limit blogs
-      setLimitBlogs(data);
+      // setLimitBlogs(data);
 
       setLastBlogId(data[0].lastBlogId);
       setBlogList(data[0].foundBlogs);
@@ -46,13 +47,13 @@ function Index() {
           setMoreBlog(res.data);
 
           setLoadMore(true);
-          // console.log(moreBlog.data[0].lastBlogId);
           setLastBlogId(moreBlog.data[0].lastBlogId);
           setIsNextAvailable(moreBlog.data[0].isNextAvailable);
           const newBlogData = moreBlog.data[0].foundBlogs;
           let blogArray = [...blogList];
           newBlogData.map((blogData) => {
-            blogArray.push(blogData);
+            const blogLists = blogArray.push(blogData);
+            return blogLists;
           });
           setBlogList(blogArray);
           setLoadMore(false);

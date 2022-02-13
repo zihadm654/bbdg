@@ -9,14 +9,15 @@ import SecondaryButton from "../../../../components/Buttons/SecondaryButton";
 import CenterText from "../../../../components/Text/CenterText";
 
 const Index = () => {
-  const [post, setPost] = useState([]);
-  const [limit, setLimit] = useState(2);
+  // const [post, setPost] = useState([]);
+  const [limit, setLimit] = useState(0);
   const [loadMore, setLoadMore] = useState(false);
   const [isNextAvailable, setIsNextAvailable] = useState(null);
   const [lastNewsLetterId, setLastNewLetterId] = useState("");
   const [newsLetterArray, setNewsLetterArray] = useState([]);
 
   useEffect(() => {
+    setLimit(2);
     const fetchData = async () => {
       const response = await axios.get(
         `${BaseApi}/newsletterandeventletters/all`
@@ -24,7 +25,7 @@ const Index = () => {
       const data = await response.data;
       const articleData = await data.data[0];
 
-      setPost(articleData);
+      // setPost(articleData);
       setIsNextAvailable(articleData.isNextAvailable);
       setLastNewLetterId(articleData.lastNewsLetterId);
       setNewsLetterArray(articleData.foundNewsLetters);
@@ -42,7 +43,8 @@ const Index = () => {
     const newData = res.data[0].foundNewsLetters;
     var LetterArray = [...newsLetterArray];
     newData.map((letterData) => {
-      LetterArray.push(letterData);
+      const newList = LetterArray.push(letterData);
+      return newList;
     });
     setNewsLetterArray(LetterArray);
     setLoadMore(false);

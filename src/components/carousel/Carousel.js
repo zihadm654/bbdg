@@ -47,7 +47,7 @@ function Carousel({ title, data }) {
               <Card
                 key={i}
                 url={
-                  pathname.toString === "/"
+                  pathname === "/"
                     ? "/services/it-solutions/portfolio?q=" +
                       data[position].name.toLowerCase()
                     : pathname.toString +

@@ -31,6 +31,8 @@ import Details from "../pages/iam/details";
 import BlogDetails from "../pages/blog/details";
 // import ServiceDetail from "../pages/services/details";
 import WriteUs from "../pages/contact/terms-of-use/write-us";
+import Portfolio from "../pages/services/it-solutions/portfolio/index";
+// import PortfolioDetails from "../pages/services/it-solutions/portfolio/details";
 const Routers = () => {
   return (
     <>
@@ -108,6 +110,8 @@ const Routers = () => {
         <Route path="/iam/:id" element={<Details />} />
         {/* blogs dynamic routes */}
         <Route path="blog/:id" element={<BlogDetails />} />
+        <Route path="services/it-solutions/portfolio" element={<Portfolio />} />
+        {/* <Route path="services/ite-solutions/portfolio/:id" element={<PortfolioDetails />}/> */}
       </Routes>
     </>
   );

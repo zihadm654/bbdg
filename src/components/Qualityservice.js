@@ -2,12 +2,12 @@ import { Row, Col } from "react-bootstrap";
 import styles from "./QualityService.module.css";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
-
+import manImg from "../assets/images/man.png";
 function QualityService(IndicatorArray) {
   const IndicatorData = IndicatorArray.IndicatorArray;
-  const CircularProgress = IndicatorData.map((data) => {
+  const CircularProgress = IndicatorData.map((data, i) => {
     return (
-      <div className={styles.progressDiv}>
+      <div key={i} className={styles.progressDiv}>
         <CircularProgressbar
           strokeWidth={3}
           styles={buildStyles({
@@ -40,11 +40,7 @@ function QualityService(IndicatorArray) {
           <div className={styles.indicators}>{CircularProgress}</div>
         </Col>
         <Col md={4} className={styles.QScardcontainer}>
-          <img
-            className={styles.QSimgcontainer}
-            src="../assets/images/man.png"
-            alt="man"
-          />
+          <img className={styles.QSimgcontainer} src={manImg} alt="man" />
         </Col>
         <Col md={2}></Col>
       </Row>
