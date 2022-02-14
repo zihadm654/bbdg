@@ -8,8 +8,11 @@ import BannerStyle from "../../../../helpers/Banner/Banner.module.css";
 import axios from "axios";
 import { BaseApi } from "../../../../utils/utils";
 // import WideCarousel from "../../../../components/wideCarousel";
+import { useParams } from "react-router";
 
 function Index() {
+  const q = useParams(null);
+  console.log(q);
   const [posts, setPosts] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
@@ -19,7 +22,6 @@ function Index() {
     };
     fetchData();
   }, []);
-  // const { q } = router.query;
   console.log(posts);
   return (
     <>

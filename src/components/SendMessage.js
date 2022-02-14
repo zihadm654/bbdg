@@ -5,7 +5,6 @@ import Modal from "../helpers/Modal/Modal";
 import SecondaryButton from "./Buttons/SecondaryButton";
 // import isEmail from 'validator/es/lib/isEmail';
 import validator from "validator";
-
 const ContactUs = () => {
   // const [xlocation, setxlocation] = useState(location);
   const [name, setName] = useState("");

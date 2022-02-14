@@ -20,7 +20,7 @@ function Index() {
         `${BaseApi}/service/all/+services+it-solutions`
       );
       const solutions = await solutionResponse.data;
-      setSolutionData(solutions.data);
+      setSolutionData(solutions.data.parent);
 
       const portfolioResponse = await axios.get(`${BaseApi}/portfolio/all`);
       const portfolio = await portfolioResponse.data;
@@ -28,7 +28,6 @@ function Index() {
     };
     fetchData();
   }, []);
-  console.log(solutionData.parent.text);
   return (
     <>
       <Banner>
@@ -46,9 +45,9 @@ function Index() {
           SITUATIONS
         </p>
       </Banner>
-      {solutionData && solutionData.parent.text != null && (
+      {solutionData && solutionData.text != null && (
         <Markdown className={LayoutStyle.markDownStyle}>
-          {solutionData && solutionData.parent.text}
+          {solutionData && solutionData.text}
         </Markdown>
       )}
       {/* {solutionData &&

@@ -3,7 +3,7 @@ import BannerStyle from "../../helpers/Banner/Banner.module.css";
 import axios from "axios";
 import Recognition from "../../components/Recognition";
 import { BaseApi } from "../../utils/utils";
-import CenterText from "../../components/Text/CenterText";
+// import CenterText from "../../components/Text/CenterText";
 import Markdown from "markdown-to-jsx";
 import LayoutStyle from "../../helpers/layout/layout.module.css";
 import { useEffect, useState } from "react";
@@ -33,7 +33,7 @@ const SubSection = () => {
     };
     fetchData();
   }, [slug]);
-  console.log(post);
+  // console.log(post);
   const parentDetails = post.data.parent;
   const subServices = post.data.allChildren;
   const parentHeading = post.slug[post.slug.length - 1].split("-").join(" ");
@@ -58,7 +58,7 @@ const SubSection = () => {
   const route = RouteCreater(post.slug);
 
   const Content = parentDetails.text;
-  console.log(Content);
+  // console.log(Content);
 
   return (
     <>

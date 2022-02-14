@@ -26,18 +26,19 @@ const Card = ({ img, heading, subHeading, url }) => {
 
 function WideCarousel({ tab, title, data, indexValue = 0 }) {
   const [index, setIndex] = useState(indexValue);
-  const [content, setContent] = useState(data);
+  const [content, setContent] = useState([]);
   const [currentLimit, setCurrentLimit] = useState(3);
   const [expectedCount, setExpectedCount] = useState(currentLimit);
   const { pathname } = useLocation();
   useEffect(() => {
-    const i = content.findIndex((item) => item.name.toLowerCase() === tab);
-    if (i === -1) {
-      setIndex(0);
-    } else {
-      setIndex(i);
-    }
-  }, [tab]);
+    setContent(data);
+    // const i = content.findIndex((item) => item.name.toLowerCase() === tab);
+    // if (i === -1) {
+    //   setIndex(0);
+    // } else {
+    //   setIndex(i);
+    // }
+  }, [data]);
 
   return (
     <>

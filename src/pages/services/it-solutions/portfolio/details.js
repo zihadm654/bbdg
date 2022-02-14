@@ -6,8 +6,7 @@ import axios from "axios";
 import { BaseApi, ImageBaseUrl } from "../../../../utils/utils";
 import { useLocation } from "react-router";
 
-function Index(props) {
-  // const [posts, setPosts] = useState([]);
+function Index() {
   const { pathname } = useLocation();
   const urlArray = pathname.toString.split("/");
   const tab = urlArray[urlArray.length - 1].split("%20").join(" ");
@@ -18,7 +17,7 @@ function Index(props) {
     const fetchData = async () => {
       const portfolioResponse = await axios.get(`${BaseApi}/portfolio/all`);
       const portfolio = await portfolioResponse.data;
-      setData(portfolio);
+      setData(portfolio.data);
     };
     fetchData();
     const i = data.findIndex((item) => item.name.toLowerCase() === tab);
@@ -28,14 +27,14 @@ function Index(props) {
       setMainIndex(i);
     }
   }, [data, tab]);
-
+  console.log(data);
   const moveDown = () => {
-    if (index > 0) setIndex((prev) => prev - 1);
+    // if (index > 0) setIndex((prev) => prev - 1);
   };
-  const moveUp = () => {
-    if (index < props.portfolio.data[mainIndex].contents.length - 1)
-      setIndex((prev) => prev + 1);
-  };
+  // const moveUp = () => {
+  //   if (index < data.data[mainIndex].contents.length - 1)
+  //     setIndex((prev) => prev + 1);
+  // };
 
   return (
     <>
@@ -48,7 +47,7 @@ function Index(props) {
           <span className={BannerStyle.lowOpacity}>{data[mainIndex].name}</span>
         </p>
 
-        <p className={BannerStyle.BigHeading}>{data[mainIndex].name} </p>
+        {/* <p className={BannerStyle.BigHeading}>{data[mainIndex].name} </p> */}
         <p className={BannerStyle.midHeading}>
           <br></br>
           HAVE A LOOK AT OUR
@@ -79,7 +78,7 @@ function Index(props) {
           <span onClick={moveDown}>
             <i class="fas fa-chevron-left"></i>
           </span>
-          <img
+          {/* <img
             src={
               ImageBaseUrl +
               props.portfolio.data[mainIndex].contents[index].image
@@ -88,11 +87,11 @@ function Index(props) {
             width="600"
             height="600"
             style={{ objectFit: "cover" }}
-          />
-          <span onClick={moveUp}>
+          /> */}
+          {/* <span onClick={moveUp}>
             <i className="fas fa-chevron-right"></i>
           </span>
-          <p>{props.portfolio.data[mainIndex].contents[index].text_data}</p>
+          <p>{props.portfolio.data[mainIndex].contents[index].text_data}</p> */}
         </div>
       </div>
     </>

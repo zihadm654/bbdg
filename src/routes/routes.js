@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route } from "react-router";
+import { Routes, Route, Navigate } from "react-router";
 import Home from "../pages/index";
 import About from "../pages/about/index";
 import Services from "../pages/services/index";
@@ -90,11 +90,6 @@ const Routers = () => {
           path="/services/articles-and-tools/newsletters-and-economic-letter"
           element={<ArticleTools />}
         />
-        {/* <Route
-          path="/services/articles-and-tools/newsletters-and-economic-letter"
-          element={<ArticleTools />}
-        /> */}
-        {/* <Route path="/services/articles-and-tools/" */}
 
         {/* contact sub routes */}
         <Route path="/contact/terms-of-use" element={<TermUse />} />
@@ -112,6 +107,7 @@ const Routers = () => {
         <Route path="blog/:id" element={<BlogDetails />} />
         <Route path="services/it-solutions/portfolio" element={<Portfolio />} />
         {/* <Route path="services/ite-solutions/portfolio/:id" element={<PortfolioDetails />}/> */}
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </>
   );

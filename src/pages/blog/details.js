@@ -15,25 +15,24 @@ const SubSection = () => {
     const fetchData = async () => {
       const response = await axios.get(`${BaseApi}/blog/${id}`);
       const data = await response.data;
-      setPost(data);
+      setPost(data.data[0]);
     };
     fetchData();
   }, [id]);
-  const Data = post.data[0];
 
   return (
     <>
       <Banner>
         <p className={BannerStyle.smallHeading}>
           blog <i className="fas fa-chevron-right"></i>
-          <span className={BannerStyle.lowOpacity}> {Data.heading}</span>
+          <span className={BannerStyle.lowOpacity}> {post.heading}</span>
         </p>
         <br></br>
-        <p className={BannerStyle.BigHeading}>{Data.heading}</p>
+        <p className={BannerStyle.BigHeading}>{post.heading}</p>
         <br></br>
-        <p className={BannerStyle.midHeading}>{Data.sub_heading}</p>
+        <p className={BannerStyle.midHeading}>{post.sub_heading}</p>
       </Banner>
-      <CenterText paragraphs={Data.text_data} />
+      <CenterText paragraphs={post.text_data} />
     </>
   );
 };
