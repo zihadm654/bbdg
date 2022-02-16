@@ -8,7 +8,7 @@ import { useLocation } from "react-router";
 
 function Index() {
   const { pathname } = useLocation();
-  const urlArray = pathname.toString.split("/");
+  const urlArray = pathname.split("/");
   const tab = urlArray[urlArray.length - 1].split("%20").join(" ");
   const [mainIndex, setMainIndex] = useState(0);
   const [index, setIndex] = useState(0);
@@ -20,22 +20,20 @@ function Index() {
       setData(portfolio.data);
     };
     fetchData();
-    const i = data.findIndex((item) => item.name.toLowerCase() === tab);
+    const i = data && data.findIndex((item) => item.name.toLowerCase() === tab);
     if (i === -1) {
       setMainIndex(0);
     } else {
       setMainIndex(i);
     }
   }, [data, tab]);
-  console.log(data);
   const moveDown = () => {
-    // if (index > 0) setIndex((prev) => prev - 1);
+    if (index > 0) setIndex((prev) => prev - 1);
   };
-  // const moveUp = () => {
-  //   if (index < data.data[mainIndex].contents.length - 1)
-  //     setIndex((prev) => prev + 1);
-  // };
-
+  const moveUp = () => {
+    if (index < data.data[mainIndex].contents.length - 1)
+      setIndex((prev) => prev + 1);
+  };
   return (
     <>
       <Banner>
@@ -44,10 +42,12 @@ function Index() {
           IT SOLUTIONS
           <i className="fas fa-chevron-right"></i>PORTFOLIO
           <i className="fas fa-chevron-right"></i>
-          <span className={BannerStyle.lowOpacity}>{data[mainIndex].name}</span>
+          <span className={BannerStyle.lowOpacity}>
+            {data[mainIndex]?.name}
+          </span>
         </p>
 
-        {/* <p className={BannerStyle.BigHeading}>{data[mainIndex].name} </p> */}
+        <p className={BannerStyle.BigHeading}>{data[mainIndex]?.name} </p>
         <p className={BannerStyle.midHeading}>
           <br></br>
           HAVE A LOOK AT OUR
@@ -76,22 +76,19 @@ function Index() {
 
         <div className={style.imageContainer}>
           <span onClick={moveDown}>
-            <i class="fas fa-chevron-left"></i>
+            <i className="fas fa-chevron-left"></i>
           </span>
-          {/* <img
-            src={
-              ImageBaseUrl +
-              props.portfolio.data[mainIndex].contents[index].image
-            }
+          <img
+            src={ImageBaseUrl + data[mainIndex]?.contents[index].image}
             alt=""
             width="600"
             height="600"
             style={{ objectFit: "cover" }}
-          /> */}
-          {/* <span onClick={moveUp}>
+          />
+          <span onClick={moveUp}>
             <i className="fas fa-chevron-right"></i>
           </span>
-          <p>{props.portfolio.data[mainIndex].contents[index].text_data}</p> */}
+          <p>{data[mainIndex]?.contents[index].text_data}</p>
         </div>
       </div>
     </>

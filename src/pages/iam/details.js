@@ -9,22 +9,18 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 
 const SubSection = () => {
-  const [post, setPost] = useState([]);
+  const [post, setPost] = useState("");
   const { id } = useParams(null);
 
   useEffect(() => {
-    axios
-      .get(`${BaseApi}/iam/${id}`)
-      .then((res) => {
-        const data = res.data;
-        setPost(data.data[0]);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
+    const fetchData = async () => {
+      const res = await axios.get(`${BaseApi}/iam/${id}`);
+      const data = await res.data;
+      setPost(data.data[0].text_data);
+    };
+    fetchData();
   }, [id]);
-  const Content = post && post.text_data;
-  // const Content = post && post.text_data.replace("&#39;", "'");
+  const Content = post && post.replace("&amp;", "'");
   return (
     <>
       <Banner>

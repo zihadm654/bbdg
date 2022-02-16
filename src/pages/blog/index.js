@@ -99,7 +99,7 @@ function Index() {
         <SecondaryButton text="View More" dark />
       </div>
       <div
-        className={loadMore === false ? styles.hidden : styles.buttonContainer}
+        className={loadMore === false ? styles.buttonContainer : styles.hidden}
       >
         <CenterText paragraphs="Loading..." />
       </div>

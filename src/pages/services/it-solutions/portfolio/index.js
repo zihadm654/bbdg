@@ -7,12 +7,12 @@ import BannerStyle from "../../../../helpers/Banner/Banner.module.css";
 // import CenterText from "../../../../components/Text/CenterText";
 import axios from "axios";
 import { BaseApi } from "../../../../utils/utils";
-// import WideCarousel from "../../../../components/wideCarousel";
-import { useParams } from "react-router";
+import WideCarousel from "../../../../components/wideCarousel";
+import { useSearchParams } from "react-router-dom";
 
 function Index() {
-  const q = useParams(null);
-  console.log(q);
+  const [searchParams] = useSearchParams();
+  const q = searchParams.get("q");
   const [posts, setPosts] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
@@ -22,7 +22,6 @@ function Index() {
     };
     fetchData();
   }, []);
-  console.log(posts);
   return (
     <>
       <Banner>
@@ -31,10 +30,10 @@ function Index() {
           IT SOLUTIONS
           <i className="fas fa-chevron-right"></i>PORTFOLIO{" "}
           <i className="fas fa-chevron-right"></i>
-          <span className={BannerStyle.lowOpacity}> {} </span>
+          <span className={BannerStyle.lowOpacity}> {q} </span>
         </p>
 
-        <p className={BannerStyle.BigHeading}>{} </p>
+        <p className={BannerStyle.BigHeading}>{q} </p>
         <p className={BannerStyle.midHeading}>
           <br></br>
           HAVE A LOOK AT OUR
@@ -44,11 +43,7 @@ function Index() {
           PROJECTS THAT WE HAVE COMPLETED
         </p>
       </Banner>
-      {/* <WideCarousel
-        data={posts && posts.data}
-        // tab={}
-        title="our work showcase"
-      /> */}
+      <WideCarousel data={posts.data} tab={q} title="our work showcase" />
     </>
   );
 }

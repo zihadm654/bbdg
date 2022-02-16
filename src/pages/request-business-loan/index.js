@@ -3,7 +3,6 @@ import Banner from "../../helpers/Banner/Banner";
 import BannerStyle from "../../helpers/Banner/Banner.module.css";
 import LayoutStyle from "../../helpers/layout/layout.module.css";
 import PrimaryButton from "../../components/Buttons/PrimaryButton";
-import Head from "../../helpers/header/CustomHead";
 import SecondaryButton from "../../components/Buttons/SecondaryButton";
 import { useState } from "react";
 import axios from "axios";
@@ -11,7 +10,7 @@ import validator from "validator";
 import Modal from "../../helpers/Modal/Modal";
 import {
   FormControl,
-  FormLabel,
+  // FormLabel,
   FormControlLabel,
   RadioGroup,
   Radio,
@@ -23,16 +22,16 @@ const BusinessLoan = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [mobile, setMobile] = useState("");
-  const [role, setRole] = useState(null);
+  const [role, setRole] = useState("");
   const [email, setEmail] = useState("");
   const [confirmEmail, setConfirmEmail] = useState("");
-  const [source, setSource] = useState(null);
-  const [fresh_business, setFresh_business] = useState(null);
-  const [is_startup, setIs_startup] = useState(null);
+  const [source, setSource] = useState("");
+  const [fresh_business, setFresh_business] = useState("");
+  const [is_startup, setIs_startup] = useState();
   const [accept, setAccept] = useState(false);
   const [age, setAge] = useState("");
   const [introduction, setIntroduction] = useState("");
-  const [amount_of_loan, setAmount_of_loan] = useState(null);
+  const [amount_of_loan, setAmount_of_loan] = useState();
   const [key_points, setKey_points] = useState("");
   const [globalMessage, setGlobalMessage] = useState("");
   const [isVisible, setIsVisible] = useState(false);
@@ -146,15 +145,14 @@ const BusinessLoan = () => {
     root: {
       color: lightBlue[100],
       "&$checked": {
-        color: lightBlue[200]
-      }
+        color: lightBlue[200],
+      },
     },
-    checked: {}
+    checked: {},
   })((props) => <Radio color="default" {...props} />);
 
   return (
     <>
-      <Head title="Request Business Loan" />
       <Banner>
         <p className={BannerStyle.smallHeading}>Request business loan</p>
 
@@ -219,7 +217,6 @@ const BusinessLoan = () => {
                 className={style.halfInputTag}
                 placeholder="Phone No including Extension"
                 value={mobile}
-                type="Number"
                 min="0"
               />
               <select
@@ -231,7 +228,7 @@ const BusinessLoan = () => {
                 <option
                   className={style.dropdownElement}
                   value=""
-                  selected={role == null}
+                  selected={role === ""}
                 >
                   Select Job Role
                 </option>
@@ -310,7 +307,7 @@ const BusinessLoan = () => {
                 <option
                   className={style.dropdownElement}
                   value=""
-                  selected={source == null}
+                  selected={source === ""}
                 >
                   How did you hear about BBDG
                 </option>
@@ -394,7 +391,7 @@ const BusinessLoan = () => {
                 </RadioGroup>
               </FormControl>
             </div>
-            <div class={LayoutStyle.spacer}></div>
+            <div className={LayoutStyle.spacer}></div>
 
             <div className={style.subPersonalInfoDivRadio}>
               <p className={style.inputFieldLabel}>Are you a startup?</p>
@@ -419,7 +416,7 @@ const BusinessLoan = () => {
                 </RadioGroup>
               </FormControl>
             </div>
-            <div class={LayoutStyle.spacer}></div>
+            <div className={LayoutStyle.spacer}></div>
 
             {/* confrimEmailErr ? style.styleErr : style.halfInputTag */}
             <div className={style.subPersonalInfoDiv2}>
@@ -436,7 +433,7 @@ const BusinessLoan = () => {
                 placeholder="Its been how long you are maintaining this business?"
               />
             </div>
-            <div class={LayoutStyle.spacer}></div>
+            <div className={LayoutStyle.spacer}></div>
             <div className={style.subPersonalInfoDiv2}>
               <p className={style.inputFieldLabel}>
                 Give a brief introduction about your business?
@@ -451,7 +448,7 @@ const BusinessLoan = () => {
                 placeholder="Give a brief introduction about your business?"
               ></textarea>
             </div>
-            <div class={LayoutStyle.spacer}></div>
+            <div className={LayoutStyle.spacer}></div>
             <div className={style.subPersonalInfoDiv2}>
               <p className={style.inputFieldLabel}>Select Loan of amount</p>
 
@@ -500,7 +497,7 @@ const BusinessLoan = () => {
                 </option>
               </select>
             </div>
-            <div class={LayoutStyle.spacer}></div>
+            <div className={LayoutStyle.spacer}></div>
             <div className={style.subPersonalInfoDiv2}>
               <p className={style.inputFieldLabel}>
                 What are the key points of your business that can help your
@@ -517,8 +514,8 @@ const BusinessLoan = () => {
             </div>
 
             {isLoading && (
-              <div class="spinner-border" role="status">
-                <span class="visually-hidden">Loading...</span>
+              <div className="spinner-border" role="status">
+                <span className="visually-hidden">Loading...</span>
               </div>
             )}
             {isVisible && <Modal message={globalMessage} />}

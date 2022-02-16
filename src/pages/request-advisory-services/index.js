@@ -3,9 +3,8 @@ import Banner from "../../helpers/Banner/Banner";
 import BannerStyle from "../../helpers/Banner/Banner.module.css";
 import LayoutStyle from "../../helpers/layout/layout.module.css";
 import PrimaryButton from "../../components/Buttons/PrimaryButton";
-import Head from "../../helpers/header/CustomHead";
 import SecondaryButton from "../../components/Buttons/SecondaryButton";
-import { Children, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import validator from "validator";
 import Modal from "../../helpers/Modal/Modal";
@@ -17,9 +16,9 @@ import {
   Radio,
 } from "@material-ui/core";
 import { BaseApi } from "../../utils/utils";
-const AdvisoryServices = ({ serviceData }) => {
-  const [services, setServices] = useState(serviceData.data.allChildren);
-  const [subService, setSubService] = useState(null);
+const AdvisoryServices = () => {
+  const [services, setServices] = useState([]);
+  const [subService, setSubService] = useState("");
   const [description, setDescription] = useState("");
 
   const [perma_link, setPerma_link] = useState("");
@@ -28,11 +27,11 @@ const AdvisoryServices = ({ serviceData }) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [mobile, setMobile] = useState("");
-  const [role, setRole] = useState(null);
+  const [role, setRole] = useState("");
   const [email, setEmail] = useState("");
   const [confirmEmail, setConfirmEmail] = useState();
-  const [source, setSource] = useState(null);
-  const [selectedService, setSelectedService] = useState(null);
+  const [source, setSource] = useState("");
+  const [selectedService, setSelectedService] = useState("");
   const [subServiceLoading, setSubServiceLoading] = useState(false);
   const [accept, setAccept] = useState(false);
 
@@ -123,12 +122,12 @@ const AdvisoryServices = ({ serviceData }) => {
     setFirstName("");
     setLastName("");
     setEmail("");
-    setRole(null);
+    setRole("");
     setMobile("");
     setConfirmEmail("");
-    setSource(null);
-    setSelectedService(null);
-    setSubService(null);
+    setSource("");
+    setSelectedService("");
+    setSubService("");
     setDescription("");
   };
 
@@ -141,7 +140,7 @@ const AdvisoryServices = ({ serviceData }) => {
     setSelectedService(value);
     for (let i = 0; i < services.length; i++) {
       const element = services[i];
-      if (value == element.heading) {
+      if (value === element.heading) {
         console.log("value found for " + element.heading + " on index " + i);
         setPerma_link(element.perma_link);
         break;
@@ -149,6 +148,12 @@ const AdvisoryServices = ({ serviceData }) => {
     }
   };
   useEffect(() => {
+    const fetchData = async () => {
+      const serviceResponse = await axios.get(`${BaseApi}/service/all`);
+      const serviceData = await serviceResponse.data;
+      setServices(serviceData.data.allChildren);
+    };
+    fetchData();
     if (perma_link !== "") {
       setSubServiceLoading(true);
       const updatedPermaLink = perma_link.split("/").join("+");
@@ -164,9 +169,9 @@ const AdvisoryServices = ({ serviceData }) => {
         });
     }
   }, [perma_link]);
+  console.log(services);
   return (
     <>
-      <Head title="Request Advisory Services" />
       <Banner>
         <p className={BannerStyle.smallHeading}>Request Advisory Services</p>
 
@@ -242,7 +247,7 @@ const AdvisoryServices = ({ serviceData }) => {
                 <option
                   className={style.dropdownElement}
                   value=""
-                  selected={role == null}
+                  selected={role === ""}
                 >
                   Select Job Role
                 </option>
@@ -318,7 +323,7 @@ const AdvisoryServices = ({ serviceData }) => {
                 <option
                   className={style.dropdownElement}
                   value=""
-                  selected={source == null}
+                  selected={source === ""}
                 >
                   How did you hear about BBDG
                 </option>
@@ -390,16 +395,17 @@ const AdvisoryServices = ({ serviceData }) => {
                 <option
                   className={style.dropdownElement}
                   value=""
-                  selected={selectedService == null}
+                  selected={selectedService === ""}
                 >
                   Select service
                 </option>
-                {services.map((data, index) => {
+                {services?.map((data, index) => {
                   return (
                     <option
+                      key={index}
                       className={style.dropdownElement}
                       value={data.heading}
-                      selected={selectedService == data.heading}
+                      selected={selectedService === data.heading}
                     >
                       {data.heading}
                     </option>
@@ -407,7 +413,7 @@ const AdvisoryServices = ({ serviceData }) => {
                 })}
               </select>
             </div>
-            <div class={LayoutStyle.spacer}></div>
+            <div className={LayoutStyle.spacer}></div>
 
             {subServiceLoading ? (
               <div className={style.spinnerWrapper}>
@@ -429,16 +435,17 @@ const AdvisoryServices = ({ serviceData }) => {
                     <option
                       className={style.dropdownElement}
                       value=""
-                      selected={subService == null}
+                      selected={subService === ""}
                     >
                       Select sub service
                     </option>
                     {childrens.map((data, index) => {
                       return (
                         <option
+                          key={index}
                           className={style.dropdownElement}
                           value={data.heading}
-                          selected={subService == data.heading}
+                          selected={subService === data.heading}
                         >
                           {data.heading}
                         </option>
@@ -448,7 +455,7 @@ const AdvisoryServices = ({ serviceData }) => {
                 </div>
               )
             )}
-            <div class={LayoutStyle.spacer}></div>
+            <div className={LayoutStyle.spacer}></div>
 
             <div className={style.subPersonalInfoDiv2}>
               <p className={style.inputFieldLabel}>
@@ -476,13 +483,3 @@ const AdvisoryServices = ({ serviceData }) => {
 };
 
 export default AdvisoryServices;
-export async function getServerSideProps() {
-  const serviceResponse = await axios.get(`${BaseApi}/service/all`);
-  const serviceData = await serviceResponse.data;
-
-  return {
-    props: {
-      serviceData,
-    },
-  };
-}
