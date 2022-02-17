@@ -4,10 +4,14 @@ import BannerStyle from "../../helpers/Banner/Banner.module.css";
 import styles from "./contactus.module.css";
 import Project from "../../components/Project";
 import hand__img from "../../assets/images/hand.png";
+import Helmet from "react-helmet";
 
 function index() {
   return (
     <>
+      <Helmet>
+        <title>Contact | BBDG</title>
+      </Helmet>
       <Banner>
         {/* <p className={BannerStyle.smallHeading}>Contact us</p> */}
         <p className={BannerStyle.BigHeading}>

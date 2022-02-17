@@ -12,6 +12,7 @@ import axios from "axios";
 import { BaseApi } from "../../../utils/utils";
 import Markdown from "markdown-to-jsx";
 import imag from "../../../assets/images/imag.png";
+import Helmet from "react-helmet";
 function SBL() {
   const [post, setPost] = useState([]);
   useEffect(() => {
@@ -37,6 +38,9 @@ function SBL() {
     });
   return (
     <>
+      <Helmet>
+        <title>Financing | BBDG</title>
+      </Helmet>
       <Banner>
         <p className={BannerStyle.smallHeading}>
           SERVICES <i className="fas fa-chevron-right"></i> FINANCING{" "}

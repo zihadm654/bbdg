@@ -14,6 +14,7 @@ import { BaseApi } from "../../utils/utils";
 import axios from "axios";
 import NavigationProjectCards from "../../components/Abous-Us/NavigationProjectCards";
 import Recognition from "../../components/Recognition";
+import Helmet from "react-helmet";
 
 const AboutUS = () => {
   const [servicesData, setServicesData] = useState([]);
@@ -44,6 +45,9 @@ const AboutUS = () => {
 
   return (
     <>
+      <Helmet>
+        <title>About | BBDG</title>
+      </Helmet>
       <Banner>
         <p className={BannerStyle.smallHeading}>
           {/* <span className={BannerStyle.lowOpacity}> ABOUT US </span>{" "} */}

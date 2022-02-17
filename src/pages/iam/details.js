@@ -11,16 +11,15 @@ import { useParams } from "react-router";
 const SubSection = () => {
   const [post, setPost] = useState("");
   const { id } = useParams(null);
-
   useEffect(() => {
     const fetchData = async () => {
       const res = await axios.get(`${BaseApi}/iam/${id}`);
       const data = await res.data;
-      setPost(data.data[0].text_data);
+      setPost(data.data[0]);
     };
     fetchData();
   }, [id]);
-  const Content = post && post.replace("&amp;", "'");
+  const Content = post && post?.text_data.replaceAll("&amp;", "'");
   return (
     <>
       <Banner>

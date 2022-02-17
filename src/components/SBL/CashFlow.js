@@ -46,6 +46,7 @@ function CashFlow() {
     <>
       <div className={style.Industries} id="Industries">
         <h1>WE WORK WITH INDUSTRIES</h1>
+
         <div className={style.IndustriesButton}>
           <button className={style.IndustriesButtonActive}>
             LATEST TECHNOLOGY
@@ -66,7 +67,6 @@ function CashFlow() {
             );
           })}
         </div>
-
         <div className={style.IndustriesContent}>
           <img src={CurrentSection.image.groupImg} alt="currentImg" />
           <div className={style.IndustriesContentText}>

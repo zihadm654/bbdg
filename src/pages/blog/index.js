@@ -8,6 +8,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { BaseApi } from "../../utils/utils";
 import { useLocation } from "react-router";
+import Helmet from "react-helmet";
 
 function Index() {
   const { pathname } = useLocation();
@@ -68,6 +69,9 @@ function Index() {
 
   return (
     <>
+      <Helmet>
+        <title>Blog | BBDG</title>
+      </Helmet>
       <Banner>
         <p className={BannerStyle.smallHeading}>BLOG</p>
         <p className={BannerStyle.BigHeading}>BLOGS</p>

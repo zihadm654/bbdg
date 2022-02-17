@@ -31,7 +31,7 @@ function Index() {
     if (index > 0) setIndex((prev) => prev - 1);
   };
   const moveUp = () => {
-    if (index < data.data[mainIndex].contents.length - 1)
+    if (index < data[mainIndex]?.contents.length - 1)
       setIndex((prev) => prev + 1);
   };
   return (
@@ -63,6 +63,7 @@ function Index() {
           {data &&
             data.map((heading, i) => (
               <li
+                key={i}
                 onClick={() => {
                   setMainIndex(i);
                   setIndex(0);

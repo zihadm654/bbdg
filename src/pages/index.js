@@ -21,14 +21,14 @@ import "react-multi-carousel/lib/styles.css";
 import img from "../assets/images/Mask Group-6.png";
 import img1 from "../assets/images/Mask Group-1.png";
 import imag from "../assets/images/imag.png";
+import Helmet from "react-helmet";
+
 export default function Home() {
   // const [Work, setWork] = useState(props.res.data);
   const [portfolioData, setPortfolioData] = useState([]);
   const [servicesData, setServicesData] = useState([]);
 
   useEffect(() => {
-    document.title = "Home | BBDG";
-
     // axios.get("https://bbdg-backend.herokuapp.com/service/all").then((res) => {
     //   const array = res.data;
     //   const data = array.data.allChildren;
@@ -87,6 +87,13 @@ export default function Home() {
   };
   return (
     <div>
+      <Helmet>
+        <title>Home | BBDG</title>
+        <meta
+          name="description"
+          content="Web site created using create-react-app"
+        />
+      </Helmet>
       <main>
         <HomePage />
         <div className={styles.Projects} id="Projects">

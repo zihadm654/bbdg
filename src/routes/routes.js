@@ -1,11 +1,6 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { Routes, Route, Navigate } from "react-router";
-import Home from "../pages/index";
-import About from "../pages/about/index";
-import Services from "../pages/services/index";
-import Blog from "../pages/blog/index";
-import Contact from "../pages/contact/index";
-import Search from "../pages/search/index";
+
 import WeDo from "../pages/about/what-we-do";
 import WeAre from "../pages/about/who-we-are";
 import Advisory from "../pages/services/advisory/business-plan-template";
@@ -35,17 +30,64 @@ import Portfolio from "../pages/services/it-solutions/portfolio/index";
 import PortfolioDetails from "../pages/services/it-solutions/portfolio/details";
 import ReqServices from "../pages/request-advisory-services/index";
 import ReqLoan from "../pages/request-business-loan/index";
+
+// loader
+import Loader from "../helpers/PrimaryLoading/PrimaryLoading";
+
+// code spliting
+import Home from "../pages/index";
+const About = lazy(() => import("../pages/about/index"));
+const Services = lazy(() => import("../pages/services/index"));
+const Blog = lazy(() => import("../pages/blog/index"));
+const Contact = lazy(() => import("../pages/contact/index"));
+const Search = lazy(() => import("../pages/search/index"));
+
 const Routers = () => {
   return (
     <>
       <Routes>
         {/* navigation */}
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/search" element={<Search />} />
+        <Route
+          path="/about"
+          element={
+            <Suspense fallback={<Loader />}>
+              <About />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/services"
+          element={
+            <Suspense fallback={<Loader />}>
+              <Services />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/blog"
+          element={
+            <Suspense fallback={<Loader />}>
+              <Blog />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/contact"
+          element={
+            <Suspense fallback={<Loader />}>
+              <Contact />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/search"
+          element={
+            <Suspense fallback={<Loader />}>
+              <Search />
+            </Suspense>
+          }
+        />
         {/* Sub Routes */}
 
         {/* Request routes  */}

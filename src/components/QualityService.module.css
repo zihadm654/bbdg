@@ -1,29 +1,29 @@
 @import url("https://fonts.googleapis.com/css2?family=Antonio:wght@300;400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Pragati+Narrow:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=Pragati+Narrow:wght@400;700&display=swap");
 /* * { */
 /* font-family: "Antonio", sans-serif; */
 /* font-family: "Poppins", sans-serif; */
 /* } */
 
-
 .QScontainer {
   /* padding-top: 8rem;  */
   /* background: red; */
   max-width: 100%;
-  padding: 2rem initial;
+  padding: 2rem;
   /* justify-content: center; */
- background-color: rgb(243, 239, 239);
- display: flex;
- align-items: flex-end;
+  background-color: rgb(243, 239, 239);
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
 }
 
 .QStext {
   /* background-color: rgb(221, 44, 74); */
   color: #163653;
-  font-size: 3rem;  
-  padding-right: .9rem;
-  
+  font-size: 3rem;
+  padding-right: 0.9rem;
+
   /* padding-left: 3rem; */
   font-family: "Antonio", sans-serif;
 }
@@ -31,27 +31,26 @@
 .QSheading {
   padding-top: 10rem;
   /* background-color: aqua; */
- padding-left:0em !important;
- padding-right:0em !important; 
+  padding-left: 0em !important;
+  padding-right: 0em !important;
 }
 
 .QSsubtext {
   font-family: "Poppins", sans-serif;
   color: #163653;
-  font-size: .9rem;
+  font-size: 0.9rem;
   line-height: 2;
-  
 }
 
 .QSimgcontainer {
   height: 35rem;
-  width:25rem;
+  width: 25rem;
   object-fit: cover;
   position: relative;
   /* top: -4rem; */
   border-radius: 0.6rem;
   z-index: 1;
-  margin-left:5rem;
+  margin-left: 5rem;
 }
 
 .indicators {
@@ -61,9 +60,8 @@
   margin-top: 2rem;
   /* align-items: center   ; */
   height: 8rem !important;
-  
 }
-.progressDiv{
+.progressDiv {
   display: flex;
   align-items: center;
   flex-direction: row;
@@ -73,36 +71,34 @@
   padding: 5px;
 }
 
-.progressDiv > p{
+.progressDiv > p {
   padding-left: 20px;
-  font-family:Antonio;
+  font-family: Antonio;
   color: #163653;
-  font-size:1.3rem;
-  margin-right:1rem;
+  font-size: 1.3rem;
+  margin-right: 1rem;
   font-weight: 500;
   width: 100%;
-
 }
 
-.bgquote{
-  color:#7ABAF7;
-  font-size:13rem;
+.bgquote {
+  color: #7abaf7;
+  font-size: 13rem;
   font-family: Antonio;
   font-weight: bold;
   letter-spacing: -0.1em;
   height: 0;
 }
 
-
-.bgtitle{
+.bgtitle {
   font-size: 2rem;
   font-family: Poppins;
   font-weight: 600;
   line-height: 1.5;
 }
 
-.proStaff{
+.proStaff {
   font-family: Antonio;
-  font-size:1.2rem;
-  color:#7ABAF7;
+  font-size: 1.2rem;
+  color: #7abaf7;
 }

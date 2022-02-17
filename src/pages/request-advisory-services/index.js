@@ -8,14 +8,15 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import validator from "validator";
 import Modal from "../../helpers/Modal/Modal";
-import {
-  FormControl,
-  FormLabel,
-  FormControlLabel,
-  RadioGroup,
-  Radio,
-} from "@material-ui/core";
+// import {
+//   FormControl,
+//   FormLabel,
+//   FormControlLabel,
+//   RadioGroup,
+//   Radio,
+// } from "@material-ui/core";
 import { BaseApi } from "../../utils/utils";
+import Helmet from "react-helmet";
 const AdvisoryServices = () => {
   const [services, setServices] = useState([]);
   const [subService, setSubService] = useState("");
@@ -37,7 +38,7 @@ const AdvisoryServices = () => {
 
   const [globalMessage, setGlobalMessage] = useState("");
   const [isVisible, setIsVisible] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  // const [isLoading, setIsLoading] = useState(false);
 
   const validateForm = () => {
     if (firstName.length === 0) {
@@ -107,9 +108,10 @@ const AdvisoryServices = () => {
       .then((response) => {
         setIsVisible(true);
         setGlobalMessage("Data saved successfully");
-        setIsLoading(false);
       })
-      .catch((e) => console.log(e.response.data));
+      .catch((e) => {
+        console.log("error");
+      });
     clearValues();
   };
 
@@ -169,9 +171,12 @@ const AdvisoryServices = () => {
         });
     }
   }, [perma_link]);
-  console.log(services);
+
   return (
     <>
+      <Helmet>
+        <title>Advisory | BBDG</title>
+      </Helmet>
       <Banner>
         <p className={BannerStyle.smallHeading}>Request Advisory Services</p>
 

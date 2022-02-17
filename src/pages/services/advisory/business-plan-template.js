@@ -13,6 +13,7 @@ import md from "../../../assets/images/md.png";
 import ms from "../../../assets/images/ms.png";
 import man from "../../../assets/images/man.png";
 import hand from "../../../assets/images/hand.png";
+import Helmet from "react-helmet";
 function index() {
   const Content = `<p><strong>Bajaj Global Business Development &amp; Consultancy Group (BBDG) Business plan template</strong></p>
   <p><strong>Bajaj Global Business Development &amp; Consultancy Group (BBDG) </strong>offers a free business plan template to help you to define your business, describe your business goals, expertise and thus document how your business will be profitable in the long run.</p>
@@ -32,6 +33,9 @@ function index() {
   <p><strong><em>Subscribe to receive via email - tips and articles for entrepreneurs and information about Events and solutions. You can withdraw the consent at any time.</em></strong></p>`;
   return (
     <>
+      <Helmet>
+        <title>Advisory | BBDG</title>
+      </Helmet>
       <Banner>
         <p className={BannerStyle.smallHeading}>
           SERVICES <i className="fas fa-chevron-right"></i> ADVISORY

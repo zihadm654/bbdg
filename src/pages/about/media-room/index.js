@@ -12,6 +12,7 @@ import axios from "axios";
 // import CentreText from "../../../components/Text/CenterText";
 import Markdown from "markdown-to-jsx";
 import { useLocation } from "react-router";
+import Helmet from "react-helmet";
 
 const Index = () => {
   const { pathname } = useLocation();
@@ -40,6 +41,9 @@ const Index = () => {
   const Content = `<p><strong>Bajaj Global Business Development &amp; Consultancy Group (BBDG) Media room</strong></p><p><strong>Bajaj Global Business Development &amp; Consultancy Group (BBDG) </strong> Media room is designed to help journalist and researchers to get the best results and news from our office at one place!<br>Whether you wish to speak to one of the experts for expert tips and business ideas, obtain a byte on the current economic trends and issues or wish to understand more about BBDG then you can drop an email and contact our media relations team or obtain our media kit.</p><p><strong>Bajaj Global Business Development &amp; Consultancy Group (BBDG) media room also helps you to get research and analysis on the topics  - </strong></p><ul><li>Advanced manufacturing</li><li>Female entrepreneurs</li><li>Ethnic minorities and social growth</li><li>Economic trends and challenges</li><li>Venture capital</li><li>Social ranking, entrepreneurship and innovation</li><li>Usage of clean and green technology</li><li>Buying and selling a new business</li></ul>`;
   return (
     <>
+      <Helmet>
+        <title>Media room | BBDG</title>
+      </Helmet>
       <Banner>
         <p className={BannerStyle.smallHeading}>
           ABOUT US{" "}

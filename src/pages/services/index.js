@@ -4,6 +4,7 @@ import BannerStyle from "../../helpers/Banner/Banner.module.css";
 import Recognition from "../../components/Recognition";
 import { BaseApi } from "../../utils/utils";
 import axios from "axios";
+import Helmet from "react-helmet";
 
 const Service = ({ service }) => {
   return (
@@ -34,6 +35,9 @@ function Index() {
   }, []);
   return (
     <>
+      <Helmet>
+        <title>Services | BBDG</title>
+      </Helmet>
       <Banner>
         <p className={BannerStyle.smallHeading}>
           {/* <span className={BannerStyle.lowOpacity}>SERVICES</span> */}

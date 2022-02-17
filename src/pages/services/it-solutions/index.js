@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import Carousel from "../../../components/carousel/Carousel";
 import Markdown from "markdown-to-jsx";
 import LayoutStyle from "../../../helpers/layout/layout.module.css";
+import Helmet from "react-helmet";
 
 function Index() {
   // const [index, setIndex] = useState(0);
@@ -30,6 +31,9 @@ function Index() {
   }, []);
   return (
     <>
+      <Helmet>
+        <title>It Solutions | BBDG</title>
+      </Helmet>
       <Banner>
         <p className={BannerStyle.smallHeading}>
           SERVICES <i className="fas fa-chevron-right"></i>

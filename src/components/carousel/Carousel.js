@@ -25,6 +25,7 @@ function Carousel({ title, data }) {
   const { pathname } = useLocation();
   const posts = data[position];
   if (!posts) <p>Loading ...</p>;
+  console.log(posts);
   return (
     <>
       <div className={style.mainDiv}>
@@ -50,7 +51,7 @@ function Carousel({ title, data }) {
                   pathname === "/"
                     ? "/services/it-solutions/portfolio?q=" +
                       data[position].name.toLowerCase()
-                    : pathname.toString +
+                    : pathname +
                       "/" +
                       "portfolio?q=" +
                       data[position].name.toLowerCase()

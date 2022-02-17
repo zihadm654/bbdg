@@ -9,6 +9,7 @@ import { BaseApi } from "../../utils/utils";
 // import CenterText from "../../components/Text/CenterText";
 import SecondaryButton from "../../components/Buttons/SecondaryButton";
 import { Spinner } from "react-bootstrap";
+import Helmet from "react-helmet";
 
 const Index = () => {
   const [isAll, setIsAll] = useState(true);
@@ -144,17 +145,20 @@ const Index = () => {
       case "all":
         setIsAll(true);
         setAllData(blogsData);
-        setActiveMenu("blog");
+        setActiveMenu("all");
         break;
       default:
-        setIsArticle(true);
-        setAllData(articlesData);
-        setActiveMenu("service");
+        setIsBlog(true);
+        setAllData(blogsData);
+        setActiveMenu("all");
     }
   };
 
   return (
     <>
+      <Helmet>
+        <title>Search | BBDG</title>
+      </Helmet>
       <Banner>
         <p className={BannerStyle.BigHeading}>search</p>
         <p className={BannerStyle.midHeading}>search title goes here</p>

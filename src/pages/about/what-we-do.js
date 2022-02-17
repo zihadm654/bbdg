@@ -8,6 +8,7 @@ import { BaseApi } from "../../utils/utils";
 import NavigationProjectCard from "../../components/Abous-Us/NavigationProjectCards";
 import Markdown from "markdown-to-jsx";
 import LayoutStyle from "../../helpers/layout/layout.module.css";
+import Helmet from "react-helmet";
 
 const WhatWeDo = () => {
   const [contents, setContents] = useState([]);
@@ -33,6 +34,9 @@ const WhatWeDo = () => {
   });
   return (
     <>
+      <Helmet>
+        <title>What we do | BBDG</title>
+      </Helmet>
       <Banner>
         <p className={BannerStyle.smallHeading}>
           ABOUT US{" "}

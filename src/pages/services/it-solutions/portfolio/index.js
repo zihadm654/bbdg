@@ -9,6 +9,7 @@ import axios from "axios";
 import { BaseApi } from "../../../../utils/utils";
 import WideCarousel from "../../../../components/wideCarousel";
 import { useSearchParams } from "react-router-dom";
+import Helmet from "react-helmet";
 
 function Index() {
   const [searchParams] = useSearchParams();
@@ -24,6 +25,9 @@ function Index() {
   }, []);
   return (
     <>
+      <Helmet>
+        <title>Portfolio | BBDG</title>
+      </Helmet>
       <Banner>
         <p className={BannerStyle.smallHeading}>
           SERVICES <i className="fas fa-chevron-right"></i>
