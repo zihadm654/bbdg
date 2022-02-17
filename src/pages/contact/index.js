@@ -5,10 +5,18 @@ import styles from "./contactus.module.css";
 import Project from "../../components/Project";
 import hand__img from "../../assets/images/hand.png";
 import Helmet from "react-helmet";
-
-function index() {
+import { useEffect, useState } from "react";
+import Loader from "../../helpers/PrimaryLoading/PrimaryLoading";
+function Index() {
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
   return (
     <>
+      {loading ? <Loader /> : null}
       <Helmet>
         <title>Contact | BBDG</title>
       </Helmet>
@@ -97,4 +105,4 @@ function index() {
   );
 }
 
-export default index;
+export default Index;

@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 import { BaseApi } from "../../utils/utils";
 import { useLocation } from "react-router";
 import Helmet from "react-helmet";
-
+import Loader from "../../helpers/PrimaryLoading/PrimaryLoading";
 function Index() {
   const { pathname } = useLocation();
   const [limit, setLimit] = useState(0);
@@ -19,7 +19,12 @@ function Index() {
   const [lastBlogId, setLastBlogId] = useState("");
   const [blogList, setBlogList] = useState([]);
   const [moreBlog, setMoreBlog] = useState([]);
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
     const fetchData = async () => {
       setLimit(5);
       // fetching first 5 blogs
@@ -69,6 +74,7 @@ function Index() {
 
   return (
     <>
+      {loading ? <Loader /> : null}
       <Helmet>
         <title>Blog | BBDG</title>
       </Helmet>

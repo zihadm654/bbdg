@@ -15,11 +15,15 @@ import axios from "axios";
 import NavigationProjectCards from "../../components/Abous-Us/NavigationProjectCards";
 import Recognition from "../../components/Recognition";
 import Helmet from "react-helmet";
-
+import Loader from "../../helpers/PrimaryLoading/PrimaryLoading";
 const AboutUS = () => {
   const [servicesData, setServicesData] = useState([]);
+  const [loading, setLoading] = useState(true);
   const { pathname } = useLocation();
   useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
     const fetchData = async () => {
       try {
         const aboutServices = await axios.get(`${BaseApi}/about/all`);
@@ -45,6 +49,7 @@ const AboutUS = () => {
 
   return (
     <>
+      {loading ? <Loader /> : null}
       <Helmet>
         <title>About | BBDG</title>
       </Helmet>

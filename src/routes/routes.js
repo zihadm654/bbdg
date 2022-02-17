@@ -4,7 +4,9 @@ import { Routes, Route, Navigate } from "react-router";
 import WeDo from "../pages/about/what-we-do";
 import WeAre from "../pages/about/who-we-are";
 import Advisory from "../pages/services/advisory/business-plan-template";
-import Finance from "../pages/services/financing/small-business-loans";
+import BusinessAcquistions from "../pages/services/business-acquisitions/index";
+import Industries from "../pages/services/industries/index";
+import Finance from "../pages/services/financing";
 import ItSolutions from "../pages/services/it-solutions/index";
 import ArticleTools from "../pages/services/articles-and-tools/newsletters-and-economic-letter/index";
 import AvailablePositions from "../pages/about/careers/available-positions/index";
@@ -46,8 +48,8 @@ const Routers = () => {
   return (
     <>
       <Routes>
-        {/* navigation */}
         <Route path="/" element={<Home />} />
+        {/* navigation */}
         <Route
           path="/about"
           element={
@@ -120,9 +122,13 @@ const Routers = () => {
 
         {/* services sub routes */}
         <Route path="/services/advisory" element={<Advisory />} />
+        {/* <Route path="/services/" */}
         <Route path="/services/financing" element={<Finance />} />
-        <Route path="/services/business-acquisitions" element={<Finance />} />
-        <Route path="/services/industries" element={<Finance />} />
+        <Route
+          path="/services/business-acquisitions"
+          element={<BusinessAcquistions />}
+        />
+        <Route path="/services/industries" element={<Industries />} />
         <Route path="/services/it-solutions" element={<ItSolutions />} />
         <Route path="/services/digital-marketing" element={<ItSolutions />} />
         <Route path="/services/articles-and-tools" element={<ArticleTools />} />

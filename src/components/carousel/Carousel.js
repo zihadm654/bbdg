@@ -25,7 +25,6 @@ function Carousel({ title, data }) {
   const { pathname } = useLocation();
   const posts = data[position];
   if (!posts) <p>Loading ...</p>;
-  console.log(posts);
   return (
     <>
       <div className={style.mainDiv}>
@@ -36,7 +35,7 @@ function Carousel({ title, data }) {
               <li
                 key={i}
                 onClick={() => setPosition(i)}
-                className={i === position && style.active}
+                className={i === position ? style.active : ""}
               >
                 {heading.name}
               </li>

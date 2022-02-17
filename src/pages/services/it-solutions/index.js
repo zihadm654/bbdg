@@ -10,12 +10,17 @@ import Carousel from "../../../components/carousel/Carousel";
 import Markdown from "markdown-to-jsx";
 import LayoutStyle from "../../../helpers/layout/layout.module.css";
 import Helmet from "react-helmet";
+import PrimaryLoading from "../../../helpers/PrimaryLoading/PrimaryLoading";
 
 function Index() {
   // const [index, setIndex] = useState(0);
   const [solutionData, setSolutionData] = useState([]);
   const [portfolioData, setPortfolioData] = useState([]);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
     const fetchData = async () => {
       const solutionResponse = await axios.get(
         `${BaseApi}/service/all/+services+it-solutions`
@@ -31,6 +36,7 @@ function Index() {
   }, []);
   return (
     <>
+      {loading ? <PrimaryLoading /> : null}
       <Helmet>
         <title>It Solutions | BBDG</title>
       </Helmet>
@@ -54,15 +60,15 @@ function Index() {
           {solutionData && solutionData.text}
         </Markdown>
       )}
-      {/* {solutionData &&
-        solutionData.allChildren.map((i) => (
+      {solutionData &&
+        solutionData.allChildren?.map((i) => (
           <Recognition
             key={i}
             headText={i.heading.split("-").join(" ")}
             para={i.subHeading}
             redirectUrl={i.perma_link}
           />
-        ))} */}
+        ))}
 
       <Recognition
         headText="Have Questions?"
@@ -70,7 +76,7 @@ function Index() {
         btnTitle="Write us"
         redirectUrl="/contact/write-us"
       />
-      <div style={{ marginTop: "-12rem" }}>
+      <div style={{ marginTop: "-3rem" }}>
         <Carousel title="our it solutions categories" data={portfolioData} />
       </div>
     </>

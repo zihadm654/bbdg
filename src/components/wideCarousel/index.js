@@ -51,7 +51,7 @@ function WideCarousel({ tab, title, data }) {
                   setCurrentLimit(3);
                   setExpectedCount(currentLimit);
                 }}
-                className={i === index && style.active}
+                className={i === index ? style.active : ""}
               >
                 {heading.name}
               </li>

@@ -4,7 +4,7 @@ import BannerStyle from "../../helpers/Banner/Banner.module.css";
 import LayoutStyle from "../../helpers/layout/layout.module.css";
 import PrimaryButton from "../../components/Buttons/PrimaryButton";
 import SecondaryButton from "../../components/Buttons/SecondaryButton";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import validator from "validator";
 import Modal from "../../helpers/Modal/Modal";
@@ -17,7 +17,7 @@ import {
 } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import { lightBlue } from "@material-ui/core/colors";
-
+import Loader from "../../helpers/PrimaryLoading/PrimaryLoading";
 const BusinessLoan = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -36,7 +36,7 @@ const BusinessLoan = () => {
   const [globalMessage, setGlobalMessage] = useState("");
   const [isVisible, setIsVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-
+  const [loading, setLoading] = useState(true);
   const validateForm = () => {
     if (firstName.length === 0) {
       setIsVisible(true);
@@ -91,7 +91,11 @@ const BusinessLoan = () => {
       postAPI();
     }
   };
-
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
   const postAPI = () => {
     setIsLoading(true);
 
@@ -153,6 +157,7 @@ const BusinessLoan = () => {
 
   return (
     <>
+      {loading ? <Loader /> : null}
       <Banner>
         <p className={BannerStyle.smallHeading}>Request business loan</p>
 
@@ -374,7 +379,7 @@ const BusinessLoan = () => {
               <FormControl component="fieldset">
                 <RadioGroup
                   aria-label="gender"
-                  // name="gender1"
+                  name="gender1"
                   value={fresh_business}
                   onChange={(e) => setFresh_business(e.target.value)}
                 >
@@ -429,7 +434,6 @@ const BusinessLoan = () => {
                 value={age}
                 style={{ width: "100%" }}
                 className={style.halfInputTag}
-                style={{ width: "100%", marginTop: "-10px" }}
                 placeholder="Its been how long you are maintaining this business?"
               />
             </div>
@@ -439,12 +443,10 @@ const BusinessLoan = () => {
                 Give a brief introduction about your business?
               </p>
               <textarea
-                // className={style.halfInputTag}
                 className={style.textareaTag}
                 value={introduction}
                 onChange={(e) => setIntroduction(e.target.value)}
-                // className={style.textareaTag}
-                style={{ minHeight: "2rem", width: "100%", marginTop: "-10px" }}
+                style={{ minHeight: "2rem", width: "100%" }}
                 placeholder="Give a brief introduction about your business?"
               ></textarea>
             </div>
@@ -454,7 +456,7 @@ const BusinessLoan = () => {
 
               <select
                 onChange={(e) => setAmount_of_loan(e.target.value)}
-                style={{ width: "100%", marginTop: "-10px" }}
+                style={{ width: "100%" }}
                 className={style.fullSelectTag}
                 value={amount_of_loan}
               >
@@ -508,7 +510,7 @@ const BusinessLoan = () => {
                 className={style.textareaTag}
                 value={key_points}
                 onChange={(e) => setKey_points(e.target.value)}
-                style={{ marginTop: "-10px", width: "100%" }}
+                style={{ width: "100%" }}
                 placeholder="What are the key points of your business that can help your customer's or solves any existing problem in the community, city or country.?"
               ></textarea>
             </div>

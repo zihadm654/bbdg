@@ -22,17 +22,21 @@ import img from "../assets/images/Mask Group-6.png";
 import img1 from "../assets/images/Mask Group-1.png";
 import imag from "../assets/images/imag.png";
 import Helmet from "react-helmet";
-
+import Loader from "../helpers/PrimaryLoading/PrimaryLoading";
 export default function Home() {
   // const [Work, setWork] = useState(props.res.data);
   const [portfolioData, setPortfolioData] = useState([]);
   const [servicesData, setServicesData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     // axios.get("https://bbdg-backend.herokuapp.com/service/all").then((res) => {
     //   const array = res.data;
     //   const data = array.data.allChildren;
     // });
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
     const getData = async () => {
       const res = await axios.get(`${BaseApi}/portfolio/all`);
       const portfolioRes = res.data;
@@ -94,6 +98,7 @@ export default function Home() {
           content="Web site created using create-react-app"
         />
       </Helmet>
+      {loading ? <Loader /> : null}
       <main>
         <HomePage />
         <div className={styles.Projects} id="Projects">

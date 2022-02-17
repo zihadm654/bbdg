@@ -5,7 +5,7 @@ import Recognition from "../../components/Recognition";
 import { BaseApi } from "../../utils/utils";
 import axios from "axios";
 import Helmet from "react-helmet";
-
+import Loader from "../../helpers/PrimaryLoading/PrimaryLoading";
 const Service = ({ service }) => {
   return (
     <>
@@ -20,7 +20,11 @@ const Service = ({ service }) => {
 
 function Index() {
   const [serviceData, setServiceData] = useState([]);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
     const fetchData = async () => {
       try {
         const response = await axios.get(`${BaseApi}/service/all`);
@@ -35,6 +39,7 @@ function Index() {
   }, []);
   return (
     <>
+      {loading ? <Loader /> : null}
       <Helmet>
         <title>Services | BBDG</title>
       </Helmet>

@@ -14,7 +14,15 @@ import ms from "../../../assets/images/ms.png";
 import man from "../../../assets/images/man.png";
 import hand from "../../../assets/images/hand.png";
 import Helmet from "react-helmet";
-function index() {
+import PrimaryLoading from "../../../helpers/PrimaryLoading/PrimaryLoading";
+import { useState } from "react";
+
+function Index() {
+  const [loading, setLoading] = useState(true);
+  setTimeout(() => {
+    setLoading(false);
+  }, 2000);
+
   const Content = `<p><strong>Bajaj Global Business Development &amp; Consultancy Group (BBDG) Business plan template</strong></p>
   <p><strong>Bajaj Global Business Development &amp; Consultancy Group (BBDG) </strong>offers a free business plan template to help you to define your business, describe your business goals, expertise and thus document how your business will be profitable in the long run.</p>
   <p>Such a business plan is not only a necessity but also crucial to seek financing and investment avenues for your project. It is a recognised management tool that helps your business to understand and clarify what needs to be done and how your business plans to succeed in the goals in the long run.</p>
@@ -33,6 +41,7 @@ function index() {
   <p><strong><em>Subscribe to receive via email - tips and articles for entrepreneurs and information about Events and solutions. You can withdraw the consent at any time.</em></strong></p>`;
   return (
     <>
+      {loading ? <PrimaryLoading /> : null}
       <Helmet>
         <title>Advisory | BBDG</title>
       </Helmet>
@@ -108,4 +117,4 @@ function index() {
   );
 }
 
-export default index;
+export default Index;

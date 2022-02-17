@@ -9,10 +9,14 @@ import NavigationProjectCard from "../../components/Abous-Us/NavigationProjectCa
 import Markdown from "markdown-to-jsx";
 import LayoutStyle from "../../helpers/layout/layout.module.css";
 import Helmet from "react-helmet";
-
+import Loader from "../../helpers/PrimaryLoading/PrimaryLoading";
 const WhatWeDo = () => {
   const [contents, setContents] = useState([]);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
     const fetchData = async () => {
       const response = await axios.get(`${BaseApi}/service/all`);
       const data = await response.data;
@@ -34,6 +38,7 @@ const WhatWeDo = () => {
   });
   return (
     <>
+      {loading ? <Loader /> : null}
       <Helmet>
         <title>What we do | BBDG</title>
       </Helmet>

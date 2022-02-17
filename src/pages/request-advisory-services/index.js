@@ -17,6 +17,8 @@ import Modal from "../../helpers/Modal/Modal";
 // } from "@material-ui/core";
 import { BaseApi } from "../../utils/utils";
 import Helmet from "react-helmet";
+import Loader from "../../helpers/PrimaryLoading/PrimaryLoading";
+
 const AdvisoryServices = () => {
   const [services, setServices] = useState([]);
   const [subService, setSubService] = useState("");
@@ -38,7 +40,7 @@ const AdvisoryServices = () => {
 
   const [globalMessage, setGlobalMessage] = useState("");
   const [isVisible, setIsVisible] = useState(false);
-  // const [isLoading, setIsLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const validateForm = () => {
     if (firstName.length === 0) {
@@ -150,6 +152,9 @@ const AdvisoryServices = () => {
     }
   };
   useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
     const fetchData = async () => {
       const serviceResponse = await axios.get(`${BaseApi}/service/all`);
       const serviceData = await serviceResponse.data;
@@ -174,6 +179,7 @@ const AdvisoryServices = () => {
 
   return (
     <>
+      {loading ? <Loader /> : null}
       <Helmet>
         <title>Advisory | BBDG</title>
       </Helmet>
@@ -393,7 +399,7 @@ const AdvisoryServices = () => {
 
               <select
                 onChange={(e) => selectServiceHandler(e.target.value)}
-                style={{ width: "100%", marginTop: "-10px" }}
+                style={{ width: "100%" }}
                 className={style.fullSelectTag}
                 value={selectedService}
               >
@@ -433,7 +439,7 @@ const AdvisoryServices = () => {
 
                   <select
                     onChange={(e) => setSubService(e.target.value)}
-                    style={{ width: "100%", marginTop: "-10px" }}
+                    style={{ width: "100%" }}
                     className={style.fullSelectTag}
                     value={subService}
                   >
@@ -471,7 +477,7 @@ const AdvisoryServices = () => {
                 className={style.textareaTag}
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
-                style={{ marginTop: "-10px", width: "100%" }}
+                style={{ width: "100%" }}
                 placeholder="please tell us why you need this service so we can help you in a better way and another details that we might need to consider"
               ></textarea>
             </div>

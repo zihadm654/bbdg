@@ -10,7 +10,7 @@ import { BaseApi } from "../../utils/utils";
 import SecondaryButton from "../../components/Buttons/SecondaryButton";
 import { Spinner } from "react-bootstrap";
 import Helmet from "react-helmet";
-
+import Loader from "../../helpers/PrimaryLoading/PrimaryLoading";
 const Index = () => {
   const [isAll, setIsAll] = useState(true);
   const [isBlog, setIsBlog] = useState(false);
@@ -36,8 +36,11 @@ const Index = () => {
   const [isNextBlog, setIsNextBlog] = useState(null);
   const [nextService, setNextService] = useState(null);
   const [allData, setAllData] = useState([...blogsData]);
-
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
     const fetchData = async () => {
       try {
         // fetching blog data
@@ -156,6 +159,7 @@ const Index = () => {
 
   return (
     <>
+      {loading ? <Loader /> : null}
       <Helmet>
         <title>Search | BBDG</title>
       </Helmet>
